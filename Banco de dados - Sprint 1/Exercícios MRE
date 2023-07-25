@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-07-25T00:14:36.871Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="ym1K1WMaHrZSktsfJIz1" version="21.6.5" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2023-07-25T00:15:17.338Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="zwp6mVFDd-75XFBnk7rb" version="21.6.5" type="github" pages="6">
   <diagram name="Página-1" id="542ExhDZnJUb71TKHWVV">
     <mxGraphModel dx="880" dy="476" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -645,10 +645,13 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ENSN0VQuLk9NsI7BQOsQ" name="Página-6">
-    <mxGraphModel dx="880" dy="476" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="733" dy="397" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="lGOp4fh8SbWsod_wPezR-1" value="E-Commerce - SenaiShop&#xa;&#xa;&#xa;Uma Loja possui várias categorias&#xa;Uma categoria possui subcategorias&#xa;Um produto possui uma subcategoria&#xa;Um cliente efetua um pedido&#xa;Um pedido pode ter 1 ou vários produtos" style="text;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="80" y="50" width="250" height="140" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
