@@ -1,0 +1,53 @@
+-- DDL Exercicio_1_5
+
+CREATE TABLE Loja
+(
+	IdLoja INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(65)
+);
+
+CREATE TABLE Categoria
+(
+	IdCategoria INT PRIMARY KEY IDENTITY,
+	IdLoja INT FOREIGN KEY REFERENCES Loja(IdLoja),
+	Nome VARCHAR(40)
+);
+
+CREATE TABLE SubCategoria
+(
+	IdSubCategoria INT PRIMARY KEY IDENTITY,
+	IdCategoria INT FOREIGN KEY REFERENCES Categoria(IdCategoria),
+	Nome VARCHAR(40)
+);
+
+CREATE TABLE Produto
+(
+	IdProduto INT PRIMARY KEY IDENTITY,
+	IdSubCategoria INT FOREIGN KEY REFERENCES SubCategoria(IdSubCategoria),
+	Nome VARCHAR(40) NOT NULL,
+	Preco DECIMAL NOT NULL,
+	Quantidade INT NOT NULL
+);
+
+CREATE TABLE Cliente
+(
+	IdCliente INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(50) NOT NULL,
+	Email VARCHAR(50) NOT NULL, 
+	DataNascimento DATE NOT NULL
+);
+
+CREATE TABLE Pedido
+(
+	IdPedido INT PRIMARY KEY IDENTITY,
+	IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente),
+	Codigo VARCHAR(8),
+	PrecoTotal DECIMAL NOT NULL
+);
+
+CREATE TABLE ProdutoPedido
+(
+	IdProdutoPedido INT PRIMARY KEY IDENTITY,
+	IdProduto INT FOREIGN KEY REFERENCES Produto(IdProduto),
+	IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido)
+);

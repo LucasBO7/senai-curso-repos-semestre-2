@@ -1,0 +1,60 @@
+-- DDL Exercicio_1_4
+
+CREATE TABLE TipoPermissao
+(
+	IdTipoPermissao INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(25)
+);
+
+
+CREATE TABLE Usuario
+(
+	IdUsuario INT PRIMARY KEY IDENTITY,
+	IdTipoPermissao INT FOREIGN KEY REFERENCES TipoPermissao(IdTipoPermissao),
+	Nome VARCHAR(50),
+	Email VARCHAR(50),
+	Senha VARCHAR(20)
+);
+
+
+
+
+CREATE TABLE Estilo
+(
+	IdEstilo INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(10) NOT NULL
+);
+
+
+
+
+
+CREATE TABLE Artista
+(
+	IdArtista INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Album
+(
+	IdAlbum INT PRIMARY KEY IDENTITY,
+	IdArtista INT FOREIGN KEY REFERENCES Artista(IdArtista) NOT NULL,
+	Titulo VARCHAR(20) NOT NULL,
+	DataLancamento DATE NOT NULL,
+	--Minutagem INTERVAL NOT NULL,
+	PodeSerVisualizado BIT NOT NULL
+);
+
+CREATE TABLE Musica
+(
+	IdMusica INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(35),
+	Album VARCHAR(50)
+);
+
+CREATE TABLE MusicaAlbum
+(
+	IdMusicaAlbum INT PRIMARY KEY IDENTITY,
+	IdAlbum INT FOREIGN KEY REFERENCES Album(IdAlbum),
+	IdMusica INT FOREIGN KEY REFERENCES Musica(IdMusica)
+);
