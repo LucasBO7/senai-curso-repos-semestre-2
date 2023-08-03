@@ -1,10 +1,10 @@
 -- DDL: Criação
 
 
-CREATE DATABASE Exercicio_2_2;
+CREATE DATABASE Exercicio_1_2;
 
 -- Entrar no banco de dados
-USE Exercicio_2_2;
+USE Exercicio_1_2;
 
 -- Criação de tabelas
 CREATE TABLE Empresa
@@ -51,5 +51,6 @@ CREATE TABLE Aluguel
 	IdVeiculo INT FOREIGN KEY REFERENCES Veiculo(IdVeiculo) NOT NULL,
 	Codigo VARCHAR(40) NOT NULL UNIQUE,
 	Duracao TIME NOT NULL,
-	[Data] DATE NOT NULL
+	[DataRetirada] DATE NOT NULL,
+	[DataDevolucao] DATE NOT NULL
 );

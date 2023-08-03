@@ -1,0 +1,44 @@
+-- DQL: Consulta
+
+-- listar todos os alugueis mostrando as datas de início e fim, o nome do cliente que alugou e nome do modelo do carro
+
+
+SELECT * FROM Aluguel;
+SELECT * FROM Cliente;
+SELECT * FROM Modelo;
+SELECT * FROM Veiculo;
+SELECT * FROM Empresa;
+SELECT * FROM Marca;
+
+
+SELECT
+	Aluguel.DataRetirada,
+	Aluguel.DataDevolucao,
+	Cliente.Nome,
+	Modelo.Nome
+FROM 
+	Aluguel
+INNER JOIN Cliente
+ON Aluguel.IdCliente = Cliente.IdCliente
+INNER JOIN Veiculo
+ON Aluguel.IdVeiculo = Veiculo.IdVeiculo
+INNER JOIN Modelo
+ON Veiculo.IdModelo = Modelo.IdModelo;
+
+-- listar os alugueis de um determinado cliente mostrando seu nome, as datas de início e fim e o nome do modelo do carro
+
+SELECT
+	Cliente.Nome,
+	Aluguel.DataRetirada,
+	Aluguel.DataDevolucao,
+	Modelo.Nome
+FROM
+	Aluguel
+INNER JOIN Cliente
+ON Aluguel.IdCliente = Cliente.IdCliente
+INNER JOIN Veiculo
+ON Aluguel.IdVeiculo = Veiculo.IdVeiculo
+INNER JOIN Modelo
+ON Veiculo.IdModelo = Modelo.IdModelo
+
+WHERE Cliente.Nome = 'Carol';

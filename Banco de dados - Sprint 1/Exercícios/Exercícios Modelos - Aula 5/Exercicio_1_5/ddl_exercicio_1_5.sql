@@ -1,29 +1,37 @@
 -- DDL Exercicio_1_5
 
+-- Criar banco de dados
+CREATE DATABASE Exercicio_1_5;
+
+-- Entrar no banco de dados
+USE Exercicio_1_5;
+
+-- Criar tabelas
+
 CREATE TABLE Loja
 (
 	IdLoja INT PRIMARY KEY IDENTITY,
-	Nome VARCHAR(65)
+	Nome VARCHAR(65) NOT NULL
 );
 
 CREATE TABLE Categoria
 (
 	IdCategoria INT PRIMARY KEY IDENTITY,
-	IdLoja INT FOREIGN KEY REFERENCES Loja(IdLoja),
-	Nome VARCHAR(40)
+	IdLoja INT FOREIGN KEY REFERENCES Loja(IdLoja) NOT NULL,
+	Nome VARCHAR(40) NOT NULL UNIQUE
 );
 
 CREATE TABLE SubCategoria
 (
 	IdSubCategoria INT PRIMARY KEY IDENTITY,
-	IdCategoria INT FOREIGN KEY REFERENCES Categoria(IdCategoria),
-	Nome VARCHAR(40)
+	IdCategoria INT FOREIGN KEY REFERENCES Categoria(IdCategoria) NOT NULL,
+	Nome VARCHAR(40) NOT NULL UNIQUE
 );
 
 CREATE TABLE Produto
 (
 	IdProduto INT PRIMARY KEY IDENTITY,
-	IdSubCategoria INT FOREIGN KEY REFERENCES SubCategoria(IdSubCategoria),
+	IdSubCategoria INT FOREIGN KEY REFERENCES SubCategoria(IdSubCategoria) NOT NULL,
 	Nome VARCHAR(40) NOT NULL,
 	Preco DECIMAL NOT NULL,
 	Quantidade INT NOT NULL
@@ -40,8 +48,8 @@ CREATE TABLE Cliente
 CREATE TABLE Pedido
 (
 	IdPedido INT PRIMARY KEY IDENTITY,
-	IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente),
-	Codigo VARCHAR(8),
+	IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente) NOT NULL,
+	Codigo VARCHAR(8) NOT NULL UNIQUE,
 	PrecoTotal DECIMAL NOT NULL
 );
 

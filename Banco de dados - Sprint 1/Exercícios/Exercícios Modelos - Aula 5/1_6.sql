@@ -1,5 +1,9 @@
 -- DDL Exercicio 1_6
 
+-- 
+
+
+
 CREATE TABLE Tipo
 (
 	IdTipo INT PRIMARY KEY IDENTITY,
