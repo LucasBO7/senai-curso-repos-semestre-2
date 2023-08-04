@@ -1,8 +1,11 @@
 -- DDL Exercicio 1_6
 
--- 
+-- Criar Banco de dados
 
+CREATE DATABASE Exercicio_1_6;
 
+-- Entrar no banco de dados
+USE Exercicio_1_6;
 
 CREATE TABLE Tipo
 (
@@ -21,7 +24,7 @@ CREATE TABLE Cliente
 (
 	IdCliente INT PRIMARY KEY IDENTITY,
 	Nome VARCHAR(50) NOT NULL,
-	Email VARCHAR(50) NOT NULL
+	Email VARCHAR(50) NOT NULL UNIQUE
 );
 
 CREATE TABLE Colaborador

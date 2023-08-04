@@ -1,5 +1,7 @@
 -- DDL: Criação
 
+USE master;
+
 CREATE DATABASE Exercicio_1_3;
 
 -- Usar Entrar no banco criado
@@ -20,6 +22,15 @@ CREATE TABLE Veterinario
 	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica),
 	Nome VARCHAR(50) NOT NULL,
 	Expediente TIME NOT NULL
+);
+
+CREATE TABLE Atendimento
+(
+	IdAtendimento INT PRIMARY KEY IDENTITY,
+	IdVeterinario INT FOREIGN KEY REFERENCES Veterinario(IdVeterinario),
+	IdPet INT FOREIGN KEY REFERENCES Pet(IdPet),
+	Descricao VARCHAR(MAX) NOT NULL,
+	Data DATE NOT NULL
 );
 
 CREATE TABLE Tipo
@@ -47,4 +58,11 @@ CREATE TABLE Dono
 (
 	IdDono INT PRIMARY KEY IDENTITY,
 	Nome VARCHAR(50) NOT NULL,
+);
+
+CREATE TABLE DonoPet
+(
+	IdDonoPet INT PRIMARY KEY IDENTITY,
+	IdDono INT FOREIGN KEY REFERENCES Dono(IdDono),
+	IdPet INT FOREIGN KEY REFERENCES Pet(IdPet),
 );

@@ -2,6 +2,7 @@
 
 -- listar todos os alugueis mostrando as datas de início e fim, o nome do cliente que alugou e nome do modelo do carro
 
+USE Exercicio_1_2;
 
 SELECT * FROM Aluguel;
 SELECT * FROM Cliente;
@@ -12,10 +13,10 @@ SELECT * FROM Marca;
 
 
 SELECT
-	Aluguel.DataRetirada,
-	Aluguel.DataDevolucao,
-	Cliente.Nome,
-	Modelo.Nome
+	Aluguel.DataRetirada AS 'Data de retirada',
+	Aluguel.DataDevolucao AS 'Data de devolução',
+	Cliente.Nome AS 'Nome do cliente',
+	Modelo.Nome AS 'Modelo do carro'
 FROM 
 	Aluguel
 INNER JOIN Cliente
@@ -28,10 +29,10 @@ ON Veiculo.IdModelo = Modelo.IdModelo;
 -- listar os alugueis de um determinado cliente mostrando seu nome, as datas de início e fim e o nome do modelo do carro
 
 SELECT
-	Cliente.Nome,
-	Aluguel.DataRetirada,
-	Aluguel.DataDevolucao,
-	Modelo.Nome
+	Cliente.Nome AS 'Nome do cliente',
+	Aluguel.DataRetirada AS 'Data de retirada',
+	Aluguel.DataDevolucao AS 'Data de devolução',
+	Modelo.Nome AS 'Modelo do carro'
 FROM
 	Aluguel
 INNER JOIN Cliente
