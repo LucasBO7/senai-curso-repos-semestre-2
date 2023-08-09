@@ -1,17 +1,16 @@
 -- DQL: Consulta
 
--- listar todos os alugueis mostrando as datas de início e fim, o nome do cliente que alugou e nome do modelo do carro
 
 USE Exercicio_1_2;
 
 SELECT * FROM Aluguel;
+SELECT * FROM Veiculo;
 SELECT * FROM Cliente;
 SELECT * FROM Modelo;
-SELECT * FROM Veiculo;
 SELECT * FROM Empresa;
 SELECT * FROM Marca;
 
-
+-- listar todos os alugueis mostrando as datas de início e fim, o nome do cliente que alugou e nome do modelo do carro
 SELECT
 	Aluguel.DataRetirada AS 'Data de retirada',
 	Aluguel.DataDevolucao AS 'Data de devolução',
