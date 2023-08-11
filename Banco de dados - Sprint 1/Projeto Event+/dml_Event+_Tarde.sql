@@ -23,10 +23,10 @@ INSERT INTO Evento(IdTipoDeEvento, IdInstituicao, Nome, Descricao, DataEvento, H
 */
 
 -- PresencasEvento
-INSERT INTO PresencasEvento(IdUsuario, IdEvento) VALUES(1, 2);
+--INSERT INTO PresencasEvento(IdUsuario, IdEvento) VALUES(1, 2);
 
 -- Comentario
-INSERT INTO Comentario(IdUsuario, IdEvento, Descricao) VALUES(1, 2, 'Hoje abriremos as entradas para a palestra!');
+--INSERT INTO Comentario(IdUsuario, IdEvento, Descricao) VALUES(1, 2, 'Hoje abriremos as entradas para a palestra!');
 
 SELECT * FROM Usuario;
 SELECT * FROM Evento;
