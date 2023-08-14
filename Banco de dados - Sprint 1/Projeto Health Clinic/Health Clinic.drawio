@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-08-14T19:44:25.000Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="_39UNV6OeFyNwWeOJsDf" version="21.6.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-14T19:44:34.158Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="g9UKzp4sJHaZdbBuoD80" version="21.6.8" type="github">
   <diagram name="Página-1" id="Um5PL5dQUaYkKMPlMzKV">
-    <mxGraphModel dx="1450" dy="574" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1635" dy="675" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -700,13 +700,13 @@
         <mxCell id="LZXJLE0G87m1T3eWScxv-326" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERmandOne;endFill=0;startArrow=ERmandOne;startFill=0;rounded=0;" edge="1" parent="1" source="LZXJLE0G87m1T3eWScxv-281" target="LZXJLE0G87m1T3eWScxv-305">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="LZXJLE0G87m1T3eWScxv-327" value="CONCEITUAL" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="LZXJLE0G87m1T3eWScxv-327" value="CONCEITUAL" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="150" y="180" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="LZXJLE0G87m1T3eWScxv-328" value="LÓGICO" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="LZXJLE0G87m1T3eWScxv-328" value="LÓGICO" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1020" y="180" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="LZXJLE0G87m1T3eWScxv-329" value="FÍSICO" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="LZXJLE0G87m1T3eWScxv-329" value="FÍSICO" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
           <mxGeometry x="1020" y="839" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
