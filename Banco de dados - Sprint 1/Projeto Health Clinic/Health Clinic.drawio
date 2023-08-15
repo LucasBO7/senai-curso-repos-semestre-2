@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-08-15T19:32:33.153Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="xjYFe1BsD-_6EA2Fod7X" version="21.6.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-15T19:33:34.237Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="mUjfpxzvHhGP0V_X1Fvs" version="21.6.8" type="github">
   <diagram name="Página-1" id="Um5PL5dQUaYkKMPlMzKV">
     <mxGraphModel dx="1713" dy="718" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -114,21 +114,11 @@
         <mxCell id="LZXJLE0G87m1T3eWScxv-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="LZXJLE0G87m1T3eWScxv-29" target="LZXJLE0G87m1T3eWScxv-13" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="LZXJLE0G87m1T3eWScxv-122" style="edgeStyle=orthogonalEdgeStyle;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;rounded=0;endArrow=none;endFill=0;exitX=0.25;exitY=0;exitDx=0;exitDy=0;" parent="1" source="LZXJLE0G87m1T3eWScxv-29" target="LZXJLE0G87m1T3eWScxv-120" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="150" y="608" />
-              <mxPoint x="80" y="608" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="RQnyjHz-xM6kDhAJeBWU-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="LZXJLE0G87m1T3eWScxv-29" target="LZXJLE0G87m1T3eWScxv-42">
+        <mxCell id="RQnyjHz-xM6kDhAJeBWU-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;endArrow=none;endFill=0;" edge="1" parent="1" source="LZXJLE0G87m1T3eWScxv-29" target="LZXJLE0G87m1T3eWScxv-42">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="180" y="540" />
-              <mxPoint x="130" y="540" />
-              <mxPoint x="130" y="470" />
-              <mxPoint x="60" y="470" />
+              <mxPoint x="60" y="540" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -264,9 +254,6 @@
         </mxCell>
         <mxCell id="LZXJLE0G87m1T3eWScxv-110" value="Razao&lt;br&gt;Social" style="ellipse;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="640" y="412.5" width="80" height="55" as="geometry" />
-        </mxCell>
-        <mxCell id="LZXJLE0G87m1T3eWScxv-120" value="Nome" style="ellipse;whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="40" y="532.5" width="80" height="55" as="geometry" />
         </mxCell>
         <mxCell id="LZXJLE0G87m1T3eWScxv-149" value="Clinica" style="shape=table;startSize=30;container=1;collapsible=1;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;resizeLast=1;html=1;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="750" y="445" width="200" height="235" as="geometry" />
