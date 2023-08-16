@@ -81,7 +81,9 @@ CREATE TABLE Consulta
 	IdConsulta INT PRIMARY KEY IDENTITY,
 	IdMedico INT FOREIGN KEY REFERENCES Medico(IdMedico) NOT NULL,
 	IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente) NOT NULL,
+	IdFeedback INT FOREIGN KEY REFERENCES Feedback(IdFeedback),
 	Data DATE NOT NULL,
+	Horario TIME NOT NULL,
 	Prontuario VARCHAR(MAX) NOT NULL
 );
 --SELECT * FROM Consulta;
