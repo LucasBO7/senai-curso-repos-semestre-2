@@ -6,7 +6,6 @@ USE HealthClinic;
 
 -- Pesquisas personalizadas
 
-
 SELECT
 	Consulta.IdConsulta AS 'Id da Consulta',
 	Consulta.Data 'Dia da Consulta',
@@ -15,6 +14,7 @@ SELECT
 	[Nome Paciente].Nome AS 'Nome do usuário',
 	[Nome Medico].Nome AS 'Nome do médico',
 	Especializacao.Nome AS 'Especialidade médica',
+	Medico.CRM AS 'CRM do médico',
 	Consulta.Prontuario AS 'Prontuário',
 	Feedback.Descricao AS 'Comentários'
 
@@ -32,7 +32,7 @@ INNER JOIN Usuario AS [Nome Medico]
 ON Medico.IdUsuario = [Nome Medico].IdUsuario
 INNER JOIN Especializacao
 ON Medico.IdEspecializacao = Especializacao.IdEspecializacao
-LEFT JOIN Feedback
+LEFT JOIN Feedback -- retorna os que tiverem ou não comentários
 ON Consulta.IdFeedback = Feedback.IdFeedback;
 --SUBSELECT
 

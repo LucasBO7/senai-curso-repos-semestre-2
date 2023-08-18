@@ -8,7 +8,6 @@ USE [HealthClinic];
 
 -- Criar tabelas
 
-
 CREATE TABLE Clinica
 (
 	IdClinica INT PRIMARY KEY IDENTITY,
@@ -70,9 +69,20 @@ CREATE TABLE Medico
 	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
 	IdEspecializacao INT FOREIGN KEY REFERENCES Especializacao(IdEspecializacao) NOT NULL,
 	IdUsuario INT FOREIGN KEY REFERENCES Usuario(IdUsuario) NOT NULL,
+	CRM VARCHAR(11) UNIQUE NOT NULL,
 	NumeroCelular VARCHAR(25) NOT NULL
 );
 --SELECT * FROM Medico;
+
+
+
+CREATE TABLE Feedback
+(
+	IdFeedback INT PRIMARY KEY IDENTITY,
+	IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente) NOT NULL,
+	Titulo VARCHAR(150) NOT NULL,
+	Descricao VARCHAR(400) NOT NULL
+);
 
 
 
@@ -87,13 +97,3 @@ CREATE TABLE Consulta
 	Prontuario VARCHAR(MAX) NOT NULL
 );
 --SELECT * FROM Consulta;
-
-
-
-CREATE TABLE Feedback
-(
-	IdFeedback INT PRIMARY KEY IDENTITY,
-	IdPaciente INT FOREIGN KEY REFERENCES Paciente(IdPaciente) NOT NULL,
-	Titulo VARCHAR(150) NOT NULL,
-	Descricao VARCHAR(400) NOT NULL
-);
