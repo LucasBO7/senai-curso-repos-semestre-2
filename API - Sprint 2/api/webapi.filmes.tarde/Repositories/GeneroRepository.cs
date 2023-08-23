@@ -29,10 +29,34 @@ namespace webapi.filmes.tarde.Repositories
             throw new NotImplementedException();
         }
 
+        /*
         public GeneroDomain BuscarPorId(int id)
         {
-            throw new NotImplementedException();
-        }
+            // Instancia o Genero onde será armazenado os dados pegos do bd
+            GeneroDomain generoBuscado = new();
+
+            using(SqlConnection connection = new(_stringConexao))
+            {
+                // Declara a instrução a ser executada
+                string querySelectById = $"SELECT IdGenero, Nome FROM Genero WHERE IdGenero = {id}";
+
+                // Abre a conexão com o banco de dados
+                connection.Open();
+
+                // Declara o SqlDataReader para percorrer(ler) a tabela no banco de dados
+                SqlDataReader reader;
+
+                using (SqlCommand sqlCommand = new(querySelectById, connection))
+                {
+                    reader = sqlCommand.ExecuteReader();
+
+                    generoBuscado.IdGenero = Convert.ToInt32(reader[0]);
+                    generoBuscado.Nome = reader[1].ToString();
+                }
+            }
+
+            return generoBuscado;
+        }*/
 
         public void Cadastrar(GeneroDomain novoGenero)
         {

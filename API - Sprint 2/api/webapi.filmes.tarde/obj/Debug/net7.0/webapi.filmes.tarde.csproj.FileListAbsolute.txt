@@ -24,3 +24,10 @@ C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\web
 C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\obj\Debug\net7.0\webapi.filmes.tarde.pdb
 C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\obj\Debug\net7.0\webapi.filmes.tarde.genruntimeconfig.cache
 C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\obj\Debug\net7.0\ref\webapi.filmes.tarde.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\bin\Debug\net7.0\System.Data.SqlClient.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\api\webapi.filmes.tarde\obj\Debug\net7.0\webapi.filmes.tarde.csproj.CopyComplete
