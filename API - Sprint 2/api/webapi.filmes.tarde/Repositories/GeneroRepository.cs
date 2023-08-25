@@ -29,7 +29,7 @@ namespace webapi.filmes.tarde.Repositories
             throw new NotImplementedException();
         }
 
-        /*
+        
         public GeneroDomain BuscarPorId(int id)
         {
             // Instancia o Genero onde será armazenado os dados pegos do bd
@@ -56,7 +56,7 @@ namespace webapi.filmes.tarde.Repositories
             }
 
             return generoBuscado;
-        }*/
+        }
 
         public void Cadastrar(GeneroDomain novoGenero)
         {

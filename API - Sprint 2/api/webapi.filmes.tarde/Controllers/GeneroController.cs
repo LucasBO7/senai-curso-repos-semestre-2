@@ -62,7 +62,7 @@ namespace webapi.filmes.tarde.Controllers
             }
         }
 
-        /*
+        
         [HttpGet]
         public IActionResult GetById(int id)
         {
@@ -80,6 +80,6 @@ namespace webapi.filmes.tarde.Controllers
                 // Retorna um status code 400 - BadRequest e a mensagem de erro
                 return BadRequest(erro.Message);
             }
-        }*/
+        }
     }
 }
