@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 
@@ -19,7 +20,7 @@ namespace webapi.filmes.tarde.Repositories
         /// </summary>
         private string _stringConexao = "Data Source = DESKTOP-ONQ7S9F; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
 
-        public void Atualizar(GeneroDomain genero)
+        public void AtualizarIdCorpo(GeneroDomain genero)
         {
             throw new NotImplementedException();
         }
@@ -29,9 +30,11 @@ namespace webapi.filmes.tarde.Repositories
             throw new NotImplementedException();
         }
 
-        
+
         public GeneroDomain BuscarPorId(int id)
         {
+            throw new NotImplementedException();
+            /*
             // Instancia o Genero onde será armazenado os dados pegos do bd
             GeneroDomain generoBuscado = new();
 
@@ -55,17 +58,63 @@ namespace webapi.filmes.tarde.Repositories
                 }
             }
 
-            return generoBuscado;
+            return generoBuscado;*/
         }
 
+        /// <summary>
+        /// Cadastrar um novo gênero
+        /// </summary>
+        /// <param name="novoGenero"> Objeto com as infomações que serão cadastradas </param>
+        /// <exception cref="NotImplementedException"></exception>
         public void Cadastrar(GeneroDomain novoGenero)
         {
-            throw new NotImplementedException();
+            // Declara a SqlConnection passando a string de conexão como parâmetro
+            using (SqlConnection con = new SqlConnection(_stringConexao))
+            {
+                // Declara a query que será executada
+                string queryInsert = $"INSERT INTO Genero(Nome) VALUES (@Nome)";
+
+                // Declara o SqlCommand passando a query que será executada e a conexão con com o banco de dados
+                using (SqlCommand command = new SqlCommand(queryInsert, con))
+                {
+                    command.Parameters.AddWithValue("@Nome", novoGenero.Nome);
+
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa a query
+                    command.ExecuteNonQuery();
+                }
+            }
         }
 
+        /// <summary>
+        /// Deleta um objeto do tipo gênero
+        /// </summary>
+        /// <param name="id"> Deleta o gênero pelo seu Id </param>
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            // Declara SqlConnection passando a string de conexão como parametro
+            using (SqlConnection connection = new SqlConnection(_stringConexao))
+            {
+                // Declara a instrução a ser executada
+                string queryDelete = "DELETE FROM Genero WHERE IdGenero = " + id;
+
+                // Abre a conexão com o banco de dados
+                connection.Open();
+
+                // Declara o SqlDataReader para percorrer(ler) a tabela no banco de dados
+                SqlDataReader reader;
+
+                // Declara o SqlCommand passando a query que será executada e a conexão
+                using (SqlCommand sqlCommand = new(queryDelete, connection))
+                {
+                    //sqlCommand.Parameters.AddWithValue("@Id", id);
+
+                    reader = sqlCommand.ExecuteReader();
+                }
+
+            }
         }
 
         /// <summary>
@@ -96,7 +145,7 @@ namespace webapi.filmes.tarde.Repositories
 
                     // Enquanto houver registros para serem lidos no reader
                     // o laço se repetirá
-                    while(reader.Read())
+                    while (reader.Read())
                     {
                         GeneroDomain generoDoBD = new()
                         {

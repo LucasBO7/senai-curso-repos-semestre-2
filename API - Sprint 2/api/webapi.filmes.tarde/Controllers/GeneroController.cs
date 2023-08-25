@@ -62,7 +62,8 @@ namespace webapi.filmes.tarde.Controllers
             }
         }
 
-        
+        /*
+
         [HttpGet]
         public IActionResult GetById(int id)
         {
@@ -78,6 +79,42 @@ namespace webapi.filmes.tarde.Controllers
             catch (Exception erro)
             {
                 // Retorna um status code 400 - BadRequest e a mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }*/
+
+        [HttpPost]
+        public IActionResult Post(GeneroDomain novoGenero)
+        {
+            try
+            {
+                // Faz a chamada para o método Cadastrar
+                _generoRepository.Cadastrar(novoGenero);
+
+                // Retorna um status code
+                return Created("Objeto criado", novoGenero);
+            }
+            catch (Exception erro)
+            {
+                // Retorna um BadRequest (400) e a mensagem de erro
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                // Faz a chamada para o método Deletar
+                _generoRepository.Deletar(id);
+
+                // Retorna um status code
+                return NoContent();
+            }
+            catch (Exception erro)
+            {
+                // Retorna um BadRequest (204/200) e a mensagem de erro
                 return BadRequest(erro.Message);
             }
         }
