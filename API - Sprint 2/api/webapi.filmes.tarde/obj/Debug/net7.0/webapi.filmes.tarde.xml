@@ -28,6 +28,27 @@
             </summary>
             <returns>Lista de Generos e um status code</returns>
         </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.GetbyId(System.Int32)">
+            <summary>
+            Endpoint que acessa o método de listar um gênero pesquisado por id
+            </summary>
+            <param name="id">Id do gênero (IdGenero)</param>
+            <returns>Objeto Genero pesquisado e um status code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.PutByUrl(System.Int32,webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Endpoint que acessa o método de atualizar um Genero passando o id pela url
+            </summary>
+            <param name="id">id do Genero que será atualizado</param>
+            <returns>Status code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.GeneroController.PutByBody(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Endpoint que acessa o método de atualizar um Genero passando o id pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto Genero com as alterações</param>
+            <returns>Status code</returns>
+        </member>
         <member name="T:webapi.filmes.tarde.Domains.FilmeDomain">
             <summary>
             Representa a entidade(tabela) Filme
@@ -123,11 +144,6 @@
             </summary>
             <param name="id">Id do objeto a ser deletado</param>
         </member>
-        <member name="T:webapi.filmes.tarde.Repositories.GeneroRepository">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="F:webapi.filmes.tarde.Repositories.GeneroRepository._stringConexao">
             <summary>
             String de conexão com o banco de dados que recebe os seguintes parâmetros:
@@ -137,6 +153,26 @@
                 - windows : Integrated Security = true
                 - SqlServer: User Id = sa; Pwd = Senha
             </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.AtualizarIdCorpo(webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um genero pelo corpo da requisição
+            </summary>
+            <param name="genero">Objeto do genero alterado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.AtualizarIdUrl(System.Int32,webapi.filmes.tarde.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um genero pelo seu id, passado pela url
+            </summary>
+            <param name="id">Id passado pela url</param>
+            <param name="genero">objeto do genero alterado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um genero pelo seu id
+            </summary>
+            <param name="id">id do genero buscado</param>
+            <returns>objeto do tipo Genero buscado</returns>
         </member>
         <member name="M:webapi.filmes.tarde.Repositories.GeneroRepository.Cadastrar(webapi.filmes.tarde.Domains.GeneroDomain)">
             <summary>
