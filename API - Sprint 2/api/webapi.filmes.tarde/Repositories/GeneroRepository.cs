@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 

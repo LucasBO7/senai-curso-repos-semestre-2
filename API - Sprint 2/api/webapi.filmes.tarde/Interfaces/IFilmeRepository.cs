@@ -34,7 +34,7 @@ namespace webapi.filmes.tarde.Interfaces
         /// Atualizar um Filme existente passando um id pelo corpo da requisição
         /// </summary>
         /// <param name="filme"></param>
-        void Atualizar(FilmeDomain filme);
+        void AtualizarIdCorpo(FilmeDomain filme);
 
 
         /// <summary>
