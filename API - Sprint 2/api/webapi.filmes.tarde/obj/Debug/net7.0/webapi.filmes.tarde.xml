@@ -18,7 +18,7 @@
         </member>
         <member name="M:webapi.filmes.tarde.Controllers.FilmeController.#ctor">
             <summary>
-            Instância do objeto _generoRepository para que haja referência aos métodos no repositório
+            Instância do objeto _filmeRepository para que haja referência aos métodos no repositório
             </summary>
         </member>
         <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Get">
@@ -77,6 +77,31 @@
             Endpoint que acessa o método de atualizar um Genero passando o id pelo corpo da requisição
             </summary>
             <param name="genero">Objeto Genero com as alterações</param>
+            <returns>Status code</returns>
+        </member>
+        <member name="T:webapi.filmes.tarde.Controllers.UsuarioController">
+            <summary>
+            Define que a rota de uma requisição será no seguinte formato:
+            dominio/api/nomeController
+            Exemplo: http://localhost:5000/api/Genero
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Controllers.UsuarioController._usuarioRepository">
+            <summary>
+            Objeto que possui acesso aos métodos do UsuarioRepository definidos na Interface
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.UsuarioController.#ctor">
+            <summary>
+            Instância do objeto _usuarioRepository para que haja referência aos objetos no repositório
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.UsuarioController.Login(System.String,System.String)">
+            <summary>
+            Realiza o Login do usuário por de um email e senha
+            </summary>
+            <param name="email">Email do usuário inserido</param>
+            <param name="senha">Senha do usuário inserido</param>
             <returns>Status code</returns>
         </member>
         <member name="T:webapi.filmes.tarde.Domains.FilmeDomain">
@@ -173,6 +198,18 @@
             Deletar um Genero existente
             </summary>
             <param name="id">Id do objeto a ser deletado</param>
+        </member>
+        <member name="T:webapi.filmes.tarde.Interfaces.IUsuarioRepository">
+            <summary>
+            Interface responsável pelo Usuario
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Logar em um usuário existente
+            </summary>
+            <param name="email">Email do usuário</param>
+            <param name="senha">Senha do usuário</param>
         </member>
         <member name="F:webapi.filmes.tarde.Repositories.GeneroRepository._stringConexao">
             <summary>

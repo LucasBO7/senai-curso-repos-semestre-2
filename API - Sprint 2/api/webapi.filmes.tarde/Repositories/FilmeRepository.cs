@@ -70,9 +70,18 @@ namespace webapi.filmes.tarde.Repositories
 
                     if (reader.Read())
                     {
-                        filmeBuscado.IdFilme = reader.GetInt32(0);
-                        filmeBuscado.IdGenero = Convert.ToInt32(reader[1]);
-                        filmeBuscado.Titulo = reader[2].ToString();
+                        filmeBuscado.IdFilme = Convert.ToInt32(reader[ nameof(FilmeDomain.IdFilme) ]);
+                        filmeBuscado.IdGenero = Convert.ToInt32(reader[nameof(FilmeDomain.IdGenero)]);
+                        filmeBuscado.Titulo = reader[nameof(FilmeDomain.Titulo)].ToString();
+
+                        GeneroDomain genero = new()
+                        {
+                            IdGenero = Convert.ToInt32(reader[nameof(GeneroDomain.IdGenero)]),
+                            Nome = reader[nameof(GeneroDomain.Nome)].ToString()
+                        };
+
+                        filmeBuscado.Genero = genero;
+
                         return filmeBuscado;
                     }
                 }
@@ -80,41 +89,6 @@ namespace webapi.filmes.tarde.Repositories
             }
 
             return null;
-        }
-
-        public void Cadastrar(FilmeDomain novoFilme)
-        {
-            using (SqlConnection connection = new(_stringConexao))
-            {
-                string queryRegister = $"INSERT INTO Filme(IdGenero, Titulo) VALUES(@IdDoGenero, @TituloFilme)";
-
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(queryRegister, connection))
-                {
-                    command.Parameters.AddWithValue("IdDoGenero", novoFilme.IdGenero);
-                    command.Parameters.AddWithValue("TituloFilme", novoFilme.Titulo);
-
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
-        public void Deletar(int id)
-        {
-            using (SqlConnection connection = new(_stringConexao))
-            {
-                string queryDelete = "DELETE FROM Filme WHERE IdFilme = @IdFilmeADeletar";
-
-                connection.Open();
-
-                using (SqlCommand command = new(queryDelete, connection))
-                {
-                    command.Parameters.AddWithValue("IdFilmeADeletar", id);
-
-                    command.ExecuteNonQuery();
-                }
-            }
         }
 
         public List<FilmeDomain> ListarTodos()
@@ -170,6 +144,41 @@ namespace webapi.filmes.tarde.Repositories
             return listaFilmes;
         }
 
+
+        public void Cadastrar(FilmeDomain novoFilme)
+        {
+            using (SqlConnection connection = new(_stringConexao))
+            {
+                string queryRegister = $"INSERT INTO Filme(IdGenero, Titulo) VALUES(@IdDoGenero, @TituloFilme)";
+
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(queryRegister, connection))
+                {
+                    command.Parameters.AddWithValue("IdDoGenero", novoFilme.IdGenero);
+                    command.Parameters.AddWithValue("TituloFilme", novoFilme.Titulo);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void Deletar(int id)
+        {
+            using (SqlConnection connection = new(_stringConexao))
+            {
+                string queryDelete = "DELETE FROM Filme WHERE IdFilme = @IdFilmeADeletar";
+
+                connection.Open();
+
+                using (SqlCommand command = new(queryDelete, connection))
+                {
+                    command.Parameters.AddWithValue("IdFilmeADeletar", id);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
     }
 }

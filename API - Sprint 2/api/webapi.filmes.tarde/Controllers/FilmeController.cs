@@ -31,7 +31,7 @@ namespace webapi.filmes.tarde.Controllers
         private IFilmeRepository _filmeRepository { get; set; }
 
         /// <summary>
-        /// Instância do objeto _generoRepository para que haja referência aos métodos no repositório
+        /// Instância do objeto _filmeRepository para que haja referência aos métodos no repositório
         /// </summary>
         public FilmeController()
         {
