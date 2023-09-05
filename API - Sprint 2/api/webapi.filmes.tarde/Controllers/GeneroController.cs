@@ -96,7 +96,7 @@ namespace webapi.filmes.tarde.Controllers
         }
 
         [HttpPost]
-        [Authorize] // Precisa estar logado para acessar a rota
+        [Authorize(Roles = "Administrador")] // Precisa estar logado para acessar a rota
         public IActionResult Post(GeneroDomain novoGenero)
         {
             try
