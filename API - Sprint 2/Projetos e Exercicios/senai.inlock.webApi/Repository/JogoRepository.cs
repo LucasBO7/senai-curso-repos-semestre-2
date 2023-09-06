@@ -1,4 +1,6 @@
-﻿using senai.inlock.webApi.Domain;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Models;
+using senai.inlock.webApi.Domain;
 using senai.inlock.webApi.Interface;
 using System.Data.SqlClient;
 
@@ -14,12 +16,14 @@ namespace senai.inlock.webApi.Repository
         /// <returns>Lista de objetos do tipo Jogo</returns>
         public List<JogoDomain> BuscarTodos()
         {
+            // Criar lista de Jogos onde será armazenado os dados
             List<JogoDomain> jogos = new List<JogoDomain>();
 
+            // Declara a SqlConnection passando a string de conexão como parametro
             using (SqlConnection connection = new SqlConnection(_stringConexao))
             {
                 // Código SQL que será executado
-                string queryGetAll = "SELECT Jogo.IdJogo, Jogo.Nome, Estudio.IdEstudio, Estudio.Nome AS 'NomeEstudio', Jogo.Descricao, Jogo.DataLancamento, Jogo.Valor FROM Jogo LEFT JOIN Estudio ON Jogo.IdEstudio = Estudio.IdEstudio;";
+                string queryGetAll = "SELECT Jogo.IdJogo, Jogo.Nome AS 'NomeJogo', Estudio.IdEstudio, Estudio.Nome AS 'NomeEstudio', Jogo.Descricao, Jogo.DataLancamento, Jogo.Valor FROM Jogo INNER JOIN Estudio ON Jogo.IdEstudio = Estudio.IdEstudio;";
 
                 // Abre o banco de dados
                 connection.Open();
@@ -33,27 +37,55 @@ namespace senai.inlock.webApi.Repository
                     reader = command.ExecuteReader();
 
                     // Adiciona os dados na lista enquanto houver linhas na tabela
-                    while (!reader.Read())
+                    while (reader.Read())
                     {
                         JogoDomain jogoNoBd = new()
                         {
                             IdJogo = Convert.ToInt32(reader[nameof(JogoDomain.IdJogo)]),
-                            Nome = reader[nameof(JogoDomain.Nome)].ToString(),
                             IdEstudio = Convert.ToInt32(reader[nameof(JogoDomain.IdEstudio)]),
+                            Nome = reader["NomeJogo"].ToString(),
                             Descricao = reader[nameof(JogoDomain.Descricao)].ToString(),
-                            DataLancamento = reader[nameof(JogoDomain.DataLancamento)],
-                            Valor = float.Parse(reader[nameof(JogoDomain.Valor)])
+                            DataLancamento = reader[nameof(JogoDomain.DataLancamento)].ToString(), // MEXER DEPOIS
+                            Valor = Convert.ToDecimal(reader[nameof(JogoDomain.Valor)])
                         };
-                        
+
+                        EstudioDomain estudio = new()
+                        {
+                            IdEstudio = Convert.ToInt32(reader[nameof(JogoDomain.IdEstudio)]),
+                            Nome = reader["NomeEstudio"].ToString(),
+                        };
+
+                        jogoNoBd.Estudio = estudio;
+                        // Adiciona o objeto criado dentro da lista
+                        jogos.Add(jogoNoBd);
                     }
                 }
 
             }
+
+            return jogos;
         }
 
+        [HttpPost]
         public void Cadastrar(JogoDomain novoJogo)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new(_stringConexao))
+            {
+                string queryInsert = $"INSERT INTO Jogo VALUES (IdEstudio = @IdDoEstudio, Nome = @NomeJogo, Descricao = @DescricaoJogo, DataLancamento = @DataLancamentoJogo, Valor = @ValorJogo)";
+
+                connection.Open();
+
+                using (SqlCommand command = new(queryInsert, connection))
+                {
+                    command.Parameters.AddWithValue("IdDoEstudio", novoJogo.IdEstudio);
+                    command.Parameters.AddWithValue("NomeJogo", novoJogo.Nome);
+                    command.Parameters.AddWithValue("DescricaoJogo", novoJogo.Descricao);
+                    command.Parameters.AddWithValue("DataLancamentoJogo", novoJogo.DataLancamento);
+                    command.Parameters.AddWithValue("ValorJogo", novoJogo.Valor);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

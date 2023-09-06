@@ -111,6 +111,7 @@ namespace webapi.filmes.tarde.Repositories
                 // Declara o SqlCommand passando a query que será executada e a conexão
                 using (SqlCommand sqlCommand = new(querySelectAll, connection))
                 {
+                    // Executa a query SQL no banco de dados
                     reader = sqlCommand.ExecuteReader();
 
                     // Enquanto houver registros para serem lidos no reader

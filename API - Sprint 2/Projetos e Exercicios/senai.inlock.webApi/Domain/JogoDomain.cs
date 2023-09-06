@@ -13,10 +13,10 @@ namespace senai.inlock.webApi.Domain
         public string? Descricao { get; set; }
 
         [Required]
-        public DateOnly DataLancamento { get; set; }
+        public string DataLancamento { get; set; }
 
         [Required]
-        public float Valor { get; set; }
+        public decimal Valor { get; set; }
 
 
 
