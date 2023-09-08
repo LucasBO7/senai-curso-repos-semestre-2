@@ -58,7 +58,7 @@ namespace webapi.filmes.tarde.Repositories
             {
                 string querySelectById = "SELECT * FROM Filme WHERE IdFilme = @IdDoFilme";
 
-                connection.Open();
+                connection.Open(); 
 
                 SqlDataReader reader;
 

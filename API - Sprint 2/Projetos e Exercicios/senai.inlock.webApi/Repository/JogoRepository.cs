@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.OpenApi.Models;
 using senai.inlock.webApi.Domain;
 using senai.inlock.webApi.Interface;
@@ -8,7 +9,7 @@ namespace senai.inlock.webApi.Repository
 {
     public class JogoRepository : IJogoRepository
     {
-        private string _stringConexao = "Data Source = NOTE14-S15; Initial Catalog = inlock_games; User Id = sa; Pwd = Senai@134";
+        private string _stringConexao = "Data Source = DESKTOP-84UMQCT\\SQLEXPRESS; Initial Catalog = inlock_games; User Id = sa; Pwd = Senai@134";
 
         /// <summary>
         /// Busca todos os objetos do tipo Jogo
@@ -66,14 +67,19 @@ namespace senai.inlock.webApi.Repository
             return jogos;
         }
 
-        [HttpPost]
+        /// <summary>
+        /// Insere um novo Jogo no banco de dados
+        /// </summary>
+        /// <param name="novoJogo">Objeto do tipo Jogo com os dados inseridos</param>
         public void Cadastrar(JogoDomain novoJogo)
         {
             using (SqlConnection connection = new(_stringConexao))
             {
-                string queryInsert = $"INSERT INTO Jogo VALUES (IdEstudio = @IdDoEstudio, Nome = @NomeJogo, Descricao = @DescricaoJogo, DataLancamento = @DataLancamentoJogo, Valor = @ValorJogo)";
+                string queryInsert = "INSERT INTO Jogo VALUES (@IdDoEstudio, @NomeJogo, @DescricaoJogo, @DataLancamentoJogo, @ValorJogo)";
 
                 connection.Open();
+
+                string x = $"teste {novoJogo.DataLancamento}";
 
                 using (SqlCommand command = new(queryInsert, connection))
                 {

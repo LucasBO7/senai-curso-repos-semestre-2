@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domain;
 using senai.inlock.webApi.Interface;
@@ -19,7 +20,8 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpGet]
-        public IActionResult Get()
+        [Authorize(Roles = "Comum, Administrador")]
+        public IActionResult GetAll()
         {
             try
             {
@@ -28,7 +30,7 @@ namespace senai.inlock.webApi.Controller
                 if (!jogos.Any())
                 {
                     return BadRequest("Não há nenhum jogo salvo.");
-                }
+                } 
                 return Ok(jogos);
             }
             catch (Exception erro)
@@ -39,6 +41,7 @@ namespace senai.inlock.webApi.Controller
 
 
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(JogoDomain novoJogo)
         {
             try

@@ -1640,26 +1640,36 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\41365718875\\.nuget\\packages\\": {}
+    "C:\\Users\\Batata Voadora\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\api\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
+      "projectUniqueName": "C:\\Users\\Batata Voadora\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\api\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
       "projectName": "webapi.filmes.tarde",
-      "projectPath": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\api\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
-      "packagesPath": "C:\\Users\\41365718875\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\api\\webapi.filmes.tarde\\obj\\",
+      "projectPath": "C:\\Users\\Batata Voadora\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\api\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
+      "packagesPath": "C:\\Users\\Batata Voadora\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Batata Voadora\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\api\\webapi.filmes.tarde\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\41365718875\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Batata Voadora\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.307\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1714,7 +1724,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
       }
     }
   }
