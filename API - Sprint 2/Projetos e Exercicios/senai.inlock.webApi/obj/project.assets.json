@@ -1640,36 +1640,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Batata Voadora\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\cleb_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Batata Voadora\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
+      "projectUniqueName": "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
       "projectName": "senai.inlock.webApi",
-      "projectPath": "C:\\Users\\Batata Voadora\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
-      "packagesPath": "C:\\Users\\Batata Voadora\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Batata Voadora\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\senai.inlock.webApi\\obj\\",
+      "projectPath": "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
+      "packagesPath": "C:\\Users\\cleb_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\senai.inlock.webApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Batata Voadora\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\cleb_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.307\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1724,7 +1714,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

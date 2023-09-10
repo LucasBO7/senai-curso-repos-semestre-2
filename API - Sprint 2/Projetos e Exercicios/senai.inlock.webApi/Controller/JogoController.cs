@@ -20,7 +20,7 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpGet]
-        [Authorize(Roles = "Comum, Administrador")]
+        //[Authorize(Roles = "Comum, Administrador")]
         public IActionResult GetAll()
         {
             try
@@ -30,7 +30,7 @@ namespace senai.inlock.webApi.Controller
                 if (!jogos.Any())
                 {
                     return BadRequest("Não há nenhum jogo salvo.");
-                } 
+                }
                 return Ok(jogos);
             }
             catch (Exception erro)
@@ -39,9 +39,28 @@ namespace senai.inlock.webApi.Controller
             }
         }
 
+        [HttpPost("nome")]
+        //[Authorize(Roles = "Comum, Administrador")]
+        public IActionResult Get(JogoDomain jogoBuscado)
+        {
+            try
+            {
+                jogoBuscado = _jogoRepository.Buscar(jogoBuscado.Nome);
+
+                if (jogoBuscado == null)
+                {
+                    return BadRequest("Não há nenhum jogo salvo.");
+                }
+                return Ok(jogoBuscado);
+            }
+            catch (Exception erro)
+            {
+                return NotFound(erro.Message);
+            }
+        }
 
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Administrador")]
         public IActionResult Post(JogoDomain novoJogo)
         {
             try
@@ -54,7 +73,40 @@ namespace senai.inlock.webApi.Controller
             {
                 return Problem(erro.Message);
             }
+        }
 
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                _jogoRepository.Deletar(id);
+
+                return Ok("Jogo deletado com sucesso!");
+            }
+            catch (Exception erro)
+            {
+                return Problem(erro.Message);
+            }
+        }
+
+        [HttpPut]
+        //[Authorize(Roles = )]
+        public IActionResult PutIdByUrl(int id, JogoDomain jogo)
+        {
+            try
+            {
+                _jogoRepository.AtualizarIdUrl(id, jogo);
+
+                if (jogo == null)
+                    return NotFound("O Jogo não foi encontrado!");
+
+                return Ok("Jogo alterado com sucesso!");
+            }
+            catch (Exception erro)
+            {
+                return Problem(erro.Message);
+            }
         }
     }
 }
