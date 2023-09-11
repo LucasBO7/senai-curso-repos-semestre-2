@@ -1,30 +1,27 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using Microsoft.OpenApi.Models;
-using senai.inlock.webApi.Domain;
+﻿using senai.inlock.webApi.Domain;
 using senai.inlock.webApi.Interface;
 using System.Data.SqlClient;
 
 namespace senai.inlock.webApi.Repository
 {
-    public class JogoRepository : IJogoRepository
+    public class EstudioRepository : IEstudioRepository
     {
         private string _stringConexao = "Data Source = NOTE14-S15; Initial Catalog = inlock_games; User Id = sa; Pwd = Senai@134";
 
         /// <summary>
-        /// Busca todos os objetos do tipo Jogo
+        /// Busca todos os objetos do tipo Estudio
         /// </summary>
         /// <returns>Lista de objetos do tipo Jogo</returns>
-        public List<JogoDomain> BuscarTodos()
+        public List<EstudioDomain> BuscarTodos()
         {
-            // Criar lista de Jogos onde será armazenado os dados
-            List<JogoDomain> jogos = new List<JogoDomain>();
+            // Criar lista de Estudios onde será armazenado os dados
+            List<EstudioDomain> estudios = new();
 
             // Declara a SqlConnection passando a string de conexão como parametro
-            using (SqlConnection connection = new SqlConnection(_stringConexao))
+            using (SqlConnection connection = new(_stringConexao))
             {
                 // Código SQL que será executado
-                string queryGetAll = "SELECT Jogo.IdJogo, Jogo.Nome AS 'NomeJogo', Estudio.IdEstudio, Estudio.Nome AS 'NomeEstudio', Jogo.Descricao, Jogo.DataLancamento, Jogo.Valor FROM Jogo INNER JOIN Estudio ON Jogo.IdEstudio = Estudio.IdEstudio;";
+                string queryGetAll = "SELECT Estudio.IdEstudio, Estudio.Nome, Jogo.Nome, Jogo.Descricao, Jogo.DataLancamento, Jogo.Valor FROM Estudio INNER JOIN Jogo ON Estudio.IdEstudio = Jogo.IdEstudio;";
 
                 // Abre o banco de dados
                 connection.Open();
@@ -40,6 +37,12 @@ namespace senai.inlock.webApi.Repository
                     // Adiciona os dados na lista enquanto houver linhas na tabela
                     while (reader.Read())
                     {
+                        EstudioDomain estudio = new()
+                        {
+                            IdEstudio = Convert.ToInt32(reader[nameof(JogoDomain.IdEstudio)]),
+                            Nome = reader["NomeEstudio"].ToString(),
+                        };
+
                         JogoDomain jogoNoBd = new()
                         {
                             IdJogo = Convert.ToInt32(reader[nameof(JogoDomain.IdJogo)]),
@@ -50,73 +53,77 @@ namespace senai.inlock.webApi.Repository
                             Valor = Convert.ToDecimal(reader[nameof(JogoDomain.Valor)])
                         };
 
-                        EstudioDomain estudio = new()
-                        {
-                            IdEstudio = Convert.ToInt32(reader[nameof(JogoDomain.IdEstudio)]),
-                            Nome = reader["NomeEstudio"].ToString(),
-                        };
-
-                        jogoNoBd.Estudio = estudio;
+                        estudio.Jogos.Add(jogoNoBd);
                         // Adiciona o objeto criado dentro da lista
-                        jogos.Add(jogoNoBd);
+                        estudios.Add(estudio);
                     }
                 }
 
             }
 
-            return jogos;
+            return estudios;
         }
 
         /// <summary>
-        /// Busca um objeto do tipo Jogo
+        /// Busca um objeto do tipo Estudio
         /// </summary>
-        /// <returns>Objeto do tipo Jogo buscado</returns>
-        public JogoDomain Buscar(string nomeJogo)
+        /// <returns>Objeto do tipo Estudio buscado</returns>
+        public List<EstudioDomain> BuscarPorId()
         {
             // Objeto Jogo onde será armazenado os dados
-            UsuarioDomain jogos = new();
+            List<EstudioDomain> estudiosBuscados = new();
 
             // Declara a SqlConnection passando a string de conexão como parametro
             using (SqlConnection connection = new SqlConnection(_stringConexao))
             {
                 // Código SQL que será executado
-                string queryGetAll = "SELECT Jogo.IdJogo, Jogo.Nome AS 'NomeJogo', Estudio.IdEstudio, Estudio.Nome AS 'NomeEstudio', Jogo.Descricao, Jogo.DataLancamento, Jogo.Valor FROM Jogo INNER JOIN Estudio ON Jogo.IdEstudio = Estudio.IdEstudio WHERE Nome = @NomeJogoInserido;";
+                string queryGetAll = "SELECT IdEstudio, Estudio.Nome FROM Estudio;";
 
                 // Abre o banco de dados
                 connection.Open();
 
-                // Declara o SqlDataReader para percorrer as linhas da tabela do banco de dados
-                SqlDataReader reader;
-
                 using (SqlCommand command = new SqlCommand(queryGetAll, connection))
                 {
-                    command.Parameters.AddWithValue("NomeJogoInserido", nomeJogo);
-
                     // Executa a query SQL no banco de dados
-                    reader = command.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
 
-                    // Adiciona os dados na lista enquanto houver linhas na tabela
-                    if (reader.Read())
+                    while (reader.Read())
                     {
-                        JogoDomain jogoDoBd = new()
-                        {
-                            IdJogo = Convert.ToInt32(reader[nameof(JogoDomain.IdJogo)]),
-                            IdEstudio = Convert.ToInt32(reader[nameof(JogoDomain.IdEstudio)]),
-                            Nome = reader["NomeJogo"].ToString(),
-                            Descricao = reader[nameof(JogoDomain.Descricao)].ToString(),
-                            DataLancamento = reader[nameof(JogoDomain.DataLancamento)].ToString(), // MEXER DEPOIS
-                            Valor = Convert.ToDecimal(reader[nameof(JogoDomain.Valor)])
-                        };
-
                         EstudioDomain estudio = new()
                         {
                             IdEstudio = Convert.ToInt32(reader[nameof(JogoDomain.IdEstudio)]),
-                            Nome = reader["NomeEstudio"].ToString(),
+                            Nome = reader[nameof(JogoDomain.Nome)].ToString(),
                         };
 
-                        jogoDoBd.Estudio = estudio;
-                        return jogoDoBd;
+                        string queryGetJogos = "SELECT * FROM Jogo WHERE IdEstudio = @IdDoEstudioInserido";
+                        SqlDataReader jogosReader;
+                        using (SqlCommand jogoCommand = new(queryGetJogos, connection))
+                        {
+                            jogoCommand.Parameters.AddWithValue("IdDoEstudioInserido", estudio.IdEstudio);
+
+                            jogosReader = jogoCommand.ExecuteReader();
+
+                            while (jogosReader.Read())
+                            {
+                                JogoDomain jogo = new()
+                                {
+                                    IdJogo = Convert.ToInt32(jogosReader[nameof(JogoDomain.IdJogo)]),
+                                    IdEstudio = estudio.IdEstudio,
+                                    Nome = jogosReader[nameof(JogoDomain.Nome)].ToString(),
+                                    Descricao = jogosReader[nameof(JogoDomain.Descricao)].ToString(),
+                                    DataLancamento = jogosReader[nameof(JogoDomain.DataLancamento)].ToString(),
+                                    Valor = Convert.ToDecimal(jogosReader[nameof(JogoDomain.Valor)]),
+                                };
+
+                                estudio.Jogos.Add(jogo);
+                            }
+                        }
+
+                        estudiosBuscados.Add(estudio);
                     }
+
+                    return estudiosBuscados;
+
                 }
 
             }
@@ -194,6 +201,16 @@ namespace senai.inlock.webApi.Repository
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public void Cadastrar(EstudioDomain novoEstudio)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Deletar()
+        {
+            throw new NotImplementedException();
         }
     }
 }

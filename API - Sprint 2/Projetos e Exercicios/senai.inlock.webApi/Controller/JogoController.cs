@@ -20,7 +20,7 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Comum, Administrador")]
+        [Authorize(Roles = "Comum, Administrador")]
         public IActionResult GetAll()
         {
             try
@@ -40,7 +40,7 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpPost("nome")]
-        //[Authorize(Roles = "Comum, Administrador")]
+        [Authorize(Roles = "Comum, Administrador")]
         public IActionResult Get(JogoDomain jogoBuscado)
         {
             try
@@ -60,7 +60,7 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Post(JogoDomain novoJogo)
         {
             try
@@ -76,6 +76,7 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpDelete]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Delete(int id)
         {
             try
@@ -91,7 +92,7 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpPut]
-        //[Authorize(Roles = )]
+        [Authorize(Roles = "Administrador")]
         public IActionResult PutIdByUrl(int id, JogoDomain jogo)
         {
             try

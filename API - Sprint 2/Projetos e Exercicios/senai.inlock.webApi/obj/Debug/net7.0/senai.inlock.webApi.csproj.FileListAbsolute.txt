@@ -128,3 +128,11 @@ C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Ex
 C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\obj\Debug\net7.0\senai.inlock.webApi.csproj.CopyComplete
 C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\obj\Debug\net7.0\senai.inlock.webApi.genruntimeconfig.cache
 C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\obj\Debug\net7.0\ref\senai.inlock.webApi.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\senai.inlock.webApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

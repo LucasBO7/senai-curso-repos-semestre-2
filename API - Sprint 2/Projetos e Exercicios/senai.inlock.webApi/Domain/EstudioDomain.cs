@@ -8,5 +8,7 @@ namespace senai.inlock.webApi.Domain
         [Required]
         [MaxLength(100)]
         public string? Nome { get; set; }
+
+        public List<JogoDomain> Jogos { get; set; }
     }
 }

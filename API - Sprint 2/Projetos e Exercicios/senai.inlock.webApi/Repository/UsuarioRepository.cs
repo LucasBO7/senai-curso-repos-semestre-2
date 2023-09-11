@@ -8,7 +8,7 @@ namespace senai.inlock.webApi.Repository
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private string _stringConexao = "Data Source = LAPTOP-GIC8OA8C\\SQLSERVER2022; Initial Catalog = inlock_games; User Id = sa; Pwd = Senai@134";
+        private string _stringConexao = "Data Source = NOTE14-S15; Initial Catalog = inlock_games; User Id = sa; Pwd = Senai@134";
 
         /// <summary>
         /// Realiza o login do usuário: Busca um usuário no banco de dados com base em um email e senha inseridos pelo usuário e retorna o objeto Usuario com todas as informações
