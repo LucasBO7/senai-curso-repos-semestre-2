@@ -15,37 +15,38 @@ namespace webapi.event_.tarde.Repositories
             _eventContext = new EventContext();
         }
 
-        [Authorize("Administrador")]
+        //[Authorize("Administrador")]
         public void Atualizar(Guid id, TipoUsuario tipoUsuario)
         {
-            throw new NotImplementedException();
+            TipoUsuario tipoUsuarioBuscado = _eventContext.TipoUsuario.Find(id)!;
+
+            if (tipoUsuarioBuscado != null)
+            {
+                tipoUsuarioBuscado.Titulo = tipoUsuario.Titulo;
+            }
+
+            _eventContext.TipoUsuario.Update(tipoUsuarioBuscado!);
+            _eventContext.SaveChanges();
         }
 
-        [Authorize("Administrador")]
+        //[Authorize("Administrador")]
         public TipoUsuario BuscarPorId(Guid id)
         {
-            return _eventContext.TipoUsuario.FirstOrDefault(u => u.IdTipoUsuario == id);
+            return _eventContext.TipoUsuario.FirstOrDefault(u => u.IdTipoUsuario == id)!;
         }
 
-        [Authorize("Administrador")]
+        
         public void Cadastrar(TipoUsuario tipoUsuario)
         {
-            try
-            {
-                _eventContext.TipoUsuario.Add(tipoUsuario);
-                _eventContext.SaveChanges();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            _eventContext.TipoUsuario.Add(tipoUsuario);
+            _eventContext.SaveChanges();
         }
 
         /// <summary>
         /// Deleta um tipoUsuario do banco de dados por meio de um id especificado
         /// </summary>
         /// <param name="id">Id inserido</param>
-        [Authorize("Administrador")]
+        //[Authorize("Administrador")]
         public void Deletar(Guid id)
         {
             try

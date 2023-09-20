@@ -20,12 +20,12 @@ namespace webapi.event_.tarde.Controllers
         }
 
         /// <summary>
-        /// Cadastra um nobo tipoUsuario na tabela TipoUsuario do banco de dados
+        /// Cadastra um novo tipoUsuario na tabela TipoUsuario do banco de dados
         /// </summary>
         /// <param name="tipoUsuario">Objeto do tipo TipoUsuario</param>
         /// <returns>Statuscode</returns>
         [HttpPost]
-        [Authorize("Administrador")]
+        //[Authorize("Administrador")]
         public IActionResult Post(TipoUsuario tipoUsuario)
         {
             try
@@ -39,7 +39,11 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Deleta um id com base no usuário
+        /// </summary>
+        /// <param name="id">Id inserido</param>
+        /// <returns>Statuscode</returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
         {
@@ -54,7 +58,10 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Busca todos os TipoUsuarios
+        /// </summary>
+        /// <returns>Lista de TipoUsuarios</returns>
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -67,6 +74,48 @@ namespace webapi.event_.tarde.Controllers
                     return Ok(listaTiposUsuario);
                 }
                 return NotFound("Não foi encontrado nenhum TipoUsuario!");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Busca um TipoUsuario por id
+        /// </summary>
+        /// <param name="id">Id inserido</param>
+        /// <returns>Objeto TipoUsuario ou Statuscode</returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            try
+            {
+                TipoUsuario tipoUsuario = _tipoUsuarioRepository.BuscarPorId(id);
+
+                if (tipoUsuario != null)
+                    return Ok(tipoUsuario);
+                return NotFound("TipoUsuario não encontrado!");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        /// <summary>
+        /// Atualiza um objeto TipoUsuario buscado por Id
+        /// </summary>
+        /// <param name="id">Id do usuário</param>
+        /// <param name="tipoUsuario">Objeto TipoUsuario</param>
+        /// <returns>StatusCode</returns>
+        [HttpPut]
+        public IActionResult Put(Guid id, TipoUsuario tipoUsuario)
+        {
+            try
+            {
+                _tipoUsuarioRepository.Atualizar(id, tipoUsuario);
+                return Ok();
             }
             catch (Exception erro)
             {

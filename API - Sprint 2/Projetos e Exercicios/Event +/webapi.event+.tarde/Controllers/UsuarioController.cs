@@ -20,7 +20,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpPost]
-        [Authorize("Administrador")]
+        //[Authorize("Administrador")]
         public IActionResult Post(Usuario usuario)
         {
             try

@@ -6,10 +6,70 @@
     <members>
         <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Post(webapi.event_.tarde.Domains.TipoUsuario)">
             <summary>
-            Cadastra um nobo tipoUsuario na tabela TipoUsuario do banco de dados
+            Cadastra um novo tipoUsuario na tabela TipoUsuario do banco de dados
             </summary>
             <param name="tipoUsuario">Objeto do tipo TipoUsuario</param>
             <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Delete(System.Guid)">
+            <summary>
+            Deleta um id com base no usuário
+            </summary>
+            <param name="id">Id inserido</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.GetAll">
+            <summary>
+            Busca todos os TipoUsuarios
+            </summary>
+            <returns>Lista de TipoUsuarios</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.GetById(System.Guid)">
+            <summary>
+            Busca um TipoUsuario por id
+            </summary>
+            <param name="id">Id inserido</param>
+            <returns>Objeto TipoUsuario ou Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Put(System.Guid,webapi.event_.tarde.Domains.TipoUsuario)">
+            <summary>
+            Atualiza um objeto TipoUsuario buscado por Id
+            </summary>
+            <param name="id">Id do usuário</param>
+            <param name="tipoUsuario">Objeto TipoUsuario</param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IInstituicaoRepository.Cadastrar(webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Método que realiza o cadastro de uma Insituicao
+            </summary>
+            <param name="instituicao">Objeto do tipo Instituicao</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IInstituicaoRepository.Deletar(System.Guid)">
+            <summary>
+            Método que deleta uma Instituicao
+            </summary>
+            <param name="id">Id da Instituicao</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IInstituicaoRepository.BuscarTodos">
+            <summary>
+            Busca lista de todos objetos Instituicao
+            </summary>
+            <returns>Lista de objetos Insituicao</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IInstituicaoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca objeto Instituicao por id
+            </summary>
+            <param name="id">Id da instituicao</param>
+            <returns>Lista de objetos Insituicao</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IInstituicaoRepository.Atualizar(System.Guid,webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Atualiza um objeto Insituicao existenteS
+            </summary>
+            <param name="id">Id da instituicao</param>
+            <param name="instituicao">Objeto do tipo Instituicao</param>
         </member>
         <member name="T:webapi.event_.tarde.Migrations.BD_v1">
             <inheritdoc />
