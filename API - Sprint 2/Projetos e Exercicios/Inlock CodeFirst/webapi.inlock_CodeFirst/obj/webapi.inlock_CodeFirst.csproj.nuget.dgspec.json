@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj": {}
+    "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Inlock CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj": {}
   },
   "projects": {
-    "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj": {
+    "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Inlock CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj",
+        "projectUniqueName": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Inlock CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj",
         "projectName": "webapi.inlock_CodeFirst",
-        "projectPath": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj",
+        "projectPath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Inlock CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj",
         "packagesPath": "C:\\Users\\41365718875\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst\\obj\\",
+        "outputPath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Inlock CodeFirst\\webapi.inlock_CodeFirst\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\41365718875\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qJxhnArH55BUzzn+OVZLCYMEvWhkHHK3alDG6JZGaMzZduycBaS4uB4m5raPUkh7+QqCfxTPajQjhSsm41cpUA==",
+  "dgSpecHash": "c/zYnxXBt1bs/OzyUzmo/ZJQ3wUtVuj9m8D0vgaR4UFCHV9DYJxpuyp+Ub166nB1s+xoV+jdtfOcaGaWjr3rNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj",
+  "projectFilePath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Inlock CodeFirst\\webapi.inlock_CodeFirst\\webapi.inlock_CodeFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\41365718875\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

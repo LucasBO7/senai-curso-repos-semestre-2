@@ -32,8 +32,5 @@ namespace webapi.event_.tarde.Domains
         [Required(ErrorMessage = "A instituição é obrigatória!")]
         public Guid IdInstituicao { get; set; }
         public Instituicao? Instituicao { get; set; }
-
-
-
     }
 }

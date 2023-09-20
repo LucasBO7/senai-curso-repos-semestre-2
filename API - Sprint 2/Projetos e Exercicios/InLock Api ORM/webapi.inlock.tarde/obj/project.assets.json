@@ -3490,11 +3490,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\41365718875\\Desktop\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
+      "projectUniqueName": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\InLock Api ORM\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
       "projectName": "webapi.inlock.tarde",
-      "projectPath": "C:\\Users\\41365718875\\Desktop\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
+      "projectPath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\InLock Api ORM\\webapi.inlock.tarde\\webapi.inlock.tarde.csproj",
       "packagesPath": "C:\\Users\\41365718875\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\41365718875\\Desktop\\webapi.inlock.tarde\\obj\\",
+      "outputPath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\InLock Api ORM\\webapi.inlock.tarde\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\41365718875\\AppData\\Roaming\\NuGet\\NuGet.Config",

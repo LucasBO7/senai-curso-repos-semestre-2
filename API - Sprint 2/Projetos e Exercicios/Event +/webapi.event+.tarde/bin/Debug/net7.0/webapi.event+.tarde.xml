@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>webapi.event+.tarde</name>
+    </assembly>
+    <members>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Post(webapi.event_.tarde.Domains.TipoUsuario)">
+            <summary>
+            Cadastra um nobo tipoUsuario na tabela TipoUsuario do banco de dados
+            </summary>
+            <param name="tipoUsuario">Objeto do tipo TipoUsuario</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="T:webapi.event_.tarde.Migrations.BD_v1">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.BD_v1.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.BD_v1.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.BD_v1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.TipoUsuarioRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um tipoUsuario do banco de dados por meio de um id especificado
+            </summary>
+            <param name="id">Id inserido</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.TipoUsuarioRepository.Listar">
+            <summary>
+            Lista todos os TipoUsuario do banco de dados
+            </summary>
+            <returns>Lista de objetos TipoUsuario</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.UsuarioRepository.BuscarPorEmailESenha(System.String,System.String)">
+            <summary>
+            Busca Objeto Usuario no banco por meio de um email e senha inseridos. Comparando as senhas criptografadas (em hash)
+            </summary>
+            <param name="email">Email inserido</param>
+            <param name="senha">Senha inserida</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.UsuarioRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca Objeto Usuario no banco por meio de um id inserido
+            </summary>
+            <param name="id">Id do usuário inserido</param>
+            <returns>Objeto do tipo Usuario</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.UsuarioRepository.Cadastrar(webapi.event_.tarde.Domains.Usuario)">
+            <summary>
+            Cadastra objeto do tipo Usuario no banco de dados. Gerando hash de criptografia da senha
+            </summary>
+            <param name="usuario">Objeto do tipo Usuario</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Utils.Criptografia.GerarHash(System.String)">
+            <summary>
+            Gera uma Hash a partir de uma senha
+            </summary>
+            <param name="senha">Senha que receberá a hash</param>
+            <returns>Senha criptografada com a hash</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Utils.Criptografia.CompararHash(System.String,System.String)">
+            <summary>
+            Verifica se a hash da senha informada é igual à hash salva no bd
+            </summary>
+            <param name="senhaFormulario">Senha passada no form de Login</param>
+            <param name="senhaBD">Senha cadastrada no banc</param>
+            <returns>True ou False</returns>
+        </member>
+    </members>
+</doc>
