@@ -23,10 +23,9 @@ namespace webapi.event_.tarde.Repositories
             if (tipoUsuarioBuscado != null)
             {
                 tipoUsuarioBuscado.Titulo = tipoUsuario.Titulo;
+                _eventContext.TipoUsuario.Update(tipoUsuarioBuscado!);
+                _eventContext.SaveChanges();
             }
-
-            _eventContext.TipoUsuario.Update(tipoUsuarioBuscado!);
-            _eventContext.SaveChanges();
         }
 
         //[Authorize("Administrador")]
@@ -35,7 +34,7 @@ namespace webapi.event_.tarde.Repositories
             return _eventContext.TipoUsuario.FirstOrDefault(u => u.IdTipoUsuario == id)!;
         }
 
-        
+
         public void Cadastrar(TipoUsuario tipoUsuario)
         {
             _eventContext.TipoUsuario.Add(tipoUsuario);

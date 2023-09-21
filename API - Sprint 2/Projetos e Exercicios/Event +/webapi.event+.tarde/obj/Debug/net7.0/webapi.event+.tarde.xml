@@ -4,6 +4,48 @@
         <name>webapi.event+.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.GetAll">
+            <summary>
+            Busca todas as Instituições da tabela no Banco
+            </summary>
+            <returns>Lista de Instituições e StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Post(webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Cadastra uma nova Instituição na tabela no banco
+            </summary>
+            <param name="instituicao">Objeto do tipo Instituicao</param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.GetById(System.Guid)">
+            <summary>
+            Busca Instituicao por meio do id especificado
+            </summary>
+            <param name="id">Id da instituicao</param>
+            <returns>Objeto do tipo Instituicao ou StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Delete(System.Guid)">
+            <summary>
+            Deleta uma Instituicao por meio de um id especificado
+            </summary>
+            <param name="id">Id da Instituicao</param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Put(System.Guid,webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Atualiza uma Instituicao na tabela do banco
+            </summary>
+            <param name="id">Id da Instituicao</param>
+            <param name="instituicao">Objeto do tipo Id</param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Post(webapi.event_.tarde.Domains.TipoEvento)">
+            <summary>
+            Cadastra um TipoEveto na tabela no banco
+            </summary>
+            <param name="tipoEvento"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Post(webapi.event_.tarde.Domains.TipoUsuario)">
             <summary>
             Cadastra um novo tipoUsuario na tabela TipoUsuario do banco de dados
@@ -82,6 +124,75 @@
         </member>
         <member name="M:webapi.event_.tarde.Migrations.BD_v1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.InstituicaoRepository.Atualizar(System.Guid,webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Atualiza uma Instituicao por id do banco
+            </summary>
+            <param name="id">Id da Instituicao</param>
+            <param name="instituicao">Objeto do tipo Instituicao</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.InstituicaoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca uma Instituicao por id do banco
+            </summary>
+            <param name="id">Id da instituição</param>
+            <returns>Objeto do tipo Insituicao</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.InstituicaoRepository.BuscarTodos">
+            <summary>
+            Busca todas as Instituicoes salvas
+            </summary>
+            <returns>Lista de Objetos tipo Instituicao</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.InstituicaoRepository.Cadastrar(webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Cadastra uma nova Instituicao no banco de dados
+            </summary>
+            <param name="instituicao">Objeto do tipo Instituicao</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.InstituicaoRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta uma Instituicao por id no banco de dados
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="T:webapi.event_.tarde.Repositories.TipoEventoRepository">
+            <summary>
+            Repositório de Tipo de Evento
+            </summary>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.TipoEventoRepository.Cadastrar(webapi.event_.tarde.Domains.TipoEvento)">
+            <summary>
+            Cadastra um TipoUsuario na tabela do banco
+            </summary>
+            <param name="tipoEvento">Objeto do tipo TipoEvento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.TipoEventoRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um TipoEvento da tabela do banco
+            </summary>
+            <param name="id">Id do TipoEvento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.TipoEventoRepository.Atualizar(System.Guid,webapi.event_.tarde.Domains.TipoEvento)">
+            <summary>
+            Atualizar um TipoEvento buscado por id
+            </summary>
+            <param name="id">Id do TipoEvento</param>
+            <param name="tipoEvento">Objeto do tipo TipoEvento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.TipoEventoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca um TipoEvento por id
+            </summary>
+            <param name="id">Id do TipoEvento</param>
+            <returns>Objeto do tipo TipoEvento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.TipoEventoRepository.BuscarTodos">
+            <summary>
+            Busca todos os TipoEvento da tabela do banco
+            </summary>
+            <returns>Lista de Objetos do tipo TipoEvento</returns>
         </member>
         <member name="M:webapi.event_.tarde.Repositories.TipoUsuarioRepository.Deletar(System.Guid)">
             <summary>

@@ -27,7 +27,7 @@ namespace webapi.event_.tarde.Interfaces
         /// </summary>
         /// <param name="id">Id da instituicao</param>
         /// <returns>Lista de objetos Insituicao</returns>
-        List<Instituicao> BuscarPorId(Guid id);
+        Instituicao BuscarPorId(Guid id);
 
         /// <summary>
         /// Atualiza um objeto Insituicao existenteS
