@@ -14,7 +14,8 @@ namespace webapi.event_.tarde.Interfaces
         /// Método que deleta uma Evento
         /// </summary>
         /// <param name="id">Id da Evento</param>
-        void Deletar(Guid id);
+        /// <returns>Objeto tipo Evento</returns>
+        Evento Deletar(Guid id);
 
         /// <summary>
         /// Busca lista de todos objetos Evento
@@ -34,6 +35,7 @@ namespace webapi.event_.tarde.Interfaces
         /// </summary>
         /// <param name="id">Id da Evento</param>
         /// <param name="evento">Objeto do tipo Evento</param>
-        void Atualizar(Guid id, Evento evento);
+        /// <returns>Objeto tipo Evento</returns>
+        Evento Atualizar(Guid id, Evento evento);
     }
 }

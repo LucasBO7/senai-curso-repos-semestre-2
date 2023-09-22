@@ -4,6 +4,41 @@
         <name>webapi.event+.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.Post(webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Cadastra um novo Evento na tabela do banco
+            </summary>
+            <param name="novoEvento">Objeto do tipo Evento</param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.Delete(System.Guid)">
+            <summary>
+            Deleta um Evento na tabela do banco
+            </summary>
+            <param name="id">Id do Evento</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.Put(System.Guid,webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Atualiza um Evento na tabela do banco
+            </summary>
+            <param name="id">Id do Evento</param>
+            <param name="evento">Objeto do tipo Evento</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.GetById(System.Guid)">
+            <summary>
+            Busca um Evento pelo id
+            </summary>
+            <param name="id">Id do Evento</param>
+            <returns>Statuscode com/sem Objeto do tipo Evento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.GetAll">
+            <summary>
+            Busca lista de todos eventos salvos na tabela do banco
+            </summary>
+            <returns>Statuscode com/sem Objeto do tipo Evento</returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.GetAll">
             <summary>
             Busca todas as Instituições da tabela no Banco
@@ -46,6 +81,34 @@
             <param name="tipoEvento"></param>
             <returns></returns>
         </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Delete(System.Guid)">
+            <summary>
+            Deleta um Tipo de evento por id
+            </summary>
+            <param name="id">Id do TipoEvento</param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Put(System.Guid,webapi.event_.tarde.Domains.TipoEvento)">
+            <summary>
+            Atualiza um Tipo de evento por id
+            </summary>
+            <param name="id">Id do Tipo de evento</param>
+            <param name="tipoEvento">Objeto do tipo TipoEvento</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.GetAll">
+            <summary>
+            Busca todos os TipoEvento salvos
+            </summary>
+            <returns>Lista de TipoEvento ou StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.GetById(System.Guid)">
+            <summary>
+            Busca um TipoEvento por id
+            </summary>
+            <param name="id">Id do TipoEvento</param>
+            <returns>TipoEvento ou StatusCode</returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Post(webapi.event_.tarde.Domains.TipoUsuario)">
             <summary>
             Cadastra um novo tipoUsuario na tabela TipoUsuario do banco de dados
@@ -80,6 +143,40 @@
             <param name="id">Id do usuário</param>
             <param name="tipoUsuario">Objeto TipoUsuario</param>
             <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IEventoRepository.Cadastrar(webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Método que realiza o cadastro de uma Evento
+            </summary>
+            <param name="evento">Objeto do tipo Evento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IEventoRepository.Deletar(System.Guid)">
+            <summary>
+            Método que deleta uma Evento
+            </summary>
+            <param name="id">Id da Evento</param>
+            <returns>Objeto tipo Evento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IEventoRepository.BuscarTodos">
+            <summary>
+            Busca lista de todos objetos Evento
+            </summary>
+            <returns>Lista de objetos Evento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IEventoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca objeto Evento por id
+            </summary>
+            <param name="id">Id da Evento</param>
+            <returns>Lista de objetos Evento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IEventoRepository.Atualizar(System.Guid,webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Atualiza um objeto Evento existenteS
+            </summary>
+            <param name="id">Id da Evento</param>
+            <param name="evento">Objeto do tipo Evento</param>
+            <returns>Objeto tipo Evento</returns>
         </member>
         <member name="M:webapi.event_.tarde.Interfaces.IInstituicaoRepository.Cadastrar(webapi.event_.tarde.Domains.Instituicao)">
             <summary>
@@ -124,6 +221,50 @@
         </member>
         <member name="M:webapi.event_.tarde.Migrations.BD_v1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="T:webapi.event_.tarde.Migrations.ForeignKeyInserida">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.ForeignKeyInserida.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.ForeignKeyInserida.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Migrations.ForeignKeyInserida.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.EventoRepository.Cadastrar(webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Cadastra um novo Evento no banco
+            </summary>
+            <param name="evento">Objeto do tipo Evento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.EventoRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta um Evento por id
+            </summary>
+            <param name="id">Id do Evento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.EventoRepository.Atualizar(System.Guid,webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Atualiza um Evento por id
+            </summary>
+            <param name="id">Id do Evento</param>
+            <param name="evento"></param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.EventoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca um Evento por id
+            </summary>
+            <param name="id">Id do Evento</param>
+            <returns>Objeto do tipo Evento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.EventoRepository.BuscarTodos">
+            <summary>
+            Busca todos os eventos do banco
+            </summary>
+            <returns>Lista de objetos do tipo Evento</returns>
         </member>
         <member name="M:webapi.event_.tarde.Repositories.InstituicaoRepository.Atualizar(System.Guid,webapi.event_.tarde.Domains.Instituicao)">
             <summary>

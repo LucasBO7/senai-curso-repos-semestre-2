@@ -31,6 +31,8 @@ namespace webapi.event_.tarde.Domains
         // Referência tabela Instituição = FK
         [Required(ErrorMessage = "A instituição é obrigatória!")]
         public Guid IdInstituicao { get; set; }
+
+        [ForeignKey(nameof(IdInstituicao))]
         public Instituicao? Instituicao { get; set; }
     }
 }

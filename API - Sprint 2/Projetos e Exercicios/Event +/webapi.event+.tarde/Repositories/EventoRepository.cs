@@ -30,7 +30,7 @@ namespace webapi.event_.tarde.Repositories
         /// Deleta um Evento por id
         /// </summary>
         /// <param name="id">Id do Evento</param>
-        public void Deletar(Guid id)
+        public Evento Deletar(Guid id)
         {
             Evento eventoBuscado = _eventContext.Evento.FirstOrDefault(e => e.IdEvento == id)!;
 
@@ -38,7 +38,9 @@ namespace webapi.event_.tarde.Repositories
             {
                 _eventContext.Evento.Remove(eventoBuscado);
                 _eventContext.SaveChanges();
+                return eventoBuscado;
             }
+            return null!;
         }
 
         /// <summary>
@@ -46,7 +48,7 @@ namespace webapi.event_.tarde.Repositories
         /// </summary>
         /// <param name="id">Id do Evento</param>
         /// <param name="evento"></param>
-        public void Atualizar(Guid id, Evento evento)
+        public Evento Atualizar(Guid id, Evento evento)
         {
             Evento eventoBuscado = _eventContext.Evento.FirstOrDefault(e => e.IdEvento == id)!;
 
@@ -62,7 +64,9 @@ namespace webapi.event_.tarde.Repositories
                 };
                 _eventContext.Evento.Update(eventoBuscado);
                 _eventContext.SaveChanges();
+                return eventoBuscado;
             }
+            return null!;
         }
 
         /// <summary>
@@ -72,7 +76,26 @@ namespace webapi.event_.tarde.Repositories
         /// <returns>Objeto do tipo Evento</returns>
         public Evento BuscarPorId(Guid id)
         {
-            return _eventContext.Evento.FirstOrDefault(e => e.IdEvento == id)!;
+            return _eventContext.Evento.Select(e => new Evento()
+            {
+                DataEvento = e.DataEvento,
+                NomeEvento = e.NomeEvento,
+                Descricao = e.Descricao,
+                IdTipoEvento = e.IdTipoEvento,
+                IdInstituicao = e.IdInstituicao,
+                TipoEvento = new()
+                {
+                    IdTipoEvento = e.TipoEvento!.IdTipoEvento,
+                    Titulo = e.TipoEvento.Titulo
+                },
+                Instituicao = new()
+                {
+                    IdInstituicao = e.Instituicao!.IdInstituicao,
+                    CNPJ = e.Instituicao.CNPJ!,
+                    Endereco = e.Instituicao.Endereco,
+                    NomeFantasia = e.Instituicao.NomeFantasia
+                }
+            }).FirstOrDefault(e => e.IdEvento == id)!;
         }
 
         /// <summary>
@@ -81,7 +104,26 @@ namespace webapi.event_.tarde.Repositories
         /// <returns>Lista de objetos do tipo Evento</returns>
         public List<Evento> BuscarTodos()
         {
-            List<Evento> listaEventos = _eventContext.Evento.ToList();
+            List<Evento> listaEventos = _eventContext.Evento.Select(e => new Evento()
+            {
+                DataEvento = e.DataEvento,
+                NomeEvento = e.NomeEvento,
+                Descricao = e.Descricao,
+                IdTipoEvento = e.IdTipoEvento,
+                IdInstituicao = e.IdInstituicao,
+                TipoEvento = new()
+                {
+                    IdTipoEvento = e.TipoEvento!.IdTipoEvento,
+                    Titulo = e.TipoEvento.Titulo
+                },
+                Instituicao = new()
+                {
+                    IdInstituicao = e.Instituicao!.IdInstituicao,
+                    CNPJ = e.Instituicao.CNPJ!,
+                    Endereco = e.Instituicao.Endereco,
+                    NomeFantasia = e.Instituicao.NomeFantasia
+                }
+            }).ToList();
 
             if (listaEventos != null)
             {
