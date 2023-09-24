@@ -298,6 +298,40 @@
             </summary>
             <param name="id"></param>
         </member>
+        <member name="M:webapi.event_.tarde.Repositories.PresencaEventoRepository.Cadastrar(webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            Cadastra uma PresencaEvento na tabela do banco
+            </summary>
+            <param name="presencaEvento">Objeto do tipo PresencaEvento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.PresencaEventoRepository.Deletar(System.Guid)">
+            <summary>
+            Deleta uma PresencaEvento na tabela do banco
+            </summary>
+            <param name="id">Id da PresencaEvento</param>
+            <returns>Objeto do tipo PresencaEvento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.PresencaEventoRepository.Atualizar(System.Guid,webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            Atualiza dados de uma PresencaEvento existente
+            </summary>
+            <param name="id">Id para pesquisa da PresencaEvento</param>
+            <param name="presencaEvento">Objeto do tipo PresencaEvento</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.PresencaEventoRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca uma PresencaEvento por id
+            </summary>
+            <param name="id">Id da PresencaEvento</param>
+            <returns>Objeto do tipo PresencaEvento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.PresencaEventoRepository.BuscarTodos">
+            <summary>
+            Busca todas as PresencaEvento existentes na tabela do banco
+            </summary>
+            <returns>Lista de objetos do tipo PresencaEvento</returns>
+        </member>
         <member name="T:webapi.event_.tarde.Repositories.TipoEventoRepository">
             <summary>
             Repositório de Tipo de Evento

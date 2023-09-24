@@ -44,7 +44,12 @@ namespace webapi.event_.tarde.Repositories
             return null!;
         }
 
-
+        /// <summary>
+        /// Atualiza dados de uma PresencaEvento existente
+        /// </summary>
+        /// <param name="id">Id para pesquisa da PresencaEvento</param>
+        /// <param name="presencaEvento">Objeto do tipo PresencaEvento</param>
+        /// <returns></returns>
         public PresencaEvento Atualizar(Guid id, PresencaEvento presencaEvento)
         {
             PresencaEvento presencaEventoBuscado = _eventContext.PresencaEvento.FirstOrDefault(e => e.IdEvento == id)!;
@@ -65,6 +70,11 @@ namespace webapi.event_.tarde.Repositories
             return null!;
         }
 
+        /// <summary>
+        /// Busca uma PresencaEvento por id
+        /// </summary>
+        /// <param name="id">Id da PresencaEvento</param>
+        /// <returns>Objeto do tipo PresencaEvento</returns>
         public PresencaEvento BuscarPorId(Guid id)
         {
             return _eventContext.PresencaEvento.Select(e => new PresencaEvento()
@@ -90,6 +100,10 @@ namespace webapi.event_.tarde.Repositories
             }).FirstOrDefault(e => e.IdPresencaEvento == id)!;
         }
 
+        /// <summary>
+        /// Busca todas as PresencaEvento existentes na tabela do banco
+        /// </summary>
+        /// <returns>Lista de objetos do tipo PresencaEvento</returns>
         public List<PresencaEvento> BuscarTodos()
         {
             List<PresencaEvento> presencaEventos = _eventContext.PresencaEvento.Select(p => new PresencaEvento()

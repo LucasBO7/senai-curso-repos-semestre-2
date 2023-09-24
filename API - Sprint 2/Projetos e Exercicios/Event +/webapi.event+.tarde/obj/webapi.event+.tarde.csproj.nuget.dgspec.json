@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj": {}
+    "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj": {}
   },
   "projects": {
-    "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj": {
+    "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
+        "projectUniqueName": "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
         "projectName": "webapi.event+.tarde",
-        "projectPath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
-        "packagesPath": "C:\\Users\\41365718875\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\obj\\",
+        "projectPath": "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
+        "packagesPath": "C:\\Users\\cleb_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cleb_\\Desktop\\senai-curso-repos-semestre-2\\API - Sprint 2\\Projetos e Exercicios\\Event +\\webapi.event+.tarde\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\41365718875\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cleb_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

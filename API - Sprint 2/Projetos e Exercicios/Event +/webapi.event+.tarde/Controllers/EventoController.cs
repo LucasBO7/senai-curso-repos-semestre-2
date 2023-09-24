@@ -50,9 +50,7 @@ namespace webapi.event_.tarde.Controllers
                 Evento eventoBuscado = _eventoRepository.Deletar(id);
 
                 if (eventoBuscado != null)
-                {
                     return Ok("Evento deletado com sucesso!");
-                }
                 return NotFound("Evento inserido não encontrado! Verifique os dados inseridos!");
             }
             catch (Exception erro)
