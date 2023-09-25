@@ -33,7 +33,9 @@ namespace webapi.event_.tarde.Repositories
         /// <returns>Objeto do tipo PresencaEvento</returns>
         public PresencaEvento Deletar(Guid id)
         {
-            PresencaEvento presencaEventoBuscado = _eventContext.PresencaEvento.FirstOrDefault(e => e.IdPresencaEvento == id)!;
+            PresencaEvento presencaEventoBuscado = _eventContext.PresencaEvento.FirstOrDefault(
+                e => e.IdPresencaEvento == id
+            )!;
 
             if (presencaEventoBuscado != null)
             {
@@ -52,7 +54,9 @@ namespace webapi.event_.tarde.Repositories
         /// <returns></returns>
         public PresencaEvento Atualizar(Guid id, PresencaEvento presencaEvento)
         {
-            PresencaEvento presencaEventoBuscado = _eventContext.PresencaEvento.FirstOrDefault(e => e.IdEvento == id)!;
+            PresencaEvento presencaEventoBuscado = _eventContext.PresencaEvento.FirstOrDefault(
+                e => e.IdEvento == id
+            )!;
 
             if (presencaEventoBuscado != null)
             {
@@ -77,27 +81,32 @@ namespace webapi.event_.tarde.Repositories
         /// <returns>Objeto do tipo PresencaEvento</returns>
         public PresencaEvento BuscarPorId(Guid id)
         {
-            return _eventContext.PresencaEvento.Select(e => new PresencaEvento()
-            {
-                IdPresencaEvento = e.IdPresencaEvento,
-                Situacao = e.Situacao,
-                IdUsuario = e.IdUsuario,
-                IdEvento = e.IdEvento,
-                Evento = new()
-                {
-                    DataEvento = e.Evento!.DataEvento,
-                    NomeEvento = e.Evento.NomeEvento,
-                    Descricao = e.Evento.Descricao,
-                    IdTipoEvento = e.Evento.IdTipoEvento,
-                    IdInstituicao = e.Evento.IdInstituicao
-                },
-                Usuario = new()
-                {
-                    IdUsuario = e.Usuario!.IdUsuario,
-                    Nome = e.Usuario.Nome,
-                    Email = e.Usuario.Email,
-                }
-            }).FirstOrDefault(e => e.IdPresencaEvento == id)!;
+            return _eventContext.PresencaEvento
+                .Select(
+                    e =>
+                        new PresencaEvento()
+                        {
+                            IdPresencaEvento = e.IdPresencaEvento,
+                            Situacao = e.Situacao,
+                            IdUsuario = e.IdUsuario,
+                            IdEvento = e.IdEvento,
+                            Evento = new()
+                            {
+                                DataEvento = e.Evento!.DataEvento,
+                                NomeEvento = e.Evento.NomeEvento,
+                                Descricao = e.Evento.Descricao,
+                                IdTipoEvento = e.Evento.IdTipoEvento,
+                                IdInstituicao = e.Evento.IdInstituicao
+                            },
+                            Usuario = new()
+                            {
+                                IdUsuario = e.Usuario!.IdUsuario,
+                                Nome = e.Usuario.Nome,
+                                Email = e.Usuario.Email,
+                            }
+                        }
+                )
+                .FirstOrDefault(e => e.IdPresencaEvento == id)!;
         }
 
         /// <summary>
@@ -106,27 +115,32 @@ namespace webapi.event_.tarde.Repositories
         /// <returns>Lista de objetos do tipo PresencaEvento</returns>
         public List<PresencaEvento> BuscarTodos()
         {
-            List<PresencaEvento> presencaEventos = _eventContext.PresencaEvento.Select(p => new PresencaEvento()
-            {
-                IdPresencaEvento = p.IdPresencaEvento,
-                Situacao = p.Situacao,
-                IdUsuario = p.IdUsuario,
-                IdEvento = p.IdEvento,
-                Evento = new()
-                {
-                    DataEvento = p.Evento!.DataEvento,
-                    NomeEvento = p.Evento.NomeEvento,
-                    Descricao = p.Evento.Descricao,
-                    IdTipoEvento = p.Evento.IdTipoEvento,
-                    IdInstituicao = p.Evento.IdInstituicao
-                },
-                Usuario = new()
-                {
-                    IdUsuario = p.Usuario!.IdUsuario,
-                    Nome = p.Usuario.Nome,
-                    Email = p.Usuario.Email,
-                }
-            }).ToList();
+            List<PresencaEvento> presencaEventos = _eventContext.PresencaEvento
+                .Select(
+                    p =>
+                        new PresencaEvento()
+                        {
+                            IdPresencaEvento = p.IdPresencaEvento,
+                            Situacao = p.Situacao,
+                            IdUsuario = p.IdUsuario,
+                            IdEvento = p.IdEvento,
+                            Evento = new()
+                            {
+                                DataEvento = p.Evento!.DataEvento,
+                                NomeEvento = p.Evento.NomeEvento,
+                                Descricao = p.Evento.Descricao,
+                                IdTipoEvento = p.Evento.IdTipoEvento,
+                                IdInstituicao = p.Evento.IdInstituicao
+                            },
+                            Usuario = new()
+                            {
+                                IdUsuario = p.Usuario!.IdUsuario,
+                                Nome = p.Usuario.Nome,
+                                Email = p.Usuario.Email,
+                            }
+                        }
+                )
+                .ToList();
 
             if (presencaEventos != null)
             {
@@ -134,5 +148,20 @@ namespace webapi.event_.tarde.Repositories
             }
             return null!;
         }
+
+        public List<PresencaEvento> MinhasPresencas() {
+            string token = "event+-chave-atutenticacao-webapi"; // Substitua pelo seu token real
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadJwtToken(token);
+
+            // Agora, você pode acessar as informações do payload
+            string userId = jwtToken.Claims.First(claim => claim.Type == "Jti").Value;
+
+            List<PresencaEvento> listaPresencaEventos = _eventContext.PresencaEvento.Where(p => p.IdUsuario == userId);
+            if (listaPresencaEventos != null)
+                return listaPresencaEventos;
+            return null!;
+         }
     }
 }

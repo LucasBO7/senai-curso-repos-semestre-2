@@ -119,5 +119,22 @@ namespace webapi.event_.tarde.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                List<PresencaEvento> listaPresencaEventos = _presencaEventoRepository.PresencaEvento.MinhasPresencas();
+
+                if (listaPresencaEventos != null)
+                    return Ok(listaPresencaEventos);
+                return NotFound("Você não marcou presença em nenhum evento! Verifique os dados inseridos!");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
     }
 }
