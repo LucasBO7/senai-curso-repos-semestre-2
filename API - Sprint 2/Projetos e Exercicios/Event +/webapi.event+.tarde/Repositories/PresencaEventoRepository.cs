@@ -1,4 +1,5 @@
-﻿using webapi.event_.tarde.Context;
+﻿using System.IdentityModel.Tokens.Jwt;
+using webapi.event_.tarde.Context;
 using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
 
@@ -149,7 +150,8 @@ namespace webapi.event_.tarde.Repositories
             return null!;
         }
 
-        public List<PresencaEvento> MinhasPresencas() {
+        public List<PresencaEvento> MinhasPresencas()
+        {
             string token = "event+-chave-atutenticacao-webapi"; // Substitua pelo seu token real
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -162,6 +164,6 @@ namespace webapi.event_.tarde.Repositories
             if (listaPresencaEventos != null)
                 return listaPresencaEventos;
             return null!;
-         }
+        }
     }
 }

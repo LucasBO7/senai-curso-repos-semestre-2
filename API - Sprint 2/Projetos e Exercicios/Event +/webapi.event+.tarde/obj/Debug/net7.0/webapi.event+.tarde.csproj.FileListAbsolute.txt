@@ -166,3 +166,14 @@ C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Ex
 C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.csproj.CopyComplete
 C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.genruntimeconfig.cache
 C:\Users\cleb_\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\ref\webapi.event+.tarde.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.csproj.AssemblyReference.cache
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.AssemblyInfoInputs.cache
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.AssemblyInfo.cs
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.csproj.CoreCompileInputs.cache
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\refint\webapi.event+.tarde.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.xml
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\Event +\webapi.event+.tarde\obj\Debug\net7.0\webapi.event+.tarde.pdb

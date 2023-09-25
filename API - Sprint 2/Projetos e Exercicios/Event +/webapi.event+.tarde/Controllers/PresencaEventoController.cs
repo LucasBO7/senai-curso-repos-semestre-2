@@ -125,7 +125,7 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                List<PresencaEvento> listaPresencaEventos = _presencaEventoRepository.PresencaEvento.MinhasPresencas();
+                List<PresencaEvento> listaPresencaEventos = _presencaEventoRepository.MinhasPresencas();
 
                 if (listaPresencaEventos != null)
                     return Ok(listaPresencaEventos);

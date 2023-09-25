@@ -36,6 +36,6 @@ namespace webapi.event_.tarde.Interfaces
         /// <param name="id">Id do ComentarioEvento</param>
         /// <param name="comentarioEvento">Objeto do tipo ComentarioEvento</param>
         /// <returns>Objeto do tipo ComentarioEvento</returns>
-        ComentarioEvento Atualizar(Guid id, Evento evento);
+        ComentarioEvento Atualizar(Guid id, ComentarioEvento comentarioEvento);
     }
 }
