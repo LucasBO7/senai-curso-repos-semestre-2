@@ -4,6 +4,41 @@
         <name>webapi.event+.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Post(webapi.event_.tarde.Domains.ComentarioEvento)">
+            <summary>
+            Cadastra um novo comentario de evento na tabela do banco
+            </summary>
+            <param name="comentarioEvento">Objeto do tipo ComentarioEvento</param>
+            <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Delete(System.Guid)">
+            <summary>
+            Deleta um ComentarioEvento na tabela do banco
+            </summary>
+            <param name="id">Id do ComentarioEvento</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Put(System.Guid,webapi.event_.tarde.Domains.ComentarioEvento)">
+            <summary>
+            Atualiza um ComentarioEvento na tabela do banco
+            </summary>
+            <param name="id">Id do Evento</param>
+            <param name="comentarioEvento">Objeto do tipo Evento</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.GetById(System.Guid)">
+            <summary>
+            Busca um ComentarioEvento pelo id
+            </summary>
+            <param name="id">Id do ComentarioEvento</param>
+            <returns>Statuscode com/sem Objeto do tipo ComentarioEvento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.GetAll">
+            <summary>
+            Busca lista de todos comentários de eventos salvos na tabela do banco
+            </summary>
+            <returns>Statuscode com/sem Objeto do tipo ComentarioEvento</returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.EventoController.Post(webapi.event_.tarde.Domains.Evento)">
             <summary>
             Cadastra um novo Evento na tabela do banco
@@ -74,6 +109,41 @@
             <param name="instituicao">Objeto do tipo Id</param>
             <returns>StatusCode</returns>
         </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Post(webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            Cadastra uma presença em um Evento e Instituicao especificado por id
+            </summary>
+            <param name="presencaEvento">Objeto do tipo PresencaEvento</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.GetById(System.Guid)">
+            <summary>
+            Busca uma presença de evento na tabela do banco por ids
+            </summary>
+            <param name="id">Id da PresencaEvento</param>
+            <returns>Objeto do tipo PresencaEvento e Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.GetAll">
+            <summary>
+            Busca todas as presenças em eventos na tabela do banco
+            </summary>
+            <returns>Lista de objetos do tipo PresencaEvento e Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Put(System.Guid,webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            Atualiza uma PresencaEvento na tabela do banco
+            </summary>
+            <param name="id">Id da PresencaEvento</param>
+            <param name="presencaEvento">Objeto do tipo PresencaEvento</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaEventoController.Delete(System.Guid)">
+            <summary>
+            Deleta uma PresencaEvento na tabela do banco
+            </summary>
+            <param name="id">Id da PresencaEvento</param>
+            <returns>Statuscode</returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Post(webapi.event_.tarde.Domains.TipoEvento)">
             <summary>
             Cadastra um TipoEveto na tabela no banco
@@ -143,6 +213,40 @@
             <param name="id">Id do usuário</param>
             <param name="tipoUsuario">Objeto TipoUsuario</param>
             <returns>StatusCode</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IComentarioEvento.Cadastrar(webapi.event_.tarde.Domains.ComentarioEvento)">
+            <summary>
+            Método que realiza o cadastro de um comentario de um evento
+            </summary>
+            <param name="comentarioEvento">Objeto do tipo ComentarioEvento</param>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IComentarioEvento.Deletar(System.Guid)">
+            <summary>
+            Método que deleta um comentário de um evento
+            </summary>
+            <param name="id">Id do ComentarioEvento</param>
+            <returns>Objeto tipo ComentarioEvento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IComentarioEvento.BuscarTodos">
+            <summary>
+            Busca lista de todos objetos ComentarioEvento
+            </summary>
+            <returns>Lista de objetos ComentarioEvento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IComentarioEvento.BuscarPorId(System.Guid)">
+            <summary>
+            Busca objeto ComentarioEvento por id
+            </summary>
+            <param name="id">Id do ComentarioEvento</param>
+            <returns>Lista de objetos ComentarioEvento</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Interfaces.IComentarioEvento.Atualizar(System.Guid,webapi.event_.tarde.Domains.ComentarioEvento)">
+            <summary>
+            Atualiza um objeto ComentarioEvento existente
+            </summary>
+            <param name="id">Id do ComentarioEvento</param>
+            <param name="comentarioEvento">Objeto do tipo ComentarioEvento</param>
+            <returns>Objeto do tipo ComentarioEvento</returns>
         </member>
         <member name="M:webapi.event_.tarde.Interfaces.IEventoRepository.Cadastrar(webapi.event_.tarde.Domains.Evento)">
             <summary>

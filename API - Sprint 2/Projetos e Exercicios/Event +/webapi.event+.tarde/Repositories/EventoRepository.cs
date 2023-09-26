@@ -76,13 +76,13 @@ namespace webapi.event_.tarde.Repositories
         /// <returns>Objeto do tipo Evento</returns>
         public Evento BuscarPorId(Guid id)
         {
-            return _eventContext.Evento.Select(e => new Evento()
+            Evento eventoBuscado = _eventContext.Evento.Select(e => new Evento()
             {
+                IdEvento = e.IdEvento,
                 DataEvento = e.DataEvento,
                 NomeEvento = e.NomeEvento,
                 Descricao = e.Descricao,
                 IdTipoEvento = e.IdTipoEvento,
-                IdInstituicao = e.IdInstituicao,
                 TipoEvento = new()
                 {
                     IdTipoEvento = e.TipoEvento!.IdTipoEvento,
@@ -96,6 +96,8 @@ namespace webapi.event_.tarde.Repositories
                     NomeFantasia = e.Instituicao.NomeFantasia
                 }
             }).FirstOrDefault(e => e.IdEvento == id)!;
+
+            return eventoBuscado;
         }
 
         /// <summary>
@@ -106,11 +108,11 @@ namespace webapi.event_.tarde.Repositories
         {
             List<Evento> listaEventos = _eventContext.Evento.Select(e => new Evento()
             {
+                IdEvento = e.IdEvento,
                 DataEvento = e.DataEvento,
                 NomeEvento = e.NomeEvento,
                 Descricao = e.Descricao,
                 IdTipoEvento = e.IdTipoEvento,
-                IdInstituicao = e.IdInstituicao,
                 TipoEvento = new()
                 {
                     IdTipoEvento = e.TipoEvento!.IdTipoEvento,

@@ -120,7 +120,7 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("MinhasPresencas")]
         public IActionResult Get()
         {
             try

@@ -158,9 +158,9 @@ namespace webapi.event_.tarde.Repositories
             var jwtToken = tokenHandler.ReadJwtToken(token);
 
             // Agora, você pode acessar as informações do payload
-            string userId = jwtToken.Claims.First(claim => claim.Type == "Jti").Value;
+            Guid userId = new Guid(jwtToken.Claims.First(claim => claim.Type == "Jti").Value);
 
-            List<PresencaEvento> listaPresencaEventos = _eventContext.PresencaEvento.Where(p => p.IdUsuario == userId);
+            List<PresencaEvento> listaPresencaEventos = _eventContext.PresencaEvento.Where(p => p.IdUsuario == userId).ToList();
             if (listaPresencaEventos != null)
                 return listaPresencaEventos;
             return null!;

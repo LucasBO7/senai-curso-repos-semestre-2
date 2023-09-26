@@ -16,11 +16,8 @@ namespace webapi.event_.tarde.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source = NOTE14-S15; initial catalog = event+_tarde; User Id=sa; Pwd=Senai@134; TrustServerCertificate = true;");
+            optionsBuilder.UseSqlServer(@"Data Source = DESKTOP-84UMQCT\SQLEXPRESS; initial catalog = Event+_Tarde; User Id=sa; Pwd=Senai@134; TrustServerCertificate = true;");
             base.OnConfiguring(optionsBuilder);
         }
-
-
-
     }
 }

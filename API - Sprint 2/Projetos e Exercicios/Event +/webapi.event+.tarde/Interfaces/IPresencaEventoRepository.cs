@@ -9,5 +9,6 @@ namespace webapi.event_.tarde.Interfaces
         List<PresencaEvento> BuscarTodos();
         PresencaEvento BuscarPorId(Guid id);
         PresencaEvento Atualizar(Guid id, PresencaEvento presencaEvento);
+        List<PresencaEvento> MinhasPresencas();
     }
 }
