@@ -31,5 +31,33 @@ namespace Health_Clinic_api.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                List<Paciente> pacientes = _pacienteRepository.BuscarTodos();
+                return Ok(pacientes);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpGet("ConsultasDoPaciente")]
+        public IActionResult GetQueryByPatientId(Guid id)
+        {
+            try
+            {
+                List<Consulta> consultas = _pacienteRepository.BuscarConsultasPorPaciente(id);
+                return Ok(consultas);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
     }
 }

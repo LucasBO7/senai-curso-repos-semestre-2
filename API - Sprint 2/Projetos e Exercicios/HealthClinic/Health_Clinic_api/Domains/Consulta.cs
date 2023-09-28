@@ -17,9 +17,9 @@ namespace Health_Clinic_api.Domains
         public Medico? Medico { get; set; }
 
 
-        [Required(ErrorMessage = "O id do feedback é obrigatório!")]
-        public Guid IdFeedback { get; set; }
-        [ForeignKey(nameof(IdFeedback))]
+        [Required(ErrorMessage = "O id do comentário é obrigatório!")]
+        public Guid IdComentario { get; set; }
+        [ForeignKey(nameof(IdComentario))]
         public Comentario? Comentario { get; set; }
 
 
@@ -30,6 +30,8 @@ namespace Health_Clinic_api.Domains
 
         [Column(TypeName = "DATE")]
         [Required(ErrorMessage = "A data é obrigatória!")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Data { get; set; }
 
         [Column(TypeName = "TEXT")]

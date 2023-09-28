@@ -8,7 +8,7 @@ namespace Health_Clinic_api.Domains
     public class Comentario
     {
         [Key]
-        public Guid IdFeedback { get; set; } = Guid.NewGuid();
+        public Guid IdComentario { get; set; } = Guid.NewGuid();
 
 
         [Required(ErrorMessage = "O id do paciente é obrigatório!")]

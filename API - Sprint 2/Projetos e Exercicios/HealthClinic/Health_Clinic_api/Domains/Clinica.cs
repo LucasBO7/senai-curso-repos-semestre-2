@@ -23,13 +23,17 @@ namespace Health_Clinic_api.Domains
         [Required(ErrorMessage = "A Razão social é obrigatória!")]
         public string? RazaoSocial { get; set; }
 
-        [Column(TypeName = "VARCHAR(5)")]
+        [Column(TypeName = "TIME")]
         [Required(ErrorMessage = "O horário de abertura é obrigatório!")]
-        public string? HorarioAbertura { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"hh\:mm")]
+        public TimeSpan HorarioAbertura { get; set; }
 
-        [Column(TypeName = "VARCHAR(5)")]
+        [Column(TypeName = "TIME")]
         [Required(ErrorMessage = "O horário de fechamento é obrigatório!")]
-        public string? HorarioFechamento { get; set; }
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"hh\:mm")]
+        public TimeSpan HorarioFechamento { get; set; }
 
         [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "O endereço é obrigatório!")]

@@ -10,21 +10,34 @@ namespace Health_Clinic_api.Controllers
     [Produces("application/json")]
     public class MedicoController : ControllerBase
     {
-        private IMedicoRepository _clinicaRepository { get; set; }
+        private IMedicoRepository _medicoRepository { get; set; }
 
         public MedicoController()
         {
-            _clinicaRepository = new MedicoRepository();
+            _medicoRepository = new MedicoRepository();
         }
-
 
         [HttpPost]
         public IActionResult Post(Medico novoMedico)
         {
             try
             {
-                _clinicaRepository.Cadastrar(novoMedico);
+                _medicoRepository.Cadastrar(novoMedico);
                 return Ok("Médico cadastrado com sucesso!");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            try
+            {
+                List<Medico> medicos = _medicoRepository.BuscarTodos();
+                return Ok(medicos);
             }
             catch (Exception erro)
             {

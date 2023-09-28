@@ -4,6 +4,7 @@ using Health_Clinic_api.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Health_Clinic_api.Migrations
 {
     [DbContext(typeof(HealthClinicContext))]
-    partial class HealthClinicContextModelSnapshot : ModelSnapshot
+    [Migration("20230928180412_AjustadoPropriedades&CriadoClasseTipoUsuario")]
+    partial class AjustadoPropriedadesCriadoClasseTipoUsuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,7 +93,7 @@ namespace Health_Clinic_api.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("DATE");
 
-                    b.Property<Guid>("IdComentario")
+                    b.Property<Guid>("IdFeedback")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("IdMedico")
@@ -105,7 +108,7 @@ namespace Health_Clinic_api.Migrations
 
                     b.HasKey("IdConsulta");
 
-                    b.HasIndex("IdComentario");
+                    b.HasIndex("IdFeedback");
 
                     b.HasIndex("IdMedico");
 
@@ -239,7 +242,7 @@ namespace Health_Clinic_api.Migrations
                 {
                     b.HasOne("Health_Clinic_api.Domains.Comentario", "Comentario")
                         .WithMany()
-                        .HasForeignKey("IdComentario")
+                        .HasForeignKey("IdFeedback")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
