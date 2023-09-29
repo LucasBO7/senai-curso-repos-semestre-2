@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Health_Clinic_api</name>
+    </assembly>
+    <members>
+        <member name="M:Health_Clinic_api.Controllers.ClinicaController.Post(Health_Clinic_api.Domains.Clinica)">
+            <summary>
+            Método que executa função Cadastrar da ClinicaRepository
+            </summary>
+            <param name="novaClinica">Objeto do tipo Clinica</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ConsultaController.Post(Health_Clinic_api.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova consulta
+            </summary>
+            <param name="novaConsulta">Objeto do tipo Consulta</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ConsultaController.GetById(System.Guid)">
+            <summary>
+            Buscar uma consulta por id
+            </summary>
+            <param name="id">Id da consulta</param>
+            <returns>Objeto do tipo Consulta e statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ConsultaController.Delete(System.Guid)">
+            <summary>
+            Remove/Deleta um objeto do tipo Consulta pelo id
+            </summary>
+            <param name="clinica">Id da consulta</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ConsultaController.Put(System.Guid,System.String)">
+            <summary>
+            Altera uma consulta por meio do id
+            </summary>
+            <param name="id">Id da Consulta buscada</param>
+            <param name="prontuario">Prontuário a ser inserido</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.LoginController.Post(Health_Clinic_api.ViewModels.LoginViewModel)">
+            <summary>
+            Retorna uma chave de autenticação do usuário
+            </summary>
+            <param name="loginViewModel">Objeto do tipo LoginViewModel</param>
+            <returns>Chave de autenticação ou statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.UsuarioController.Post(Health_Clinic_api.Domains.Usuario)">
+            <summary>
+            Cadastra um novo usuário
+            </summary>
+            <param name="novoUsuario">Objeto do tipo Usuario</param>
+            <returns>Statucode</returns>
+        </member>
+        <member name="T:Health_Clinic_api.Migrations.BD">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_api.Migrations.BD.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_api.Migrations.BD.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_api.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ClinicaRepository.Cadastrar(Health_Clinic_api.Domains.Clinica)">
+            <summary>
+            Cadastra uma Clinica na tabela no banco
+            </summary>
+            <param name="novaClinica">Objeto do tipo Clinica</param>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ConsultaRepository.Cadastrar(Health_Clinic_api.Domains.Consulta)">
+            <summary>
+            Cadastra uma nova Consulta na tabela do banco
+            </summary>
+            <param name="novaConsulta">Objeto do tipo Consulta</param>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ConsultaRepository.RemoverPorId(System.Guid)">
+            <summary>
+            Remove um Consulta por id
+            </summary>
+            <param name="id">Id do consulta</param>
+            <returns>Objeto do tipo Consulta</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ConsultaRepository.AtualizarProntuario(System.Guid,System.String)">
+            <summary>
+            Altera/Atualiza um prontuário de uma Consulta por id
+            </summary>
+            <param name="id">Id da consulta</param>
+            <param name="prontuario">Objeto do tipo string para o prontuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ConsultaRepository.BuscarPorId(System.Guid)">
+            <summary>
+            Busca uma Consulta existente no banco por id
+            </summary>
+            <param name="id">Id da Consulta</param>
+            <returns>Objeto do tipo Consulta</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.MedicoRepository.Cadastrar(Health_Clinic_api.Domains.Medico)">
+            <summary>
+            Cadastra um novo médico na tabela do banco
+            </summary>
+            <param name="novoMedico">Objeto do tipo Medico</param>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.MedicoRepository.BuscarTodos">
+            <summary>
+            Busca todos os médicos da tabela do banco
+            </summary>
+            <returns>Lista de objetos do tipo Medico</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.PacienteRepository.Cadastrar(Health_Clinic_api.Domains.Paciente)">
+            <summary>
+            Cadastra um novo Paciente na tabela do banco
+            </summary>
+            <param name="novoPaciente">Objeto do tipo Paciente</param>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.PacienteRepository.BuscarTodos">
+            <summary>
+            Busca todos os pacientes na tabela do banco
+            </summary>
+            <returns>Lista de objetos do tipo Paciente</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.PacienteRepository.BuscarConsultasPorPaciente(System.Guid)">
+            <summary>
+            Busca todas as consultas atreladas à um id do paciente
+            </summary>
+            <param name="id">Id do paciente</param>
+            <returns>Lista de objetos do tipo Consulta</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.UsuarioRepository.BuscaPorEmailESenha(System.String,System.String)">
+            <summary>
+            Busca um usuário por email e senha
+            </summary>
+            <param name="email">Email do usuário</param>
+            <param name="senha">Senha do usuário</param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Utils.Criptografia.GerarHash(System.String)">
+            <summary>
+            Gera uma Hash a partir de uma senha
+            </summary>
+            <param name="senha">Senha que receberá a hash</param>
+            <returns>Senha criptografada com a hash</returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Utils.Criptografia.CompararHash(System.String,System.String)">
+            <summary>
+            Verifica se a hash da senha informada é igual à hash salva no bd
+            </summary>
+            <param name="senhaFormulario">Senha passada no form de Login</param>
+            <param name="senhaBD">Senha cadastrada no banc</param>
+            <returns>True ou False</returns>
+        </member>
+    </members>
+</doc>

@@ -1,6 +1,8 @@
 ﻿using Health_Clinic_api.Context;
 using Health_Clinic_api.Domains;
 using Health_Clinic_api.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Health_Clinic_api.Repositories
 {
@@ -41,5 +43,40 @@ namespace Health_Clinic_api.Repositories
             return null!;
         }
 
+
+        public List<Consulta> BuscarConsultasPorMedico(Guid id)
+        {
+            return _healthClinicContext.Consulta.Where(m => m.IdMedico == id).Select(c => new Consulta()
+            {
+                IdConsulta = c.IdPaciente,
+                Data = c.Data,
+                Prontuario = c.Prontuario,
+                Medico = new()
+                {
+                    IdMedico = c.IdMedico,
+                    CRM = c.Medico.CRM,
+                    NumeroCelular = c.Medico.NumeroCelular,
+                    Especializacao = new()
+                    {
+                        IdEspecializacao = c.Medico.Especializacao.IdEspecializacao,
+                        Nome = c.Medico.Especializacao.Nome
+                    },
+                    Usuario = new()
+                    {
+                        IdUsuario = c.Medico.Usuario.IdUsuario,
+                        Nome = c.Medico.Usuario.Nome,
+                        Email = c.Medico.Usuario.Email
+                    },
+                    Clinica = new()
+                    {
+                        IdClinica = c.Medico.Clinica.IdClinica,
+                        NomeFantasia = c.Medico.Clinica.NomeFantasia,
+                        Endereco = c.Medico.Clinica.Endereco,
+                        HorarioAbertura = c.Medico.Clinica.HorarioAbertura,
+                        HorarioFechamento = c.Medico.Clinica.HorarioFechamento
+                    }
+                }
+            }).ToList();
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Health_Clinic_api.Domains;
 using Health_Clinic_api.Interfaces;
 using Health_Clinic_api.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Health_Clinic_api.Controllers
@@ -18,6 +19,7 @@ namespace Health_Clinic_api.Controllers
         }
 
         [HttpPost]
+        [Authorize("Administrador")]
         public IActionResult Post(Medico novoMedico)
         {
             try
@@ -38,6 +40,20 @@ namespace Health_Clinic_api.Controllers
             {
                 List<Medico> medicos = _medicoRepository.BuscarTodos();
                 return Ok(medicos);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpGet("ConsultasDoMedico")]
+        public IActionResult GetQueryByDoctorId(Guid id)
+        {
+            try
+            {
+                List<Consulta> consultas = _medicoRepository.BuscarConsultasPorMedico(id);
+                return Ok(consultas);
             }
             catch (Exception erro)
             {

@@ -6,6 +6,8 @@ SELECT * FROM Comentario;
 INSERT INTO Clinica(IdClinica, CNPJ, NomeFantasia, RazaoSocial, HorarioAbertura, HorarioFechamento, Endereco) 
 VALUES(NEWID(), '24563258878', 'Clinica Saúde e CIA', 'José Sias', '10:00:00', '18:00:00', 'Rua Simon Julio - 286');
 
+INSERT INTO Especializacao(IdEspecializacao, Nome) VALUES(NEWID(), 'Cardiologista');
+
 INSERT INTO Medico(IdMedico, IdClinica, IdEspecializacao, IdUsuario, CRM, NumeroCelular) 
 VALUES(NEWID(), 'B48E2E5E-9A7B-42F2-B1B7-F38F9BB1E802', 'AF7F273D-279F-444D-B9DA-31AA64332235', '3DA73535-17EE-449F-B2F4-D5BD16AFEB8A', '12516332', '952562257');
 

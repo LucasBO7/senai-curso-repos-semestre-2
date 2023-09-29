@@ -77,7 +77,6 @@ namespace Health_Clinic_api.Repositories
                     }
                 }
             }).ToList();
-            // Parei aqui
         }
     }
 }

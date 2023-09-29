@@ -41,17 +41,36 @@ namespace Health_Clinic_api.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TipoUsuario",
+                columns: table => new
+                {
+                    IdTipoUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Titulo = table.Column<string>(type: "VARCHAR(100)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TipoUsuario", x => x.IdTipoUsuario);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
                 {
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(50)", nullable: false),
-                    Senha = table.Column<string>(type: "VARCHAR(60)", maxLength: 60, nullable: false)
+                    Senha = table.Column<string>(type: "VARCHAR(60)", maxLength: 60, nullable: false),
+                    IdDoTipoUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuario", x => x.IdUsuario);
+                    table.ForeignKey(
+                        name: "FK_Usuario_TipoUsuario_IdDoTipoUsuario",
+                        column: x => x.IdDoTipoUsuario,
+                        principalTable: "TipoUsuario",
+                        principalColumn: "IdTipoUsuario",
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -73,19 +92,19 @@ namespace Health_Clinic_api.Migrations
                         column: x => x.IdClinica,
                         principalTable: "Clinica",
                         principalColumn: "IdClinica",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Medico_Especializacao_IdEspecializacao",
                         column: x => x.IdEspecializacao,
                         principalTable: "Especializacao",
                         principalColumn: "IdEspecializacao",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Medico_Usuario_IdUsuario",
                         column: x => x.IdUsuario,
                         principalTable: "Usuario",
                         principalColumn: "IdUsuario",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -106,27 +125,27 @@ namespace Health_Clinic_api.Migrations
                         column: x => x.IdUsuario,
                         principalTable: "Usuario",
                         principalColumn: "IdUsuario",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Comentario",
                 columns: table => new
                 {
-                    IdFeedback = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdComentario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", nullable: false),
                     Status = table.Column<bool>(type: "BIT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comentario", x => x.IdFeedback);
+                    table.PrimaryKey("PK_Comentario", x => x.IdComentario);
                     table.ForeignKey(
                         name: "FK_Comentario_Paciente_IdPaciente",
                         column: x => x.IdPaciente,
                         principalTable: "Paciente",
                         principalColumn: "IdPaciente",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -135,7 +154,7 @@ namespace Health_Clinic_api.Migrations
                 {
                     IdConsulta = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IdFeedback = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IdComentario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Data = table.Column<DateTime>(type: "DATE", nullable: false),
                     Prontuario = table.Column<string>(type: "TEXT", nullable: false)
@@ -144,10 +163,10 @@ namespace Health_Clinic_api.Migrations
                 {
                     table.PrimaryKey("PK_Consulta", x => x.IdConsulta);
                     table.ForeignKey(
-                        name: "FK_Consulta_Comentario_IdFeedback",
-                        column: x => x.IdFeedback,
+                        name: "FK_Consulta_Comentario_IdComentario",
+                        column: x => x.IdComentario,
                         principalTable: "Comentario",
-                        principalColumn: "IdFeedback",
+                        principalColumn: "IdComentario",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Consulta_Medico_IdMedico",
@@ -175,9 +194,9 @@ namespace Health_Clinic_api.Migrations
                 column: "IdPaciente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Consulta_IdFeedback",
+                name: "IX_Consulta_IdComentario",
                 table: "Consulta",
-                column: "IdFeedback");
+                column: "IdComentario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Consulta_IdMedico",
@@ -226,6 +245,11 @@ namespace Health_Clinic_api.Migrations
                 table: "Usuario",
                 column: "Email",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usuario_IdDoTipoUsuario",
+                table: "Usuario",
+                column: "IdDoTipoUsuario");
         }
 
         /// <inheritdoc />
@@ -245,12 +269,15 @@ namespace Health_Clinic_api.Migrations
 
             migrationBuilder.DropTable(
                 name: "Clinica");
-            
+
             migrationBuilder.DropTable(
                 name: "Especializacao");
 
             migrationBuilder.DropTable(
                 name: "Usuario");
+
+            migrationBuilder.DropTable(
+                name: "TipoUsuario");
         }
     }
 }

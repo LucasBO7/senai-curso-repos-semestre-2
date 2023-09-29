@@ -6,5 +6,6 @@ namespace Health_Clinic_api.Interfaces
     {
         void Cadastrar(Medico medico);
         List<Medico> BuscarTodos();
+        List<Consulta> BuscarConsultasPorMedico(Guid id);
     }
 }

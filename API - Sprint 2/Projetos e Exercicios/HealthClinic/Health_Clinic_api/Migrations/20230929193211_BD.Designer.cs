@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Health_Clinic_api.Migrations
 {
     [DbContext(typeof(HealthClinicContext))]
-    [Migration("20230928183756_AlteradoFeedbackParaComentario")]
-    partial class AlteradoFeedbackParaComentario
+    [Migration("20230929193211_BD")]
+    partial class BD
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -200,6 +200,21 @@ namespace Health_Clinic_api.Migrations
                     b.ToTable("Paciente");
                 });
 
+            modelBuilder.Entity("Health_Clinic_api.Domains.TipoUsuario", b =>
+                {
+                    b.Property<Guid>("IdTipoUsuario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(100)");
+
+                    b.HasKey("IdTipoUsuario");
+
+                    b.ToTable("TipoUsuario");
+                });
+
             modelBuilder.Entity("Health_Clinic_api.Domains.Usuario", b =>
                 {
                     b.Property<Guid>("IdUsuario")
@@ -209,6 +224,10 @@ namespace Health_Clinic_api.Migrations
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("VARCHAR(50)");
+
+                    b.Property<Guid?>("IdDoTipoUsuario")
+                        .IsRequired()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -223,6 +242,8 @@ namespace Health_Clinic_api.Migrations
 
                     b.HasIndex("Email")
                         .IsUnique();
+
+                    b.HasIndex("IdDoTipoUsuario");
 
                     b.ToTable("Usuario");
                 });
@@ -301,6 +322,17 @@ namespace Health_Clinic_api.Migrations
                         .IsRequired();
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("Health_Clinic_api.Domains.Usuario", b =>
+                {
+                    b.HasOne("Health_Clinic_api.Domains.TipoUsuario", "TipoUsuario")
+                        .WithMany()
+                        .HasForeignKey("IdDoTipoUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TipoUsuario");
                 });
 #pragma warning restore 612, 618
         }

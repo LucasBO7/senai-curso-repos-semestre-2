@@ -23,5 +23,11 @@ namespace Health_Clinic_api.Domains
         [Required(ErrorMessage = "A senha é obrigatória!")]
         [StringLength(60, MinimumLength = 8, ErrorMessage = "A senha deve conter de 8 a 60 caracteres")]
         public string? Senha { get; set; }
+
+
+        [Required(ErrorMessage = "O id do tipo de usuário é obrigatório!")]
+        public Guid? IdDoTipoUsuario { get; set; }
+        [ForeignKey(nameof(IdDoTipoUsuario))]
+        public TipoUsuario? TipoUsuario { get; set; }
     }
 }
