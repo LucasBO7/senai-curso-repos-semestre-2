@@ -25,15 +25,11 @@ namespace Health_Clinic_api.Domains
 
         [Column(TypeName = "TIME")]
         [Required(ErrorMessage = "O horário de abertura é obrigatório!")]
-        [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"hh\:mm")]
-        public TimeSpan HorarioAbertura { get; set; }
+        public TimeOnly HorarioAbertura { get; set; }
 
         [Column(TypeName = "TIME")]
         [Required(ErrorMessage = "O horário de fechamento é obrigatório!")]
-        [DataType(DataType.Time)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"hh\:mm")]
-        public TimeSpan HorarioFechamento { get; set; }
+        public TimeOnly HorarioFechamento { get; set; }
 
         [Column(TypeName = "VARCHAR(100)")]
         [Required(ErrorMessage = "O endereço é obrigatório!")]

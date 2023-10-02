@@ -18,6 +18,11 @@ namespace Health_Clinic_api.Controllers
             _medicoRepository = new MedicoRepository();
         }
 
+        /// <summary>
+        /// Cadastra um novo médico
+        /// </summary>
+        /// <param name="novoMedico">Objeto do tipo Medico</param>
+        /// <returns>Statuscode</returns>
         [HttpPost]
         [Authorize("Administrador")]
         public IActionResult Post(Medico novoMedico)
@@ -33,13 +38,19 @@ namespace Health_Clinic_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Busca todos os médicos do banco
+        /// </summary>
+        /// <returns>Lista de objetos do tipo Medico e Statuscode</returns>
         [HttpGet]
         public IActionResult GetAll()
         {
             try
             {
                 List<Medico> medicos = _medicoRepository.BuscarTodos();
-                return Ok(medicos);
+                if (medicos.Any())
+                    return Ok(medicos);
+                return NotFound("Nenhum médico existente!");
             }
             catch (Exception erro)
             {
@@ -47,13 +58,20 @@ namespace Health_Clinic_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Busca todas as consultas pelo Id do médico
+        /// </summary>
+        /// <param name="id">Id do médico</param>
+        /// <returns>Lista de objetos do tipo Consulta e Statuscode</returns>
         [HttpGet("ConsultasDoMedico")]
         public IActionResult GetQueryByDoctorId(Guid id)
         {
             try
             {
                 List<Consulta> consultas = _medicoRepository.BuscarConsultasPorMedico(id);
-                return Ok(consultas);
+                if (consultas.Any())
+                    return Ok(consultas);
+                return NotFound("Nenhum médico existente!");
             }
             catch (Exception erro)
             {

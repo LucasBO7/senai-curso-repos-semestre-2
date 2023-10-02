@@ -2,7 +2,6 @@
 using Health_Clinic_api.Interfaces;
 using Health_Clinic_api.Repositories;
 using Health_Clinic_api.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -33,9 +32,9 @@ namespace Health_Clinic_api.Controllers
         {
             try
             {
-                Usuario usuarioBuscado = _usuarioRepository.BuscaPorEmailESenha(loginViewModel.Email, loginViewModel.Senha);
+                Usuario usuarioBuscado = _usuarioRepository.BuscaPorEmailESenha(loginViewModel.Email!, loginViewModel.Senha!);
 
-                if (usuarioBuscado != null)
+                if (usuarioBuscado == null)
                     return NotFound("Email ou senha inválidos!");
 
 

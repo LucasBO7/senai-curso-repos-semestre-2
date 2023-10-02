@@ -15,7 +15,7 @@ namespace Health_Clinic_api.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source = NOTE14-S15; initial catalog = health_clinic_api; User Id=sa; Pwd=Senai@134; TrustServerCertificate = true;");
+            optionsBuilder.UseSqlServer(@"Data Source = NOTE14-S15; initial catalog = health_clinic_api; User Id=sa; Pwd=Senai@134; TrustServerCertificate = true;", x => x.UseDateOnlyTimeOnly());
             base.OnConfiguring(optionsBuilder);
         }
     }

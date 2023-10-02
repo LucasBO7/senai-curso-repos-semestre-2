@@ -1,7 +1,6 @@
 ﻿using Health_Clinic_api.Domains;
 using Health_Clinic_api.Interfaces;
 using Health_Clinic_api.Repositories;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Health_Clinic_api.Controllers
@@ -18,6 +17,11 @@ namespace Health_Clinic_api.Controllers
             _pacienteRepository = new PacienteRepository();
         }
 
+        /// <summary>
+        /// Cadastra um novo paciente
+        /// </summary>
+        /// <param name="novoPaciente">Objeto do tipo Paciente</param>
+        /// <returns>Statuscode</returns>
         [HttpPost]
         public IActionResult Post(Paciente novoPaciente)
         {
@@ -32,13 +36,19 @@ namespace Health_Clinic_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Busca todos os pacientes do banco
+        /// </summary>
+        /// <returns>Lista de objetos tipo Paciente e Statucode</returns>
         [HttpGet]
         public IActionResult GetAll()
         {
             try
             {
                 List<Paciente> pacientes = _pacienteRepository.BuscarTodos();
-                return Ok(pacientes);
+                if (pacientes.Any())
+                    return Ok(pacientes);
+                return NotFound("Nenhum paciente existente!");
             }
             catch (Exception erro)
             {
@@ -46,13 +56,20 @@ namespace Health_Clinic_api.Controllers
             }
         }
 
+        /// <summary>
+        /// Busca todas as consultas pelo Id do paciente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Lista de objetos do tipo Consulta e Statuscode</returns>
         [HttpGet("ConsultasDoPaciente")]
         public IActionResult GetQueryByPatientId(Guid id)
         {
             try
             {
                 List<Consulta> consultas = _pacienteRepository.BuscarConsultasPorPaciente(id);
-                return Ok(consultas);
+                if (consultas.Any())
+                    return Ok(consultas);
+                return NotFound("Não há nenhuma consulta agendada!");
             }
             catch (Exception erro)
             {

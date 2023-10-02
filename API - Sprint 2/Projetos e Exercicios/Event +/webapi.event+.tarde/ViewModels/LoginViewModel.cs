@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using webapi.event_.tarde.Domains;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace webapi.event_.tarde.ViewModels
 {

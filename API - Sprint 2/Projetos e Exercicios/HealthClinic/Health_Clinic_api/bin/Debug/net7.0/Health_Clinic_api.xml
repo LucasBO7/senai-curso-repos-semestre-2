@@ -47,6 +47,46 @@
             <param name="loginViewModel">Objeto do tipo LoginViewModel</param>
             <returns>Chave de autenticação ou statuscode</returns>
         </member>
+        <member name="M:Health_Clinic_api.Controllers.MedicoController.Post(Health_Clinic_api.Domains.Medico)">
+            <summary>
+            Cadastra um novo médico
+            </summary>
+            <param name="novoMedico">Objeto do tipo Medico</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.MedicoController.GetAll">
+            <summary>
+            Busca todos os médicos do banco
+            </summary>
+            <returns>Lista de objetos do tipo Medico e Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.MedicoController.GetQueryByDoctorId(System.Guid)">
+            <summary>
+            Busca todas as consultas pelo Id do médico
+            </summary>
+            <param name="id">Id do médico</param>
+            <returns>Lista de objetos do tipo Consulta e Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.PacienteController.Post(Health_Clinic_api.Domains.Paciente)">
+            <summary>
+            Cadastra um novo paciente
+            </summary>
+            <param name="novoPaciente">Objeto do tipo Paciente</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.PacienteController.GetAll">
+            <summary>
+            Busca todos os pacientes do banco
+            </summary>
+            <returns>Lista de objetos tipo Paciente e Statucode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.PacienteController.GetQueryByPatientId(System.Guid)">
+            <summary>
+            Busca todas as consultas pelo Id do paciente
+            </summary>
+            <param name="id"></param>
+            <returns>Lista de objetos do tipo Consulta e Statuscode</returns>
+        </member>
         <member name="M:Health_Clinic_api.Controllers.UsuarioController.Post(Health_Clinic_api.Domains.Usuario)">
             <summary>
             Cadastra um novo usuário
@@ -130,6 +170,12 @@
             </summary>
             <param name="id">Id do paciente</param>
             <returns>Lista de objetos do tipo Consulta</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.UsuarioRepository.Cadastrar(Health_Clinic_api.Domains.Usuario)">
+            <summary>
+            Cadastra um novo usuário
+            </summary>
+            <param name="novoUsuario">Objeto do tipo Usuario</param>
         </member>
         <member name="M:Health_Clinic_api.Repositories.UsuarioRepository.BuscaPorEmailESenha(System.String,System.String)">
             <summary>

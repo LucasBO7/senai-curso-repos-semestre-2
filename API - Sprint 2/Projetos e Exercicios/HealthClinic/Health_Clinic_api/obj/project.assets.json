@@ -59,6 +59,26 @@
           }
         }
       },
+      "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly/7.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0"
+        },
+        "compile": {
+          "lib/net6.0/EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/net6.0/ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.targets": {}
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -1281,6 +1301,21 @@
         "lib/netstandard2.0/BCrypt.Net-Next.xml",
         "lib/netstandard2.1/BCrypt.Net-Next.dll",
         "lib/netstandard2.1/BCrypt.Net-Next.xml",
+        "readme.md"
+      ]
+    },
+    "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly/7.0.5": {
+      "sha512": "kGXyIHaCwFrQLaRQ+iPmSuuiV9OFXa3Ykq8LC8JM7zAxTitJXJJNTGOb6jqeQzuNQwb+8KTyi6iVQgeEgf1XlA==",
+      "type": "package",
+      "path": "erikej.entityframeworkcore.sqlserver.dateonlytimeonly/7.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net6.0/ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.targets",
+        "erikej.entityframeworkcore.sqlserver.dateonlytimeonly.7.0.5.nupkg.sha512",
+        "erikej.entityframeworkcore.sqlserver.dateonlytimeonly.nuspec",
+        "lib/net6.0/EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.dll",
+        "lib/net6.0/EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.xml",
         "readme.md"
       ]
     },
@@ -3328,6 +3363,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "BCrypt.Net-Next >= 4.0.3",
+      "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly >= 7.0.5",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 7.0.11",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 7.0.11",
       "Microsoft.AspNetCore.OpenApi >= 7.0.0",
@@ -3380,6 +3416,10 @@
           "BCrypt.Net-Next": {
             "target": "Package",
             "version": "[4.0.3, )"
+          },
+          "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly": {
+            "target": "Package",
+            "version": "[7.0.5, )"
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",

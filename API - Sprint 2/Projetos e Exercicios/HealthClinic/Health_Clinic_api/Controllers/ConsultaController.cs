@@ -48,7 +48,9 @@ namespace Health_Clinic_api.Controllers
             try
             {
                 Consulta consultaBuscada = _consultaRepository.BuscarPorId(id);
-                return Ok(consultaBuscada);
+                if (consultaBuscada != null)
+                    return Ok(consultaBuscada);
+                return NotFound("Nenhum médico existente!");
             }
             catch (Exception erro)
             {

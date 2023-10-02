@@ -15,6 +15,10 @@ namespace Health_Clinic_api.Repositories
             _healthClinicContext = new HealthClinicContext();
         }
 
+        /// <summary>
+        /// Cadastra um novo usuário
+        /// </summary>
+        /// <param name="novoUsuario">Objeto do tipo Usuario</param>
         public void Cadastrar(Usuario novoUsuario)
         {
             novoUsuario.Senha = Criptografia.GerarHash(novoUsuario.Senha!);
@@ -30,16 +34,16 @@ namespace Health_Clinic_api.Repositories
         /// <returns></returns>
         public Usuario BuscaPorEmailESenha(string email, string senha)
         {
-            Usuario usuarioBuscada = _healthClinicContext.Usuario.Include(m => m.TipoUsuario).FirstOrDefault(u => u.Email == email)!;
+            Usuario usuarioBuscado = _healthClinicContext.Usuario.Include(m => m.TipoUsuario).FirstOrDefault(u => u.Email == email)!;
 
-            if (usuarioBuscada != null)
+            if (usuarioBuscado != null)
             {
-                bool senhaIgual = Criptografia.CompararHash(senha, usuarioBuscada.Senha);
+                bool senhaIgual = Criptografia.CompararHash(senha, usuarioBuscado.Senha!);
 
                 if (senhaIgual)
                 {
-                    usuarioBuscada.Senha = null;
-                    return usuarioBuscada;
+                    usuarioBuscado.Senha = null;
+                    return usuarioBuscado;
                 }
             }
             return null!;

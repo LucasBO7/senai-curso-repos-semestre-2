@@ -82,3 +82,5 @@ C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projeto
 C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\HealthClinic\Health_Clinic_api\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\HealthClinic\Health_Clinic_api\bin\Debug\net7.0\Health_Clinic_api.xml
 C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\HealthClinic\Health_Clinic_api\obj\Debug\net7.0\Health_Clinic_api.xml
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\HealthClinic\Health_Clinic_api\bin\Debug\net7.0\EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\API - Sprint 2\Projetos e Exercicios\HealthClinic\Health_Clinic_api\obj\Debug\net7.0\EFCoreSqlServerDateOnlyTimeOnly.cs

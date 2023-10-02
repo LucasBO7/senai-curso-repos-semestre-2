@@ -9,6 +9,7 @@
       "Health_Clinic_api/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly": "7.0.5",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "7.0.11",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "7.0.11",
           "Microsoft.AspNetCore.OpenApi": "7.0.0",
@@ -61,6 +62,18 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly/7.0.5": {
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "5.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.11"
+        },
+        "runtime": {
+          "lib/net6.0/EntityFrameworkCore.SqlServer.DateOnlyTimeOnly.dll": {
+            "assemblyVersion": "7.0.5.0",
+            "fileVersion": "7.0.5.0"
           }
         }
       },
@@ -689,6 +702,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly/7.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kGXyIHaCwFrQLaRQ+iPmSuuiV9OFXa3Ykq8LC8JM7zAxTitJXJJNTGOb6jqeQzuNQwb+8KTyi6iVQgeEgf1XlA==",
+      "path": "erikej.entityframeworkcore.sqlserver.dateonlytimeonly/7.0.5",
+      "hashPath": "erikej.entityframeworkcore.sqlserver.dateonlytimeonly.7.0.5.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
