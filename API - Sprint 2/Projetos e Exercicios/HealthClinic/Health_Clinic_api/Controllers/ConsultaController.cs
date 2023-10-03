@@ -61,7 +61,7 @@ namespace Health_Clinic_api.Controllers
         /// <summary>
         /// Remove/Deleta um objeto do tipo Consulta pelo id
         /// </summary>
-        /// <param name="clinica">Id da consulta</param>
+        /// <param name="id">Id da consulta</param>
         /// <returns>Statuscode</returns>
         [HttpDelete]
         public IActionResult Delete(Guid id)
@@ -100,5 +100,70 @@ namespace Health_Clinic_api.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+
+
+
+        /// <summary>
+        /// Adiciona um comentário à Consulta
+        /// </summary>
+        /// <param name="idConsulta">Id da consulta</param>
+        /// <param name="novoComentario">Objeto do tipo Comentario</param>
+        /// <returns>Statuscode</returns>
+        [HttpPut("AdicionarComentario")]
+        public IActionResult PostComment(Guid idConsulta, Comentario novoComentario)
+        {
+            try
+            {
+                _consultaRepository.AdicionarComentario(idConsulta, novoComentario);
+                return Ok("Comentário inserido com sucesso!");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Remove um comentário inserido na consulta
+        /// </summary>
+        /// <param name="idConsulta">Id da consulta</param>
+        /// <returns>Statuscode</returns>
+        [HttpDelete("DeletarComentario")]
+        public IActionResult DeleteComment(Guid idConsulta)
+        {
+            try
+            {
+                Comentario comentarioBuscado = _consultaRepository.RemoverComentario(idConsulta);
+                return comentarioBuscado != null ? Ok("Comentário excluido com sucesso!") : NotFound("Nenhum comentário encontrado");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Altera um comentário existente na consulta
+        /// </summary>
+        /// <param name="idConsulta">Id da consulta</param>
+        /// <param name="comentario">Objeto do tipo Comentario</param>
+        /// <returns></returns>
+        [HttpPut("DeletarComentario")]
+        public IActionResult PutComment(Guid idConsulta, Comentario comentario)
+        {
+            try
+            {
+                Comentario comentarioBuscado = _consultaRepository.EditarComentario(idConsulta, comentario);
+                return comentarioBuscado != null ? Ok("Comentário alterado com sucesso!") : NotFound("Nenhum comentário encontrado");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
+
     }
 }

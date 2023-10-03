@@ -8,5 +8,9 @@ namespace Health_Clinic_api.Interfaces
         Consulta RemoverPorId(Guid id);
         Consulta BuscarPorId(Guid id);
         Consulta AtualizarProntuario(Guid id, string prontuario);
+
+        void AdicionarComentario(Guid idConsulta, Comentario novoComentario);
+        Comentario RemoverComentario(Guid idConsulta);
+        Comentario EditarComentario(Guid idConsulta, Comentario comentario);
     }
 }

@@ -10,7 +10,7 @@ namespace Health_Clinic_api.Context
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Paciente> Paciente { get; set; }
         public DbSet<Medico> Medico { get; set; }
-        public DbSet<Comentario> Feedback { get; set; }
+        public DbSet<Comentario> Comentario { get; set; }
         public DbSet<Consulta> Consulta { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

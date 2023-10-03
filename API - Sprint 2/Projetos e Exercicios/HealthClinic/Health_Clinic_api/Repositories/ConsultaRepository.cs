@@ -83,5 +83,64 @@ namespace Health_Clinic_api.Repositories
             }
             return null!;
         }
+
+        /// <summary>
+        /// Insere um Comentário na área de feedbacks de uma consulta identificada por Id
+        /// </summary>
+        /// <param name="idConsulta">Id da consulta</param>
+        /// <param name="novoComentario">Objeto do tipo Comentario</param>
+        public void AdicionarComentario(Guid idConsulta, Comentario novoComentario)
+        {
+            Consulta consultaBuscada = _healthClinicContext.Consulta.FirstOrDefault(c => c.IdConsulta == idConsulta)!;
+
+            // Se houver uma consulta com o id informado e o comentário tiver um valor
+            if (consultaBuscada != null && novoComentario != null)
+            {
+                // Insere o comentário na tabela de Feedbacks
+                _healthClinicContext.Comentario.Add(novoComentario);
+
+                // Insere o comentário no IdComentario da tabela Consulta
+                consultaBuscada.IdComentario = novoComentario.IdComentario;
+                _healthClinicContext.Update(consultaBuscada);
+                _healthClinicContext.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Remove um comentário com base em uma consulta
+        /// </summary>
+        /// <param name="idConsulta">Id da Consulta</param>
+        /// <returns>Objeto do tipo Comentario</returns>
+        public Comentario RemoverComentario(Guid idConsulta)
+        {
+            Consulta consulta = _healthClinicContext.Consulta.Include(f => f.Comentario).FirstOrDefault(c => c.IdConsulta == idConsulta)!;
+
+            if (consulta != null)
+            {
+                _healthClinicContext.Comentario.Remove(consulta.Comentario!);
+                return consulta.Comentario!;
+            }
+            return null!;
+        }
+
+        /// <summary>
+        /// Edita um comentário existente com base em uma consulta
+        /// </summary>
+        /// <param name="idConsulta">Id da Consulta</param>
+        /// <param name="comentario">Objeto do tipo Comentario</param>
+        /// <returns></returns>
+        public Comentario EditarComentario(Guid idConsulta, Comentario comentario)
+        {
+            Consulta consultaBuscada = _healthClinicContext.Consulta.FirstOrDefault(c => c.IdConsulta == idConsulta)!;
+
+            if (consultaBuscada != null)
+            {
+                consultaBuscada.IdComentario = comentario.IdComentario;
+                _healthClinicContext.Update(consultaBuscada);
+                _healthClinicContext.SaveChanges();
+                return consultaBuscada.Comentario!;
+            }
+            return null!;
+        }
     }
 }

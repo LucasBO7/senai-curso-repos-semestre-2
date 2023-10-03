@@ -29,7 +29,7 @@
             <summary>
             Remove/Deleta um objeto do tipo Consulta pelo id
             </summary>
-            <param name="clinica">Id da consulta</param>
+            <param name="id">Id da consulta</param>
             <returns>Statuscode</returns>
         </member>
         <member name="M:Health_Clinic_api.Controllers.ConsultaController.Put(System.Guid,System.String)">
@@ -39,6 +39,29 @@
             <param name="id">Id da Consulta buscada</param>
             <param name="prontuario">Prontuário a ser inserido</param>
             <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ConsultaController.PostComment(System.Guid,Health_Clinic_api.Domains.Comentario)">
+            <summary>
+            Adiciona um comentário à Consulta
+            </summary>
+            <param name="idConsulta">Id da consulta</param>
+            <param name="novoComentario">Objeto do tipo Comentario</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ConsultaController.DeleteComment(System.Guid)">
+            <summary>
+            Remove um comentário inserido na consulta
+            </summary>
+            <param name="idConsulta">Id da consulta</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ConsultaController.PutComment(System.Guid,Health_Clinic_api.Domains.Comentario)">
+            <summary>
+            Altera um comentário existente na consulta
+            </summary>
+            <param name="idConsulta">Id da consulta</param>
+            <param name="comentario">Objeto do tipo Comentario</param>
+            <returns></returns>
         </member>
         <member name="M:Health_Clinic_api.Controllers.LoginController.Post(Health_Clinic_api.ViewModels.LoginViewModel)">
             <summary>
@@ -139,6 +162,28 @@
             </summary>
             <param name="id">Id da Consulta</param>
             <returns>Objeto do tipo Consulta</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ConsultaRepository.AdicionarComentario(System.Guid,Health_Clinic_api.Domains.Comentario)">
+            <summary>
+            Insere um Comentário na área de feedbacks de uma consulta identificada por Id
+            </summary>
+            <param name="idConsulta">Id da consulta</param>
+            <param name="novoComentario">Objeto do tipo Comentario</param>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ConsultaRepository.RemoverComentario(System.Guid)">
+            <summary>
+            Remove um comentário com base em uma consulta
+            </summary>
+            <param name="idConsulta">Id da Consulta</param>
+            <returns>Objeto do tipo Comentario</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Repositories.ConsultaRepository.EditarComentario(System.Guid,Health_Clinic_api.Domains.Comentario)">
+            <summary>
+            Edita um comentário existente com base em uma consulta
+            </summary>
+            <param name="idConsulta">Id da Consulta</param>
+            <param name="comentario">Objeto do tipo Comentario</param>
+            <returns></returns>
         </member>
         <member name="M:Health_Clinic_api.Repositories.MedicoRepository.Cadastrar(Health_Clinic_api.Domains.Medico)">
             <summary>
