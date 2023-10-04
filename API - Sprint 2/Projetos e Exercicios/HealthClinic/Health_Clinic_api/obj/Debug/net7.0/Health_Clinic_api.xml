@@ -11,6 +11,27 @@
             <param name="novaClinica">Objeto do tipo Clinica</param>
             <returns>Statuscode</returns>
         </member>
+        <member name="M:Health_Clinic_api.Controllers.ComentarioController.Post(Health_Clinic_api.Domains.Comentario)">
+            <summary>
+            Método que executa função Cadastrar da ComentarioRepository
+            </summary>
+            <param name="comentario">Objeto do tipo Clinica</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ComentarioController.Put(System.Guid,Health_Clinic_api.Domains.Comentario)">
+            <summary>
+            Método que executa função Editar da ComentarioRepository
+            </summary>
+            <param name="novaClinica">Objeto do tipo Clinica</param>
+            <returns>Statuscode</returns>
+        </member>
+        <member name="M:Health_Clinic_api.Controllers.ComentarioController.Delete(System.Guid)">
+            <summary>
+            Método que executa função Remover da ComentarioRepository
+            </summary>
+            <param name="novaClinica">Objeto do tipo Clinica</param>
+            <returns>Statuscode</returns>
+        </member>
         <member name="M:Health_Clinic_api.Controllers.ConsultaController.Post(Health_Clinic_api.Domains.Consulta)">
             <summary>
             Cadastra uma nova consulta
@@ -127,6 +148,18 @@
             <inheritdoc />
         </member>
         <member name="M:Health_Clinic_api.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Health_Clinic_api.Migrations.AlteradoComentario">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_api.Migrations.AlteradoComentario.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_api.Migrations.AlteradoComentario.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Health_Clinic_api.Migrations.AlteradoComentario.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
         <member name="M:Health_Clinic_api.Repositories.ClinicaRepository.Cadastrar(Health_Clinic_api.Domains.Clinica)">

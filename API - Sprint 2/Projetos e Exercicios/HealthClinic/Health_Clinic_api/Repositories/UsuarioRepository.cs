@@ -21,7 +21,8 @@ namespace Health_Clinic_api.Repositories
         /// <param name="novoUsuario">Objeto do tipo Usuario</param>
         public void Cadastrar(Usuario novoUsuario)
         {
-            novoUsuario.Senha = Criptografia.GerarHash(novoUsuario.Senha!);
+            string senha = novoUsuario.Senha;
+            novoUsuario.Senha = Criptografia.GerarHash(senha);
             _healthClinicContext.Usuario.Add(novoUsuario);
             _healthClinicContext.SaveChanges();
         }

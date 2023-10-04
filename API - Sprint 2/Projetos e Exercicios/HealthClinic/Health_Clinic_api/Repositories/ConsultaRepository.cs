@@ -75,7 +75,7 @@ namespace Health_Clinic_api.Repositories
         {
             Consulta consultaBuscada = _healthClinicContext.Consulta
                 .Include(c => c.Medico).Include(c => c.Medico.Clinica).Include(m => m.Medico.Especializacao)
-                .Include(c => c.Comentario).Include(c => c.Comentario.Status).Include(c => c.Paciente).Include(c => c.Comentario.Paciente.Usuario)
+                .Include(c => c.Comentario).Include(c => c.Comentario).Include(c => c.Paciente).Include(c => c.Comentario.Paciente.Usuario)
                 .FirstOrDefault(c => c.IdConsulta == id)!;
             if (consultaBuscada != null)
             {
@@ -94,13 +94,10 @@ namespace Health_Clinic_api.Repositories
             Consulta consultaBuscada = _healthClinicContext.Consulta.FirstOrDefault(c => c.IdConsulta == idConsulta)!;
 
             // Se houver uma consulta com o id informado e o comentário tiver um valor
-            if (consultaBuscada != null && novoComentario != null)
+            if (consultaBuscada != null)
             {
-                // Insere o comentário na tabela de Feedbacks
-                _healthClinicContext.Comentario.Add(novoComentario);
-
                 // Insere o comentário no IdComentario da tabela Consulta
-                consultaBuscada.IdComentario = novoComentario.IdComentario;
+                consultaBuscada.Comentario.IdComentario = novoComentario.IdComentario;
                 _healthClinicContext.Update(consultaBuscada);
                 _healthClinicContext.SaveChanges();
             }
@@ -135,7 +132,7 @@ namespace Health_Clinic_api.Repositories
 
             if (consultaBuscada != null)
             {
-                consultaBuscada.IdComentario = comentario.IdComentario;
+                consultaBuscada.Comentario.IdComentario = comentario.IdComentario;
                 _healthClinicContext.Update(consultaBuscada);
                 _healthClinicContext.SaveChanges();
                 return consultaBuscada.Comentario!;

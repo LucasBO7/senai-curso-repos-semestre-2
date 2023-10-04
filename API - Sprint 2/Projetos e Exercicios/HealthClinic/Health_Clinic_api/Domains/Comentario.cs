@@ -11,6 +11,12 @@ namespace Health_Clinic_api.Domains
         public Guid IdComentario { get; set; } = Guid.NewGuid();
 
 
+        [Required(ErrorMessage = "O id do comentário é obrigatório!")]
+        public Guid IdConsulta { get; set; }
+        [ForeignKey(nameof(IdConsulta))]
+        public Consulta? Consulta { get; set; }
+
+
         [Required(ErrorMessage = "O id do paciente é obrigatório!")]
         public Guid IdPaciente { get; set; }
         [ForeignKey(nameof(IdPaciente))]

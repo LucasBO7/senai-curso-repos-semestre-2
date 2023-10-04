@@ -16,13 +16,6 @@ namespace Health_Clinic_api.Domains
         [ForeignKey(nameof(IdMedico))]
         public Medico? Medico { get; set; }
 
-
-        [Required(ErrorMessage = "O id do comentário é obrigatório!")]
-        public Guid IdComentario { get; set; }
-        [ForeignKey(nameof(IdComentario))]
-        public Comentario? Comentario { get; set; }
-
-
         [Required(ErrorMessage = "O id do paciente é obrigatório!")]
         public Guid IdPaciente { get; set; }
         [ForeignKey(nameof(IdPaciente))]
@@ -37,5 +30,8 @@ namespace Health_Clinic_api.Domains
         [Column(TypeName = "TEXT")]
         [Required(ErrorMessage = "O prontuário é obrigatório!")]
         public string? Prontuario { get; set; }
+
+
+        public Comentario? Comentario { get; set; }
     }
 }

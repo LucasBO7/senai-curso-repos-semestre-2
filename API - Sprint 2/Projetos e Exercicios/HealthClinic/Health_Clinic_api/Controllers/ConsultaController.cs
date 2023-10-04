@@ -151,7 +151,7 @@ namespace Health_Clinic_api.Controllers
         /// <param name="idConsulta">Id da consulta</param>
         /// <param name="comentario">Objeto do tipo Comentario</param>
         /// <returns></returns>
-        [HttpPut("DeletarComentario")]
+        [HttpPut("EditarComentario")]
         public IActionResult PutComment(Guid idConsulta, Comentario comentario)
         {
             try

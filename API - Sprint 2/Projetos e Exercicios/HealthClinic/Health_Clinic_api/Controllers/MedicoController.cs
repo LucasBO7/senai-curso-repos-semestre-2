@@ -24,7 +24,7 @@ namespace Health_Clinic_api.Controllers
         /// <param name="novoMedico">Objeto do tipo Medico</param>
         /// <returns>Statuscode</returns>
         [HttpPost]
-        [Authorize("Administrador")]
+        //[Authorize("Administrador")]
         public IActionResult Post(Medico novoMedico)
         {
             try

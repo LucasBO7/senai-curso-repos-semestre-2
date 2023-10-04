@@ -22,14 +22,14 @@ namespace Health_Clinic_api.Domains
         [Required(ErrorMessage = "O cpf é obrigatório!")]
         public string? CPF { get; set; }
 
-        [Column(TypeName = "VARCHAR(7)")]
+        [Column(TypeName = "VARCHAR(9)")]
         [Required(ErrorMessage = "O rg é obrigatório!")]
         public string? RG { get; set; }
 
         [Column(TypeName = "DATE")]
         [Required(ErrorMessage = "A data de nascimento é obrigatória!")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataNascimento { get; set; }
     }
 }
