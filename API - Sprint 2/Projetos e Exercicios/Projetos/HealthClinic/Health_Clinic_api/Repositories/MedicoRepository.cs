@@ -43,7 +43,11 @@ namespace Health_Clinic_api.Repositories
             return null!;
         }
 
-
+        /// <summary>
+        /// Busca as consultas cuja as quais o médico está relacionado
+        /// </summary>
+        /// <param name="id">Id do médico</param>
+        /// <returns>Lista de objetos do tipo Consulta</returns>
         public List<Consulta> BuscarConsultasPorMedico(Guid id)
         {
             return _healthClinicContext.Consulta.Where(m => m.IdMedico == id).Select(c => new Consulta()
@@ -77,6 +81,23 @@ namespace Health_Clinic_api.Repositories
                     }
                 }
             }).ToList();
+        }
+
+        /// <summary>
+        /// Remove um médico existente
+        /// </summary>
+        /// <param name="id">Id do médico</param>
+        /// <returns>Objeto do tipo Medico</returns>
+        public Medico Remover(Guid id)
+        {
+            Medico medicoBuscado = _healthClinicContext.Medico.FirstOrDefault(m => m.IdMedico == id)!;
+            if (medicoBuscado != null)
+            {
+                _healthClinicContext.Medico.Remove(medicoBuscado);
+                _healthClinicContext.SaveChanges();
+                return medicoBuscado;
+            }
+            return null!;
         }
     }
 }

@@ -78,5 +78,27 @@ namespace Health_Clinic_api.Controllers
                 return BadRequest(erro.Message);
             }
         }
+
+
+        /// <summary>
+        /// Deleta um médico existente
+        /// </summary>
+        /// <param name="id">Id do médico</param>
+        /// <returns>Statuscode</returns>
+        [HttpDelete]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                Medico medicoDeletado = _medicoRepository.Remover(id);
+                if (medicoDeletado != null)
+                    return Ok("Médico removido com sucesso do sistema!");
+                return NotFound("Nenhum médico encontrado!");
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro.Message);
+            }
+        }
     }
 }

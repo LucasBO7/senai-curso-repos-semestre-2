@@ -97,7 +97,14 @@ namespace Health_Clinic_api.Repositories
             if (consultaBuscada != null)
             {
                 // Insere o comentário no IdComentario da tabela Consulta
-                consultaBuscada.Comentario.IdComentario = novoComentario.IdComentario;
+                consultaBuscada.Comentario = new()
+                {
+                    IdConsulta = idConsulta,
+                    IdComentario = novoComentario.IdComentario,
+                    IdPaciente = novoComentario.IdPaciente,
+                    Descricao = novoComentario.Descricao,
+                    Status = novoComentario.Status
+                };
                 _healthClinicContext.Update(consultaBuscada);
                 _healthClinicContext.SaveChanges();
             }
