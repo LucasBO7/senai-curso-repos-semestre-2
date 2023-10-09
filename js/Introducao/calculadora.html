@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <h1>Simple Calc</h1>
+
+    <form action="">
+        <label for="numero1">Primeiro Número</label>
+        <input type="number" id="numero1" placeholder="Primeiro número...">
+        <br />
+
+        <label for="numero2">Segundo Número</label>
+        <input type="number" id="numero2" placeholder="Segundo número...">
+        <br />
+
+        <label for="operacao">Operação</label>
+        <select id="operacao">
+            <option value="">Selecione</option>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <br />
+
+        <button onclick="calcular()">Calcular</button>
+    </form>
+
+    <script>
+        function calcular() {
+            event.preventDefault();
+            let number1 = parseFloat(document.getElementById("numero1").value);
+            let number2 = parseFloat(document.getElementById("numero2").value);
+            let result;
+            let operator = document.getElementById("operacao").value;
+
+            switch (operator) {
+                case '+':
+                    result = sum(number1, number2);
+                    console.log(`Resultado: ${sum(number1, number2)}`)
+                    break;
+                case '-':
+                    result = subtract(number1, number2);
+                    console.log(`Resultado: ${result}`)
+                    break;
+                case '/':
+                    result = divide(number1, number2);
+                    console.log(`Resultado: ${result}`)
+                    break;
+                case '*':
+                    result = multiply(number1, number2);
+                    console.log(`Resultado: ${result}`)
+                    break;
+                default:
+                    console.log(`COLOCA O SINAL CERTO SEU MERDA!`);
+                    break;
+            }
+        }
+
+        function sum(x, y) {
+            return x + y;
+        }
+        function subtract(x, y) {
+            return x - y;
+        }
+        function divide(x, y) {
+            return x / y;
+        }
+        function multiply(x, y) {
+            return x * y;
+        }
+    </script>
+
+</body>
+
+</html>
