@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1</title>
+</head>
+
+<body>
+    <form onsubmit="mostarNickname()">
+        <label for="nome-usuario">Nome do usuário</label>
+        <input type="text" id="nome-usuario" placeholder="Insira o nome do usuário...">
+        <br>
+
+        <label for="nickname-usuario">Nickname do usuário</label>
+        <input type="text" id="nickname-usuario" placeholder="Insira o nickname do usuário...">
+        <br>
+
+        <button>Mostrar nickname</button>
+
+        <p>Olá, <p id="nickname-salvo"></p> </p>
+    </form>
+
+    <script>
+        function mostarNickname() {
+            event.preventDefault();
+            let nickname_inserido = document.getElementById("nickname-usuario").value;
+            document.getElementById("nickname-salvo").innerText = nickname_inserido;
+        }
+    </script>
+</body>
+
+</html>

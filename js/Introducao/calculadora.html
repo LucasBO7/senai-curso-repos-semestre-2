@@ -11,7 +11,7 @@
 <body>
     <h1>Simple Calc</h1>
 
-    <form action="">
+    <form onsubmit="calcular()">
         <label for="numero1">Primeiro Número</label>
         <input type="number" id="numero1" placeholder="Primeiro número...">
         <br />
@@ -28,56 +28,14 @@
             <option value="*">*</option>
             <option value="/">/</option>
         </select>
-        <br />
 
-        <button onclick="calcular()">Calcular</button>
+        <p>Resultado: <strong id="obj-resultado">0</strong></p>
+
+        <button>Calcular</button>
     </form>
 
-    <script>
-        function calcular() {
-            event.preventDefault();
-            let number1 = parseFloat(document.getElementById("numero1").value);
-            let number2 = parseFloat(document.getElementById("numero2").value);
-            let result;
-            let operator = document.getElementById("operacao").value;
-
-            switch (operator) {
-                case '+':
-                    result = sum(number1, number2);
-                    console.log(`Resultado: ${sum(number1, number2)}`)
-                    break;
-                case '-':
-                    result = subtract(number1, number2);
-                    console.log(`Resultado: ${result}`)
-                    break;
-                case '/':
-                    result = divide(number1, number2);
-                    console.log(`Resultado: ${result}`)
-                    break;
-                case '*':
-                    result = multiply(number1, number2);
-                    console.log(`Resultado: ${result}`)
-                    break;
-                default:
-                    console.log(`COLOCA O SINAL CERTO SEU MERDA!`);
-                    break;
-            }
-        }
-
-        function sum(x, y) {
-            return x + y;
-        }
-        function subtract(x, y) {
-            return x - y;
-        }
-        function divide(x, y) {
-            return x / y;
-        }
-        function multiply(x, y) {
-            return x * y;
-        }
-    </script>
-
+    <!-- Se é get vai pela URL, se é post -> vai pelo corpo da requisição ou payload. -> -->
+    <script src="./scripts/funcoes.js"></script>
 </body>
 
 </html>
