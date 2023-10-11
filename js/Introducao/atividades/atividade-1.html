@@ -9,25 +9,28 @@
 </head>
 
 <body>
-    <form onsubmit="mostarNickname()">
+    <form onsubmit="saudar()">
         <label for="nome-usuario">Nome do usuário</label>
         <input type="text" id="nome-usuario" placeholder="Insira o nome do usuário...">
-        <br>
+        <br/>
 
         <label for="nickname-usuario">Nickname do usuário</label>
         <input type="text" id="nickname-usuario" placeholder="Insira o nickname do usuário...">
-        <br>
+        <br/>
+
+        <span id="saudacao"></span>
+        <br/>
 
         <button>Mostrar nickname</button>
-
-        <p>Olá, <p id="nickname-salvo"></p> </p>
     </form>
 
     <script>
-        function mostarNickname() {
+        function saudar() {
             event.preventDefault();
+            let nome_usuario_inserido = document.getElementById("nome-usuario").value;
             let nickname_inserido = document.getElementById("nickname-usuario").value;
-            document.getElementById("nickname-salvo").innerText = nickname_inserido;
+
+            document.getElementById("saudacao").innerText = `Olá, ${nome_usuario_inserido.replace(nome_usuario_inserido, nickname_inserido)}`;
         }
     </script>
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+
+<body>
+
+    <script>
+        // arrays em javascript
+        let frutas = ['banana', 'uva', 'mamão']; // array vazio
+        console.log(frutas);
+
+        frutas.push('ciriguela'); // adiciona mais um ao final da lista
+        frutas.push('amora');
+
+        // ordena os elementos em ordem alfabética. Se números, em ordem numérica
+        console.log(frutas.sort());
+
+        for (let index = 0; index < frutas.length; index++) {
+            console.log(`Fruta ${index + 1}: ${frutas[index]}`);
+        }
+
+        // FUNÇÃO DE CALLBACK --> para cada loop, ele chamará a função
+        frutas.forEach(function (f, indice) {
+            console.log(`Fruta ${indice + 1}: ${f}`);
+        });
+
+    </script>
+</body>
+
+</html>
