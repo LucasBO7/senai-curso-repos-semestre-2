@@ -9,7 +9,7 @@ function calcular(event) {
     let peso = document.getElementById("peso").value;
 
     // Não permite a inserção de inputs vazios ou NOT A NUMBER
-    if (nome == "" || isNaN(altura) || isNaN(peso)) {
+    if (nome.length < 2 || isNaN(altura) || isNaN(peso)) {
         alert("É necessário preencher todos os campos.");
         return;
     }
@@ -46,7 +46,10 @@ function calcular(event) {
     */
 
     exibirPessoas();
-}
+    // limpa os campos do formulário
+    limparFormulario();
+
+} // fim da função calcular
 
 // Realiza a função do imc
 function calcularImc(alturaPessoa, pesoPessoa) {
@@ -78,7 +81,7 @@ function exibirPessoas() {
 
     listaPessoas.forEach(function (objPessoa) {
         linhas += `
-        <tr>
+        <tr>₢₢
             <td> <p>${objPessoa.nome}</p> </td>
             <td> <p>${objPessoa.altura}</p> </td>
             <td> <p>${objPessoa.peso}</p> </td>
@@ -89,6 +92,12 @@ function exibirPessoas() {
     });
 
     document.getElementById("cadastro").innerHTML = linhas;
+}
+
+function limparFormulario() {
+    document.getElementById("nome").value = "";
+    document.getElementById("altura").value = "";
+    document.getElementById("peso").value = "";
 }
 
 
