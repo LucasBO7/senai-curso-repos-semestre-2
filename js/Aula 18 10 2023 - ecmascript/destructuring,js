@@ -1,0 +1,47 @@
+/*
+
+const camisaLacoste = {
+    descricao: "Camisa Lacoste",
+    preco: 399.98,
+    marca: "Lacoste",
+    cor: "Azul",
+    promo: true
+}
+
+// Delimita para permitir o acesso à propriedades específicas de um objeto. Com isto, o acesso às características será diretamente pelo nome delas como feito no console.log abaixo
+const { descricao, preco, promo } = camisaLacoste;
+
+console.log(`
+    Produto: ${descricao}
+    Preço: R$ ${preco}
+    Promoção: ${promo ? "Sim" : "Não"}`);
+
+/* Crie um objeto evento com as propriedades
+    * DATA EVENTO
+    * DESCRICAO DO EVENTO
+    * TÍTULO
+    * PRESENÇA
+    * COMENTÁRIO
+    Crie um destructuring das propriedades do objeto evento e as exiba no console.
+    OBS: para a presença deve-se exibir "sim" ou "não"
+*/
+
+const evento = {
+    dataEvento: "23/01/2018",
+    titulo: "Evento Dhr",
+    descricao: "Evento muito louco de coisas",
+    presenca: true,
+    comentario: "To doido pra ir!!!"
+};
+
+const { titulo, dataEvento, descricao, ...restante } = evento;
+console.log(titulo);
+console.log(restante);
+
+// console.log(`
+//     Titulo: ${titulo}
+//     Data do evento: ${dataEvento}
+//     Descrição: ${descricao}
+//     Presença: ${presenca ? "Confirmada" : "Não confirmada"}
+//     Comentário: ${comentario}
+// `);

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="chamarApi()">
+        <label for="cep">CEP</label>
+        <input type="number" placeholder="Digite o cep..." id="cep">
+        <br><br>
+
+        <label for="endereco">Endereço</label>
+        <input type="text" placeholder="..." id="endereco">
+        <br><br>
+
+        <label for="bairro">Bairro</label>
+        <input type="text" placeholder="..." id="bairro">
+        <br><br>
+
+        <label for="cidade">Cidade</label>
+        <input type="text" placeholder="..." id="cidade">
+        <br><br>
+
+        <label for="estado">Estado</label>
+        <input type="text" placeholder="..." id="estado">
+        <br><br>
+
+
+        <button>Chamar API</button>
+    </form>
+
+    <script>
+        async function chamarApi(event) {
+            event.preventDefault();
+            
+            const cep = document.getElementById("cep").value;
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+            try { // resolvida ou fullfiled
+                const promise = await fetch(url);
+                const endereco = await promise.json();
+
+                console.log(endereco);
+            } catch (error) { // rejeitada
+                console.log("Deu ruim na api");
+            }
+        }
+    </script>
+</body>
+
+</html>
