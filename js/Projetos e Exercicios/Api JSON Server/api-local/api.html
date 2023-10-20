@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="chamarApi()">Chamar API</button>
+
+    <script>
+        // vai na Api, que retorna uma promisse. Que tem 2 status: a promisse pode ser fulfield ou rejected e inicialmente tem o status como  pending
+        // Então o fetch receberá essa promisse inicialmente provavelmente vazia, pois pode demorar para realizar o processamento e retorno da api. Fazendo com que ao a promisse ficar pronta, o fetch receberá o retorno
+        // const retorno = fetch("https://viacep.com.br/ws/01311923/json/")
+        //     .then((retorno) => {
+        //         console.log("Api aceita e retornada!");
+        //         console.log(retorno);
+        //     }) // resolvida
+        //     .catch(() => {
+        //         console.log("Api rejeitada!");
+        //     }); // rejeitada
+
+        // console.log("Retornado primeiro.");
+
+        // função assíncrona
+        async function chamarApi() {
+            const url = "https://viacep.com.br/ws/01311923/json/";
+
+            try { // resolvida ou fullfiled
+                const promise = await fetch(url);
+                const endereco = await promise.json();
+
+                console.log(endereco);
+            } catch (error) { // rejeitada
+                console.log("Deu ruim na api");
+            }
+        }
+    </script>
+</body>
+
+</html>
