@@ -9,34 +9,126 @@
 </head>
 
 <body>
-    <button onclick="chamarApi()">Chamar API</button>
+    <form onsubmit="Cadastrar(event)">
+
+        <label for="nome_pessoa">Nome da pessoa</label>
+        <input type="text" placeholder=" ... " id="nome_pessoa" />
+        <br /><br />
+
+        <label for="telefone_pessoa">Número de telefone</label>
+        <input type="tel" placeholder=" ... " id="telefone_pessoa" />
+        <br /><br />
+
+        <label for="cep">CEP</label>
+        <input type="number" placeholder="Digite o cep" id="cep" onblur="chamarApi()" autocomplete="off" />
+        <span id="not-found"></span>
+        <br /><br />
+
+        <label for="endereco">Endereço</label>
+        <input type="text" placeholder=" ... " id="endereco" />
+        <br /><br />
+
+        <label for="numero">Numero</label>
+        <input type="text" placeholder=" ... " id="numero" />
+        <br /><br />
+
+        <label for="bairro">Bairro</label>
+        <input type="text" placeholder=" ... " id="bairro" />
+        <br /><br />
+
+        <label for="cidade">Cidade</label>
+        <input type="text" placeholder=" ... " id="cidade" />
+        <br /><br />
+
+        <label for="estado">Estado</label>
+        <input type="text" placeholder=" ... " id="estado" />
+        <br /><br />
+
+        <button>Salvar Contato</button>
+    </form>
 
     <script>
-        // vai na Api, que retorna uma promisse. Que tem 2 status: a promisse pode ser fulfield ou rejected e inicialmente tem o status como  pending
-        // Então o fetch receberá essa promisse inicialmente provavelmente vazia, pois pode demorar para realizar o processamento e retorno da api. Fazendo com que ao a promisse ficar pronta, o fetch receberá o retorno
-        // const retorno = fetch("https://viacep.com.br/ws/01311923/json/")
-        //     .then((retorno) => {
-        //         console.log("Api aceita e retornada!");
-        //         console.log(retorno);
-        //     }) // resolvida
-        //     .catch(() => {
-        //         console.log("Api rejeitada!");
-        //     }); // rejeitada
 
-        // console.log("Retornado primeiro.");
+        //    fetch("https://viacep.com.br/ws/09510200/json/")
+        // .then((retorno) => {
+        //     console.log("Deu bom na API");
+        //     console.log("Eduardo 0000000");
+        // })//resolvida
+        // .cath((erro) => {
+        //     console.log("Deu ruim na API");
+        //     console.log("Eduardo 0000000");
+        // })//rejeitada
 
-        // função assíncrona
-        async function chamarApi() {
-            const url = "https://viacep.com.br/ws/01311923/json/";
+        const urlLocal = "http://localhost:3000/contatos";
 
-            try { // resolvida ou fullfiled
-                const promise = await fetch(url);
-                const endereco = await promise.json();
+        async function Cadastrar(e) {
+            event.preventDefault(); // Evitar captura do evento de submit do form
 
-                console.log(endereco);
-            } catch (error) { // rejeitada
-                console.log("Deu ruim na api");
+            const cep = document.getElementById("cep").value;
+            const endereco = document.getElementById("endereco").value;
+            const numeroCasa = document.getElementById("numero").value;
+            const bairro = document.getElementById("bairro").value;
+            const cidade = document.getElementById("cidade").value;
+            const estado = document.getElementById("estado").value;
+            const nomePessoa = document.getElementById("nome_pessoa").value;
+            const telefonePessoa = document.getElementById("telefone_pessoa").value;
+
+            const objDados = { cep, endereco, numeroCasa, bairro, cidade, estado, nomePessoa, telefonePessoa };
+
+            try {
+                const promise = await fetch(urlLocal, {
+                    // transforma um objeto em json
+                    body: JSON.stringify(objDados),
+                    headers: { "Content-Type": "application/json" },
+                    method: "post"
+                });
+
+                const retorno = promise.json(); // pega o retorno da api
+                console.log(retorno);
+
+            } catch (error) {
+                alert(`Um erro ocorreu: ${error}`)
             }
+        }
+
+        function exibirEndereco(endereco) {
+            document.getElementById("endereco").value = endereco.logradouro;
+            document.getElementById("bairro").value = endereco.bairro;
+            document.getElementById("cidade").value = endereco.localidade;
+            document.getElementById("estado").value = endereco.uf;
+        }
+        function apagarEndereco() {
+            document.getElementById("endereco").value = "";
+            document.getElementById("bairro").value = "";
+            document.getElementById("cidade").value = "";
+            document.getElementById("estado").value = "";
+        }
+
+        //async define que a função será assincrona / await faz com que a const aguarde
+        async function chamarApi() {
+            const cep = document.getElementById("cep").value;
+            const url = `https://viacep.com.br/ws/${cep}/json/`;
+
+            try {//resolvida ou fullfiled
+                const promise = await fetch(url);
+                const endereco = await promise.json(); // Extrai seu json
+
+                exibirEndereco(endereco);
+
+                // console.log(endereco)
+                document.getElementById("not-found").innerText = "";
+
+            }
+            catch (error) {
+                //rejeitada 
+                console.log("Deu ruim na api");
+
+                //informa o Usuario
+                document.getElementById("not-found").innerText = "Cep Invalido!";
+                apagaEndereco();
+            }
+
+
         }
     </script>
 </body>

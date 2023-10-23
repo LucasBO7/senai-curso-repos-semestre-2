@@ -1,0 +1,15 @@
+{
+  "contatos": [
+    {
+      "cep": "09691000",
+      "endereco": "Rua Júlio de Mesquita",
+      "numero": "231",
+      "bairro": "Paulicéia",
+      "cidade": "São Bernardo do Campo",
+      "estado": "SP",
+      "nomePessoa": "Mãe do Góis",
+      "telefonePessoa": "+55 11 967026327",
+      "id": 1
+    }
+  ]
+}
