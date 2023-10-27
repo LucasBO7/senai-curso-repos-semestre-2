@@ -24,6 +24,7 @@
 
     cursor: default;
     transition: 0.2s ease;
+    text-decoration: none;
 }
 
 .card:hover {
@@ -34,7 +35,7 @@
 .card__description {
     font-weight: 400;
     font-weight: 16px;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .card__connect {
@@ -44,6 +45,7 @@
     cursor: pointer;
 
     transition: 0.3s ease;
+    text-decoration: none;
 }
 
 .card__connect:hover {
@@ -53,6 +55,7 @@
 
 .card__connect--disabled {
     cursor: not-allowed;
+    text-decoration: none;
 }
 
 .card__connect--disabled:hover {
