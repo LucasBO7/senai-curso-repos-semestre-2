@@ -101,4 +101,4 @@ async function buscarCepApi() {
 
 //     console.log(numeroFormatado);
 //     document.getElementById("telefone").value = numeroFormatado;
-// }
+// }'
