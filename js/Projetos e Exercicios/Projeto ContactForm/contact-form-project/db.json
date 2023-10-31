@@ -1,0 +1,46 @@
+{
+  "contatos": [
+    {
+      "id": 1,
+      "nome": "Lucas",
+      "sobrenome": "Oliveira",
+      "email": "lucasbianchezzi700@gmail.com",
+      "telefone": {
+        "pais": "55",
+        "ddd": "11",
+        "telefone": "967056253"
+      },
+      "endereco": {
+        "cep": "09662030",
+        "rua": "Rua siuu",
+        "numero": "452",
+        "complemento": "Apart. 218c",
+        "bairro": "PAULICEIA",
+        "cidade": "SÃO BERNARDO DO CAMPO",
+        "UF": "São Paulo"
+      },
+      "anotacoes": "O fé."
+    },
+    {
+      "nome": "João",
+      "sobrenome": "Gomes",
+      "email": "jogames@gmail.com",
+      "telefone": {
+        "pais": "55",
+        "ddd": "11",
+        "telefone": "1967056253"
+      },
+      "endereco": {
+        "cep": "09662030",
+        "rua": "Rua O lá em casa",
+        "numero": "123",
+        "complemento": "Não",
+        "bairro": "Bergamota",
+        "cidade": "SÃO BERNARDO DO CAMPO",
+        "UF": "São Paulo"
+      },
+      "anotacoes": "Vambuora!!",
+      "id": 2
+    }
+  ]
+}
