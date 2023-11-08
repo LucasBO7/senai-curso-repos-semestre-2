@@ -33,6 +33,11 @@
     font-size: 1rem;
 }
 
+/* Largura da barra de rolagem */
+.event-card::-webkit-scrollbar{
+    width: 0px;
+}
+
 .event-card__description {
     font-family: Poppins-Regular;
     font-size: 1rem;
