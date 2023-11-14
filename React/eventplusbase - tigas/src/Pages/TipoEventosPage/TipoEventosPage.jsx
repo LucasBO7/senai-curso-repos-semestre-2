@@ -6,29 +6,76 @@ import ImageIllustrator from "../../Components/ImageIllustrator/ImageIllustrator
 
 import eventTypeImage from "../../assets/images/tipo-evento.svg";
 import Container from "../../Components/Container/Container";
-
-import { Input } from "../../Components/FormComponents/FormComponents";
+import { Button, Input } from "../../Components/FormComponents/FormComponents";
+import api from "../../Services/Service";
 
 const TipoEventosPage = () => {
+  const [frmEdit, setFrmEdit] = useState(false);
   const [titulo, setTitulo] = useState("");
+
+  async function handleSubmit(e) {
+    // parar o submit do formulário
+    e.preventDefault();
+    // validar pelo menos 3 caracteres
+    if (titulo.trim().length < 3) {
+      alert("O Título deve ter no mínimo 3 caracteres");
+      return;
+    }
+    // chamar a api
+    try {
+      const retorno = await api.post("/TiposEvento", { titulo: titulo });
+      console.log("CADASTRADO COM SUCESSO");
+      console.log(retorno.data);
+      setTitulo(""); // Limpa a variável
+    } catch (error) {
+      console.log("Deu ruim na api: ");
+      console.log(error);
+    }
+  }
+
+  function handleUpdate() {
+    alert("Bora atualizar");
+  }
+
   return (
     <MainContent>
       <section className="cadastro-evento-section">
         <Container>
           <div className="cadastro-evento__box">
-            <Title titleText={"Página tipo Evento"} />
-            <ImageIllustrator alterText={"????"} imageRender={eventTypeImage} />
+            <Title titleText={"Página Tipos de Eventos"} />
+            <ImageIllustrator
+              alterText={"?????"}
+              imageRender={eventTypeImage}
+            />
 
-            <form onSubmit={frmEdit ? handleUpdate : handleSubmit}>
-              <p>Componente de Formulário</p>
-              <Input
-                value={titulo}
-                manipulationFunction={(e) => {
-                  setTitulo(e.target.value);
-                }}
-                type={"number"}
-                required={"required"}
-              />
+            <form
+              className="ftipo-evento"
+              onSubmit={frmEdit ? handleUpdate : handleSubmit}
+            >
+              {!frmEdit ? (
+                <>
+                  <Input
+                    type={"text"}
+                    id={"titulo"}
+                    name={"titulo"}
+                    placeholder={"Título"}
+                    required={"required"}
+                    value={titulo}
+                    manipulationFunction={(e) => {
+                      setTitulo(e.target.value);
+                    }}
+                  />
+                  <span>{titulo}</span>
+                  <Button
+                    type={"submit"}
+                    id={"Cadastrar"}
+                    name={"Cadastrar"}
+                    textButton={"Cadastrar"}
+                  />
+                </>
+              ) : (
+                <p>Tela de Edição</p>
+              )}
             </form>
           </div>
         </Container>

@@ -25,3 +25,24 @@ export const Input = ({
     />
   );
 };
+
+export const Button = ({
+  textButton,
+  id,
+  name,
+  type,
+  additionalClass = "",
+}) => {
+  return (
+    <button
+      type={type}
+      name={name}
+      id={id}
+      className={`button-component ${additionalClass}`}
+      textButton={textButton}
+      // onClick={manipulationFunction}l
+    >
+      {textButton}
+    </button>
+  );
+};
