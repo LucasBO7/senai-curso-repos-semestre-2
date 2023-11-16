@@ -8,10 +8,18 @@ import eventTypeImage from "../../assets/images/tipo-evento.svg";
 import Container from "../../Components/Container/Container";
 import { Button, Input } from "../../Components/FormComponents/FormComponents";
 import api from "../../Services/Service";
+import TableTp from "./TableTp/TableTp";
 
 const TipoEventosPage = () => {
   const [frmEdit, setFrmEdit] = useState(false);
   const [titulo, setTitulo] = useState("");
+
+  // Fake JSON / Fake Array de objetos
+  const [tipoEventos, setTipoEventos] = useState([
+    { idTipoEvento: "123", titulo: "Evento ABC" },
+    { idTipoEvento: "555", titulo: "Evento xpto" },
+    { idTipoEvento: "444", titulo: "Evento de JavaScript" },
+  ]); // Array mocado
 
   async function handleSubmit(e) {
     // parar o submit do formulário
@@ -33,12 +41,26 @@ const TipoEventosPage = () => {
     }
   }
 
+  //******************************************* EDITAR CADASTRO ****************************************** */
   function handleUpdate() {
     alert("Bora atualizar");
   }
 
+  function showUpdateForm() {
+    alert("Mostrando a tela de update");
+  }
+
+  function editActionAbort() {
+    alert("Cancelar a tela de edição de dados");
+  }
+
+  function handleDelete() {
+    alert("Bora lá apagar na api");
+  }
+
   return (
     <MainContent>
+      {/* Cadastro de tipo de eventos */}
       <section className="cadastro-evento-section">
         <Container>
           <div className="cadastro-evento__box">
@@ -78,6 +100,19 @@ const TipoEventosPage = () => {
               )}
             </form>
           </div>
+        </Container>
+      </section>
+
+      {/* LISTAGEM DE TIPO DE EVENTOS */}
+      <section className="lista-eventos-section">
+        <Container>
+          <Title titleText={"Lista Tipo de Eventos"} color="white" />
+
+          <TableTp
+            dados={tipoEventos}
+            fnUpdate={showUpdateForm}
+            fnDelete={handleDelete}
+          />
         </Container>
       </section>
     </MainContent>
