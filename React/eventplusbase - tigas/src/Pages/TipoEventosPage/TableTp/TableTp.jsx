@@ -29,24 +29,26 @@ const TableTp = ({ dados, fnUpdate, fnDelete }) => {
                 {tipoEvento.titulo}
               </td>
 
+              {/* Edição */}
               <td className="table-data__data table-data__data--little">
                 <img
                   className="table-data__icon"
                   src={editPen}
                   alt="Ícone de lápis, indicando edição dos dados"
                   onClick={() => {
-                    fnUpdate();
+                    fnUpdate(tipoEvento);
                   }}
                 />
               </td>
 
+              {/* Deleção */}
               <td className="table-data__data table-data__data--little">
                 <img
                   className="table-data__icon"
                   src={trashDelete}
                   alt="Ícone de lixeira, indicando deleção dos dados"
                   onClick={() => {
-                    fnDelete();
+                    fnDelete(tipoEvento.idTipoEvento);
                   }}
                 />
               </td>

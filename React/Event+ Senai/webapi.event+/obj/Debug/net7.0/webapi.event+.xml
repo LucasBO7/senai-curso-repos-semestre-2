@@ -15,40 +15,16 @@
             </summary>
             <param name="optionsBuilder">Objeto com as configurações definidas</param>
         </member>
-        <member name="T:webapi.event_.Migrations.BD">
+        <member name="T:webapi.event_.Migrations.Lucas">
             <inheritdoc />
         </member>
-        <member name="M:webapi.event_.Migrations.BD.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:webapi.event_.Migrations.Lucas.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:webapi.event_.Migrations.BD.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:webapi.event_.Migrations.Lucas.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:webapi.event_.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:webapi.event_.Migrations.BD_v2">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.event_.Migrations.BD_v2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.event_.Migrations.BD_v2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.event_.Migrations.BD_v2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:webapi.event_.Migrations.IntialDb">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.event_.Migrations.IntialDb.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.event_.Migrations.IntialDb.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:webapi.event_.Migrations.IntialDb.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:webapi.event_.Migrations.Lucas.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

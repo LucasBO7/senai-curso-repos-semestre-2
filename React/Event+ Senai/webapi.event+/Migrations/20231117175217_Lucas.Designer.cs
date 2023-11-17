@@ -12,8 +12,8 @@ using webapi.event_.Contexts;
 namespace webapi.event_.Migrations
 {
     [DbContext(typeof(Event_Context))]
-    [Migration("20230915182233_BD_v2")]
-    partial class BD_v2
+    [Migration("20231117175217_Lucas")]
+    partial class Lucas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -106,6 +106,9 @@ namespace webapi.event_.Migrations
 
                     b.HasKey("IdInstituicao");
 
+                    b.HasIndex("CNPJ")
+                        .IsUnique();
+
                     b.ToTable("Instituicao");
                 });
 
@@ -186,6 +189,9 @@ namespace webapi.event_.Migrations
                         .HasColumnType("VARCHAR(60)");
 
                     b.HasKey("IdUsuario");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.HasIndex("IdTipoUsuario");
 

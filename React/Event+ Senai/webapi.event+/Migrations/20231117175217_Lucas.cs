@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace webapi.event_.Migrations
 {
     /// <inheritdoc />
-    public partial class BD : Migration
+    public partial class Lucas : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -84,7 +84,7 @@ namespace webapi.event_.Migrations
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nome = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     Email = table.Column<string>(type: "VARCHAR(100)", nullable: false),
-                    Senha = table.Column<string>(type: "VARCHAR(30)", maxLength: 30, nullable: false),
+                    Senha = table.Column<string>(type: "VARCHAR(60)", maxLength: 60, nullable: false),
                     IdTipoUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -172,6 +172,12 @@ namespace webapi.event_.Migrations
                 column: "IdTipoEvento");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Instituicao_CNPJ",
+                table: "Instituicao",
+                column: "CNPJ",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PresencasEvento_IdEvento",
                 table: "PresencasEvento",
                 column: "IdEvento");
@@ -180,6 +186,12 @@ namespace webapi.event_.Migrations
                 name: "IX_PresencasEvento_IdUsuario",
                 table: "PresencasEvento",
                 column: "IdUsuario");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usuario_Email",
+                table: "Usuario",
+                column: "Email",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Usuario_IdTipoUsuario",
