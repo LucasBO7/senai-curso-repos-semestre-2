@@ -11,9 +11,12 @@ import api from "../../Services/Service";
 import TableTp from "./TableTp/TableTp";
 
 import Notification from "../../Components/Notification/Notification";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const TipoEventosPage = () => {
   const [notifyUser, setNotifyUser] = useState([]);
+  const [showSpinner, setShowSpinner] = useState(false);
+
   const [frmEdit, setFrmEdit] = useState(false);
   const [titulo, setTitulo] = useState("");
   const [tipoEventoSelecionado, setTipoEventoSelecionado] = useState("");
@@ -21,14 +24,23 @@ const TipoEventosPage = () => {
 
   useEffect(() => {
     async function getTiposEvento() {
+      setShowSpinner(true);
       try {
         const promise = await api.get("/TiposEvento");
 
         console.log(promise.data);
         setTipoEventos(promise.data);
       } catch (error) {
-        alert(`Ocorreu um erro! ${error}`);
+        setNotifyUser({
+          titleNote: "Erro",
+          textNote: `Ocorreu um erro na api!`,
+          imgIcon: "danger",
+          imgAlt:
+            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+          showMessage: true,
+        });
       }
+      setShowSpinner(false);
     }
     getTiposEvento();
   }, []);
@@ -46,7 +58,14 @@ const TipoEventosPage = () => {
     e.preventDefault();
     // validar pelo menos 3 caracteres
     if (titulo.trim().length < 3) {
-      alert("O Título deve ter no mínimo 3 caracteres");
+      setNotifyUser({
+        titleNote: "Aviso",
+        textNote: `O Título deve ter no mínimo 3 caracteres`,
+        imgIcon: "warning",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
       return;
     }
     // chamar a api
@@ -66,8 +85,7 @@ const TipoEventosPage = () => {
       console.log(retorno.data);
       setTitulo(""); // Limpa a variável
 
-      const retornoGet = await api.get("/TiposEvento");
-      setTipoEventos(retornoGet.data);
+      getAllTiposEvento();
     } catch (error) {
       console.log("Deu ruim na api: ");
       console.log(error);
@@ -80,7 +98,14 @@ const TipoEventosPage = () => {
     e.preventDefault();
     // validar pelo menos 3 caracteres
     if (titulo.trim().length < 3) {
-      alert("O Título deve ter no mínimo 3 caracteres");
+      setNotifyUser({
+        titleNote: "Aviso",
+        textNote: `O Título deve ter no mínimo 3 caracteres`,
+        imgIcon: "warning",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
       return;
     }
     // chamar a api
@@ -102,8 +127,7 @@ const TipoEventosPage = () => {
         showMessage: true,
       });
 
-      const retornoGet = await api.get("/TiposEvento");
-      setTipoEventos(retornoGet.data);
+      getAllTiposEvento();
     } catch (error) {
       console.log("Deu ruim na api: ");
       console.log(error);
@@ -132,7 +156,14 @@ const TipoEventosPage = () => {
       // Altera o texto do botão para Atualizar
       cadastrarBotao.textContent = "Atualizar";
     } catch (error) {
-      alert(`Um erro ocorreu! ${error}`);
+      setNotifyUser({
+        titleNote: "Erro",
+        textNote: `Ocorreu um erro na api!`,
+        imgIcon: "danger",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
     }
   }
 
@@ -161,16 +192,22 @@ const TipoEventosPage = () => {
         showMessage: true,
       });
 
-      const retornoGet = await api.get("/TiposEvento");
-      setTipoEventos(retornoGet.data);
+      getAllTiposEvento();
     } catch (error) {
       console.log("Erro ao excluir!");
     }
   }
 
+  async function getAllTiposEvento() {
+    const retornoGet = await api.get("/TiposEvento");
+    setTipoEventos(retornoGet.data);
+  }
+
   return (
     <MainContent>
       <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
+      {showSpinner ? <Spinner /> : null}
+
       {/* Cadastro de tipo de eventos */}
       <section className="cadastro-evento-section">
         <Container>
