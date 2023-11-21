@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zgIbac9cI6ih0hfn62Y8EawOOiw+S9PMmCmOhUvNE5kE542SZ+bE6hT8mStNo9/yPCzBhChYKHg71+z8yZWXnQ==",
+  "dgSpecHash": "J8CX01u4le/istkuxzku4USQVtbMtaFM9+z7/7HebCgYxc1b+kwWTPBMoOleJ8Nb6dCC+48qPb4tTV31TddDjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\41365718875\\Documents\\senai-curso-repos-semestre-2\\React\\Event+ Senai\\webapi.event+\\webapi.event+.csproj",
+  "projectFilePath": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\React\\Event+ Senai\\webapi.event+\\webapi.event+.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\41365718875\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

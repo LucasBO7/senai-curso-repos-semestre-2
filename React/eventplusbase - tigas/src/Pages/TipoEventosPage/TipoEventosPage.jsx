@@ -40,6 +40,7 @@ const TipoEventosPage = () => {
   //   { idTipoEvento: "444", titulo: "Evento de JavaScript" },
   // ]);
 
+  // Cadastra um novo Tipo de evento
   async function handleSubmit(e) {
     // parar o submit do formulário
     e.preventDefault();
@@ -52,6 +53,16 @@ const TipoEventosPage = () => {
     try {
       const retorno = await api.post("/TiposEvento", { titulo });
       console.log("CADASTRADO COM SUCESSO");
+
+      setNotifyUser({
+        titleNote: "Concluído",
+        textNote: `Cadastrado com sucesso!`,
+        imgIcon: "success",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
+
       console.log(retorno.data);
       setTitulo(""); // Limpa a variável
 
@@ -81,6 +92,18 @@ const TipoEventosPage = () => {
       console.log("ATUALIZADO COM SUCESSO!");
       console.log(retorno.data);
       setTitulo(""); // Limpa a variável
+
+      setNotifyUser({
+        titleNote: "Concluído",
+        textNote: `Alterado com sucesso!`,
+        imgIcon: "success",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
+
+      const retornoGet = await api.get("/TiposEvento");
+      setTipoEventos(retornoGet.data);
     } catch (error) {
       console.log("Deu ruim na api: ");
       console.log(error);
@@ -89,6 +112,7 @@ const TipoEventosPage = () => {
     alert("Bora atualizar");
   }
 
+  // Altera o Form para edição
   async function showUpdateForm(tipoEvento) {
     setFrmEdit(true);
     // Passa o objeto selecionado
@@ -112,14 +136,30 @@ const TipoEventosPage = () => {
     }
   }
 
+  // Cancela a edição do Tipo de evento
   function editActionAbort() {
-    alert("Cancelar a tela de edição de dados");
+    setFrmEdit(false);
+    setTitulo("");
+    //--------Botão Atualizar--------
+    // Busca o elemento de Botão de Cadastro
+    const cadastrarBotao = document.getElementById("Cadastrar");
+    // Altera o texto do botão para Cadastrar
+    cadastrarBotao.textContent = "Cadastrar";
   }
 
+  // Deleta o Tipo de evento
   async function handleDelete(idEvento) {
     try {
       const retorno = await api.delete(`/TiposEvento/${idEvento}`);
-      alert("Registro apagado com sucesso!");
+
+      setNotifyUser({
+        titleNote: "Concluído",
+        textNote: `Removido com sucesso!`,
+        imgIcon: "success",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
 
       const retornoGet = await api.get("/TiposEvento");
       setTipoEventos(retornoGet.data);
@@ -145,8 +185,7 @@ const TipoEventosPage = () => {
               className="ftipo-evento"
               onSubmit={frmEdit ? handleUpdate : handleSubmit}
             >
-              {/* {!frmEdit ? (
-                // Cadastrar */}
+              {/* Cadastro/Atualização de tipos de evento */}
               <>
                 <Input
                   type={"text"}
@@ -160,16 +199,28 @@ const TipoEventosPage = () => {
                   }}
                 />
                 <span>{titulo}</span>
-                <Button
-                  type={"submit"}
-                  id={"Cadastrar"}
-                  name={"Cadastrar"}
-                  textButton={"Cadastrar"}
-                />
+                {/* Botão Cadastrar/Atualizar */}
+                <div className="buttons-editbox">
+                  <Button
+                    type={"submit"}
+                    id={"Cadastrar"}
+                    name={"Cadastrar"}
+                    textButton={"Cadastrar"}
+                  />
+                  {/* Botão cancelar edição */}
+                  {frmEdit ? (
+                    <Button
+                      type="button"
+                      id={"cancelar"}
+                      name={"cancelar"}
+                      textButton={"Cancelar"}
+                      manipulationFunction={editActionAbort}
+                    />
+                  ) : (
+                    <p></p>
+                  )}
+                </div>
               </>
-              {/* ) : (
-                <p>Tela de Edição</p>
-              )} */}
             </form>
           </div>
         </Container>
