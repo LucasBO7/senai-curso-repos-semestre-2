@@ -47,3 +47,13 @@ export const Button = ({
     </button>
   );
 };
+
+export const Select = ({ tipoEventos }) => {
+  return (
+    <select className="input-component" name="tipo-evento-select">
+      {tipoEventos.map((tp) => {
+        return <option value={tipoEventos}>{`${tp.titulo}`}</option>;
+      })}
+    </select>
+  );
+};
