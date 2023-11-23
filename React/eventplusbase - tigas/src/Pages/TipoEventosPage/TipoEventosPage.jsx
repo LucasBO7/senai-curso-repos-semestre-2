@@ -253,9 +253,7 @@ const TipoEventosPage = () => {
                       textButton={"Cancelar"}
                       manipulationFunction={editActionAbort}
                     />
-                  ) : (
-                    <p></p>
-                  )}
+                  ) : null}
                 </div>
               </>
             </form>

@@ -57,7 +57,7 @@ const TableEv = ({ dados, fnUpdate, fnDelete }) => {
                   src={deleteTrash}
                   alt="Lata de lixo, indicando deleção dos dados"
                   onClick={() => {
-                    fnDelete(evento.IdEvento);
+                    fnDelete(evento.idEvento);
                   }}
                 />
               </td>

@@ -48,11 +48,29 @@ export const Button = ({
   );
 };
 
-export const Select = ({ tipoEventos }) => {
+export const Select = ({
+  id,
+  name,
+  required,
+  tipoEventosDados = [],
+  additionalClass = "",
+  manipulationFunction,
+  defaultValue,
+}) => {
   return (
-    <select className="input-component" name="tipo-evento-select">
-      {tipoEventos.map((tp) => {
-        return <option value={tipoEventos}>{`${tp.titulo}`}</option>;
+    <select
+      id={id}
+      name={name}
+      required={required}
+      className={`input-component ${additionalClass}`}
+      onChange={manipulationFunction}
+      value={defaultValue}
+      // name="tipo-evento-select"
+      // className="input-component"
+    >
+      <option value="">Selecione</option>
+      {tipoEventosDados.map((tp) => {
+        return <option value={tp.titulo}>{`${tp.titulo}`}</option>;
       })}
     </select>
   );
