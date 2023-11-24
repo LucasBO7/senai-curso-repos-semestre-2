@@ -70,7 +70,7 @@ export const Select = ({
     >
       <option value="">Selecione</option>
       {tipoEventosDados.map((tp) => {
-        return <option value={tp.titulo}>{`${tp.titulo}`}</option>;
+        return <option value={tp.idTipoEvento}>{`${tp.titulo}`}</option>;
       })}
     </select>
   );
