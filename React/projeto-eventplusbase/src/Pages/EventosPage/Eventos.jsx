@@ -26,7 +26,9 @@ const Eventos = () => {
   const [notifyUser, setNotifyUser] = useState([]);
 
   const [idInstituicao, setIdInstituicao] = useState();
-  const [eventoInserido, setEventoInserido] = useState({ idInstituicao: "" });
+  const [eventoInserido, setEventoInserido] = useState({
+    idInstituicao: "",
+  });
   const [eventos, setEventos] = useState([]);
   const [tipoEventos, setTipoEventos] = useState([]);
 
@@ -61,6 +63,22 @@ const Eventos = () => {
     getEventos();
     getTipoEventos();
   }, []);
+
+  // Muda o input toda vez que o objeto eventoInserido for alterado
+  useEffect(() => {
+    async function alterInput() {
+      // Converte para o formato necessário: dd-MM-yyyy
+      let formatedDate = new Date(eventoInserido.dataEvento)
+        .toISOString()
+        .split("T")[0];
+
+      document.getElementById("nome").value = eventoInserido.nomeEvento;
+      document.getElementById("descricao").value = eventoInserido.descricao;
+      document.getElementById("idTipoEvento").value =
+        eventoInserido.idTipoEvento;
+      document.getElementById("data").value = formatedDate;
+    }
+  }, [eventoInserido]);
 
   // Busca todos os eventos e guarda-os em um array (eventos)
   async function getAllEventos() {
@@ -107,6 +125,7 @@ const Eventos = () => {
           "Imagem de ilustração de suc  esso. Moça segurando um balão com símbolo de sucesso",
         showMessage: true,
       });
+      setEventoInserido("");
       return;
     }
 
@@ -121,6 +140,7 @@ const Eventos = () => {
       });
 
       getAllEventos();
+      setEventoInserido("");
 
       setNotifyUser({
         titleNote: "Concluído",
@@ -143,7 +163,7 @@ const Eventos = () => {
   }
 
   // Atualiza um Evento no banco
-  function handleUpdate(e) {
+  async function handleUpdate(e) {
     // parar o submit do formulário
     e.preventDefault();
 
@@ -162,7 +182,7 @@ const Eventos = () => {
 
     try {
       // Realiza o put passando os dados pelo corpo da requisição
-      const promise = api.put(`/Evento/${eventoInserido.idEvento}`, {
+      const promise = await api.put(`/Evento/${eventoInserido.idEvento}`, {
         nomeEvento: eventoInserido.nomeEvento,
         dataEvento: eventoInserido.dataEvento,
         descricao: eventoInserido.descricao,
@@ -170,8 +190,18 @@ const Eventos = () => {
         idInstituicao: idInstituicao,
       });
 
-      getAllEventos();
-      setEventoInserido("");
+      setNotifyUser({
+        titleNote: "Concluído",
+        textNote: `Alterado com sucesso!`,
+        imgIcon: "success",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
+
+      getAllEventos(); // Atualiza a tabkea de eventos
+      limparEvento(); // Zera o objeto eventoInserido
+      abortUpdateAction(); // Muda o formulário para o de cadastro
     } catch (error) {
       // Mensagem de erro
       setNotifyUser({
@@ -186,6 +216,17 @@ const Eventos = () => {
     return;
   }
 
+  // Limpa o objeto eventoInserido
+  function limparEvento() {
+    setEventoInserido({
+      nomeEvento: "",
+      dataEvento: "",
+      descricao: "",
+      idTipoEvento: "",
+      idInstituicao: "",
+    });
+  }
+
   // Mostra o Form de edição
   function showUpdateForm(evento) {
     setIsFrmEdit(true);
@@ -198,6 +239,12 @@ const Eventos = () => {
     document.getElementById("descricao").value = evento.descricao;
     document.getElementById("idTipoEvento").value = evento.idTipoEvento;
     document.getElementById("data").value = formatedDate;
+
+    setEventoInserido(evento);
+    setEventoInserido((prevState) => ({
+      ...prevState,
+      dataEvento: formatedDate,
+    }));
   }
 
   // Cancela a edição, voltando para a área de cadastro do form
