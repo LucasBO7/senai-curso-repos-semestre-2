@@ -1,14 +1,17 @@
-import './App.css';
+import "./App.css";
 
-import Rotas from './Rotas'
-
-
+import Rotas from "./Rotas";
+import { UserContext } from "./context/AuthContext";
+import { useState } from "react";
 
 function App() {
-  return(
-    <Rotas />
+  const [userData, setUserData] = useState({});
+
+  return (
+    <UserContext.Provider value={{ userData, setUserData }}>
+      <Rotas />
+    </UserContext.Provider>
   );
-  
 }
 
 export default App;
