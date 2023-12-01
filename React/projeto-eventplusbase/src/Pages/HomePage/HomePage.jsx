@@ -11,7 +11,7 @@ import api from "../../Services/Service";
 import { UserContext } from "../../context/AuthContext";
 
 const HomePage = () => {
-  const [userData] = useContext(UserContext);
+  const {userData} = useContext(UserContext);
 
   console.log("dados globais do usuário");
   console.log(userData);

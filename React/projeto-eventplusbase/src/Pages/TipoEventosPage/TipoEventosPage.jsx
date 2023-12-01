@@ -51,7 +51,6 @@ const TipoEventosPage = () => {
   //   { idTipoEvento: "555", titulo: "Evento xpto" },
   //   { idTipoEvento: "444", titulo: "Evento de JavaScript" },
   // ]);
-
   // Cadastra um novo Tipo de evento
   async function handleSubmit(e) {
     // parar o submit do formulário

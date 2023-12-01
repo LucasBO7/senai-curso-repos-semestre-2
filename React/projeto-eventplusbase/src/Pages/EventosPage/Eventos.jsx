@@ -29,6 +29,7 @@ const Eventos = () => {
   const [eventoInserido, setEventoInserido] = useState({
     idInstituicao: "",
   });
+  // const [idTipoEventoSelecionado, setIdTipoEventoSelecionado] = useState();
   const [eventos, setEventos] = useState([]);
   const [tipoEventos, setTipoEventos] = useState([]);
 
@@ -235,24 +236,31 @@ const Eventos = () => {
     let formatedDate = new Date(evento.dataEvento).toISOString().split("T")[0];
 
     // Insere os dados no formulário
-    document.getElementById("nome").value = evento.nomeEvento;
-    document.getElementById("descricao").value = evento.descricao;
-    document.getElementById("idTipoEvento").value = evento.idTipoEvento;
-    document.getElementById("data").value = formatedDate;
+    // document.getElementById("idTipoEvento").value = evento.idTipoEvento;
 
     setEventoInserido(evento);
     setEventoInserido((prevState) => ({
       ...prevState,
       dataEvento: formatedDate,
     }));
+    setEventoInserido((prevState) => ({
+      ...prevState,
+      idTipoEvento: formatedDate,
+    }));
   }
 
   // Cancela a edição, voltando para a área de cadastro do form
   function abortUpdateAction() {
-    document.getElementById("nome").value = "";
-    document.getElementById("descricao").value = "";
-    document.getElementById("idTipoEvento").value = "";
-    document.getElementById("data").value = "";
+    setEventoInserido({
+      nomeEvento: "",
+      descricao: "",
+      dataEvento: "",
+    });
+    setEventoInserido((prevState) => ({
+      ...prevState,
+      idTipoEvento: "0",
+    }));
+
     setIsFrmEdit(false);
   }
 
@@ -330,7 +338,9 @@ const Eventos = () => {
                   id={"idTipoEvento"}
                   required
                   tipoEventosDados={tipoEventos}
+                  value={eventoInserido.idTipoEvento}
                   manipulationFunction={(e) => {
+                    // setIdTipoEventoSelecionado(e.target.value);
                     setEventoInserido((prevState) => ({
                       ...prevState,
                       idTipoEvento: e.target.value,

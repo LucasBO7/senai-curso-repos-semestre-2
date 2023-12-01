@@ -68,7 +68,7 @@ export const Select = ({
       // name="tipo-evento-select"
       // className="input-component"
     >
-      <option value="">Selecione</option>
+      <option value="0">Selecione</option>
       {tipoEventosDados.map((tp) => {
         return <option value={tp.idTipoEvento}>{`${tp.titulo}`}</option>;
       })}

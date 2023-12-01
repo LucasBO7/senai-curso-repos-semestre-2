@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ImageIllustrator from "../../Components/ImageIllustrator/ImageIllustrator";
 import logo from "../../assets/images/logo-pink.svg";
 import { Input, Button } from "../../Components/FormComponents/FormComponents";
@@ -7,11 +7,18 @@ import "./LoginPage.css";
 import loginImage from "../../assets/images/login.svg";
 import api from "../../Services/Service";
 import { UserContext, userDecodeToken } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [user, setUser] = useState({ email: "", senha: "" });
   // dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userData.nome) navigate("/");
+  }, [userData]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -22,15 +29,18 @@ const LoginPage = () => {
           email: user.email,
           senha: user.senha,
         });
-        // console.log(retorno.data);
 
+        // Pega o retorno e retorna um objeto com a divisão dos retornos nas propriedades desejadas
         const userFullToken = userDecodeToken(retorno.data.token);
 
-        setUserData(userFullToken); // guarda os dados decodificados (payload)
-        console.log("Token: " + retorno.data.token);
-        // localStorage.setItem("token", JSON.stringify(userFullToken));
-        console.log("DADOS DO USUÁRIO");
-        console.log(userData);
+        // guarda os dados decodificados (payload)
+        setUserData(userFullToken);
+
+        // Insere os dados no formato de JSON na Local Storage
+        localStorage.setItem("token", JSON.stringify(userFullToken));
+        alert("Logado com sucesso!");
+
+        navigate("/"); // manda o usuário para Home
       } catch (error) {
         alert(
           "Usuário ou senha inválidos ou conexão com a internet foi interrompida!"
