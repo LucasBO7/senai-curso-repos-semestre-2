@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../Pages/HomePage/HomePage";
 import TipoEventosPage from "../Pages/TipoEventosPage/TipoEventosPage";
 import EventosPage from "../Pages/EventosPage/Eventos";
+import EventosAlunoPage from "../Pages/EventosAlunoPage/EventosAlunoPage";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import TestePage from "../Pages/TestePage/TestePage";
 import Footer from "../Components/Footer/Footer";
@@ -17,14 +18,14 @@ const Rotas = () => {
       <Header />
       <Routes>
         <Route element={<HomePage />} path="/" exact />
-          <Route
-            path="/tipo-eventos"
-            element={
-              <PrivateRoute>
-                <TipoEventosPage />
-              </PrivateRoute>
-            }
-          />
+        <Route
+          path="/tipo-eventos"
+          element={
+            <PrivateRoute>
+              <TipoEventosPage />
+            </PrivateRoute>
+          }
+        />
 
         <Route
           path="/eventos"
@@ -39,7 +40,7 @@ const Rotas = () => {
           path="/eventos-aluno"
           element={
             <PrivateRoute>
-              <EventosPage />
+              <EventosAlunoPage />
             </PrivateRoute>
           }
         />

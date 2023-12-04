@@ -40,7 +40,7 @@ const Nav = ({ setExibeNavbar, exibeNavbar }) => {
         : 
         (
             userData.role === "Comum" ? 
-                <Link to="/eventos-aluno" className="navbar__item">Eventos Aluno</Link> 
+                <Link to="/eventos-aluno" className="navbar__item">Eventos</Link> 
             : 
             (null)
         )}

@@ -3,7 +3,7 @@ import "./HomePage.css";
 import MainContent from "../../Components/MainContent/MainContent";
 import Banner from "../../Components/Banner/Banner";
 import ContactSection from "../../Components/ContactSection/ContactSection";
-import VisionSection from "../../Components/Visionction/VisionSection";
+import VisionSection from "../../Components/VisionSection/VisionSection";
 import NextEvent from "../../Components/NextEvent/NextEvent";
 import Title from "../../Components/Title/Title";
 import Container from "../../Components/Container/Container";

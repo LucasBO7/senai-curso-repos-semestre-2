@@ -58,6 +58,6 @@ namespace webapi.event_.Controllers
             {
                 return BadRequest(e.Message);
             }
-        }            
+        }      
     }
 }

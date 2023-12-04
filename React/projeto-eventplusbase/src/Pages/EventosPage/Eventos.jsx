@@ -13,6 +13,7 @@ import {
   Button,
   Input,
   Select,
+  SelectTipoEvento,
 } from "../../Components/FormComponents/FormComponents";
 import TableEv from "./TableEv/TableEv";
 
@@ -26,9 +27,7 @@ const Eventos = () => {
   const [notifyUser, setNotifyUser] = useState([]);
 
   const [idInstituicao, setIdInstituicao] = useState();
-  const [eventoInserido, setEventoInserido] = useState({
-    idInstituicao: "",
-  });
+  const [eventoInserido, setEventoInserido] = useState({});
   // const [idTipoEventoSelecionado, setIdTipoEventoSelecionado] = useState();
   const [eventos, setEventos] = useState([]);
   const [tipoEventos, setTipoEventos] = useState([]);
@@ -238,15 +237,23 @@ const Eventos = () => {
     // Insere os dados no formulário
     // document.getElementById("idTipoEvento").value = evento.idTipoEvento;
 
-    setEventoInserido(evento);
-    setEventoInserido((prevState) => ({
-      ...prevState,
+    // setEventoInserido(evento);
+    setEventoInserido({
+      nomeEvento: evento.nomeEvento,
       dataEvento: formatedDate,
-    }));
-    setEventoInserido((prevState) => ({
-      ...prevState,
-      idTipoEvento: formatedDate,
-    }));
+      descricao: evento.descricao,
+      idTipoEvento: evento.idTipoEvento,
+    });
+    // setEventoInserido((prevState) => ({
+    //   ...prevState,
+    //   dataEvento: formatedDate,
+    // }));
+    // setEventoInserido((prevState) => ({
+    //   ...prevState,
+    //   idTipoEvento: formatedDate,
+    // }));
+    console.log(evento);
+    console.log(eventoInserido);
   }
 
   // Cancela a edição, voltando para a área de cadastro do form
@@ -334,7 +341,7 @@ const Eventos = () => {
                   }}
                 />
 
-                <Select
+                <SelectTipoEvento
                   id={"idTipoEvento"}
                   required
                   tipoEventosDados={tipoEventos}
