@@ -9,10 +9,13 @@ import api from "../../Services/Service";
 import { UserContext, userDecodeToken } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+import Notification from "../../Components/Notification/Notification";
+
 const LoginPage = () => {
   const [user, setUser] = useState({ email: "", senha: "" });
   // dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
+  const [notifyUser, setNotifyUser] = useState([]);
 
   const navigate = useNavigate();
 
@@ -38,7 +41,14 @@ const LoginPage = () => {
 
         // Insere os dados no formato de JSON na Local Storage
         localStorage.setItem("token", JSON.stringify(userFullToken));
-        alert("Logado com sucesso!");
+        setNotifyUser({
+          titleNote: "Concluído",
+          textNote: `Evento logado com sucesso!`,
+          imgIcon: "success",
+          imgAlt:
+            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+          showMessage: true,
+        });
 
         navigate("/"); // manda o usuário para Home
       } catch (error) {
@@ -54,6 +64,7 @@ const LoginPage = () => {
 
   return (
     <div className="layout-grid-login">
+      <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
       <div className="login">
         <div className="login__illustration">
           <div className="login__illustration-rotate"></div>

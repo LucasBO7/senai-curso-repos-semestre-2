@@ -38,18 +38,29 @@ const EventosAlunoPage = () => {
       try {
         setShowSpinner(true);
 
-        let promise;
+        // let promise;
 
         if (tipoEvento === "1") {
           const promise = await api.get("/Evento");
+          const promiseMeusEventos = await api.get(
+            `/PresencasEvento/ListarMinhas/${userData.userId}`
+          );
+
+          const eventosComPresenca = verificaPresenca(
+            promise.data,
+            promiseMeusEventos.data
+          );
+          console.clear();
+          console.log("DADOS MARCADOS");
+          console.log(eventosComPresenca);
           setEventos(promise.data);
         } else {
           let arrEventos = [];
-          promise = await api.get(
+          const promise = await api.get(
             `/PresencasEvento/ListarMinhas/${userData.userId}`
           );
-          promise.data.forEach((e) => {
-            arrEventos.push(e.evento);
+          promise.data.forEach((element) => {
+            arrEventos.push({ ...element.evento, situacao: element.situacao });
           });
           setEventos(arrEventos);
         }
@@ -68,15 +79,32 @@ const EventosAlunoPage = () => {
 
       setShowSpinner(false);
       // Trazer os meus eventos
+      //é luquinas, nem tudo é uma plantação de morango...
     }
 
     loadEventsType();
-  }, [tipoEvento]);
+  }, [tipoEvento, userData.userId]);
+
+  const verificaPresenca = (arrayAllEvents, eventsUser) => {
+    // Para cada evento (todos)
+    for (let x = 0; x < arrayAllEvents.length; x++) {
+      // Verifica se o aluno está participando do evento atual (x)
+      for (let i = 0; i < eventsUser.length; i++) {
+        // Verifica em meus eventos
+        if (arrayAllEvents[x].idEvento === eventsUser[i].evento.idEvento) {
+          arrayAllEvents[x].situacao = true;
+          break;
+        }
+      }
+    }
+    return arrayAllEvents;
+  };
 
   // toggle meus eventos ou todos os eventos
   function myEvents(tpEvent) {
     setTipoEvento(tpEvent);
   }
+  //é luquinas, nem tudo é uma plantação de morango...
 
   async function loadMyComentary(idComentary) {
     return "????";
@@ -89,6 +117,7 @@ const EventosAlunoPage = () => {
   const commentaryRemove = () => {
     alert("Remover o comentário");
   };
+  //é luquinas, nem tudo é uma plantação de morango...
 
   function handleConnect() {
     alert("Desenvolver a função conectar evento");
@@ -113,6 +142,8 @@ const EventosAlunoPage = () => {
             additionalClass="select-tp-evento"
           />
           <Table
+            //é luquinas, nem tudo é uma plantação de morango...
+
             dados={eventos}
             fnConnect={handleConnect}
             fnShowModal={() => {
@@ -131,7 +162,9 @@ const EventosAlunoPage = () => {
           showHideModal={showHideModal}
           fnDelete={commentaryRemove}
         />
-      ) : null}
+      ) : //é luquinas, nem tudo é uma plantação de morango...
+
+      null}
     </>
   );
 };
