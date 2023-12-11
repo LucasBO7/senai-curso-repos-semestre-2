@@ -32,58 +32,12 @@ const EventosAlunoPage = () => {
   // recupera os dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
 
+  // Pega o Id do Evento Selecionado ao clicar nos comentários
+  const [idEventoSelecionado, setIdEventoSelecionado] = useState();
+
   useEffect(() => {
-    async function loadEventsType() {
-      // Trazer todos os eventos
-      try {
-        setShowSpinner(true);
-
-        // let promise;
-
-        if (tipoEvento === "1") {
-          const promise = await api.get("/Evento");
-          const promiseMeusEventos = await api.get(
-            `/PresencasEvento/ListarMinhas/${userData.userId}`
-          );
-
-          const eventosComPresenca = verificaPresenca(
-            promise.data,
-            promiseMeusEventos.data
-          );
-          console.clear();
-          console.log("DADOS MARCADOS");
-          console.log(eventosComPresenca);
-          setEventos(promise.data);
-        } else {
-          let arrEventos = [];
-          const promise = await api.get(
-            `/PresencasEvento/ListarMinhas/${userData.userId}`
-          );
-          promise.data.forEach((element) => {
-            arrEventos.push({ ...element.evento, situacao: element.situacao });
-          });
-          setEventos(arrEventos);
-        }
-
-        setShowSpinner(false);
-      } catch (error) {
-        setNotifyUser({
-          titleNote: "Erro",
-          textNote: `Ocorreu um erro na api!`,
-          imgIcon: "danger",
-          imgAlt:
-            "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
-          showMessage: true,
-        });
-      }
-
-      setShowSpinner(false);
-      // Trazer os meus eventos
-      //é luquinas, nem tudo é uma plantação de morango...
-    }
-
     loadEventsType();
-  }, [tipoEvento, userData.userId]);
+  }, [tipoEvento, userData]);
 
   const verificaPresenca = (arrayAllEvents, eventsUser) => {
     // Para cada evento (todos)
@@ -93,6 +47,7 @@ const EventosAlunoPage = () => {
         // Verifica em meus eventos
         if (arrayAllEvents[x].idEvento === eventsUser[i].evento.idEvento) {
           arrayAllEvents[x].situacao = true;
+          arrayAllEvents[x].idPresencaEvento = eventsUser[i].idPresencaEvento;
           break;
         }
       }
@@ -100,28 +55,129 @@ const EventosAlunoPage = () => {
     return arrayAllEvents;
   };
 
+  async function loadEventsType() {
+    // Trazer todos os eventos
+    try {
+      setShowSpinner(true);
+
+      // let promise;
+
+      if (tipoEvento === "1") {
+        const promise = await api.get("/Evento");
+        const promiseMeusEventos = await api.get(
+          `/PresencasEvento/ListarMinhas/${userData.userId}`
+        );
+
+        const eventosComPresenca = verificaPresenca(
+          promise.data,
+          promiseMeusEventos.data
+        );
+        console.clear();
+        console.log("DADOS MARCADOS");
+        console.log(eventosComPresenca);
+        setEventos(promise.data);
+      } else {
+        let arrEventos = [];
+        const promise = await api.get(
+          `/PresencasEvento/ListarMinhas/${userData.userId}`
+        );
+        promise.data.forEach((element) => {
+          arrEventos.push({
+            ...element.evento,
+            situacao: element.situacao,
+            idPresencaEvento: element.idPresencaEvento,
+          });
+        });
+        setEventos(arrEventos);
+      }
+
+      setShowSpinner(false);
+    } catch (error) {
+      setNotifyUser({
+        titleNote: "Erro",
+        textNote: `Ocorreu um erro na api!`,
+        imgIcon: "danger",
+        imgAlt:
+          "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de sucesso",
+        showMessage: true,
+      });
+    }
+
+    setShowSpinner(false);
+    // Trazer os meus eventos
+  }
+
   // toggle meus eventos ou todos os eventos
   function myEvents(tpEvent) {
     setTipoEvento(tpEvent);
   }
-  //é luquinas, nem tudo é uma plantação de morango...
 
-  async function loadMyComentary(idComentary) {
-    return "????";
+  async function loadMyComentary(idUser) {
+    // return "Carregar o comentário";
+    try {
+      const promise = await api.get(`/ComentariosEvento/BuscarPorIdUsuario?idUsuario=${idUser}&idEvento=${idEventoSelecionado}`);
+      console.log(promise.data);
+    } catch (error) {
+      alert("DEU ERRO PORRA!");
+    }
   }
 
-  const showHideModal = () => {
-    setShowModal(showModal ? false : true);
+  const postMyComentary = (obj) => {
+    // alert("Cadastrar o comentário");
+    try {
+      console.log(obj);
+      // const promise = api.post("");
+    } catch (error) {
+      alert("ERROOOOOOO!");
+    }
   };
 
   const commentaryRemove = () => {
     alert("Remover o comentário");
   };
-  //é luquinas, nem tudo é uma plantação de morango...
 
-  function handleConnect() {
-    alert("Desenvolver a função conectar evento");
+  const showHideModal = (idEvento) => {
+    // Mostra/oculta o Modal
+    setShowModal(showModal ? false : true);
+
+    setIdEventoSelecionado(idEvento);
+  };
+
+  async function handleConnect(
+    idEvent,
+    whatTheFunction,
+    idPresencaEvento = null
+  ) {
+    // {
+    //   "situacao": true,
+    //   "idUsuario": "49038249385493480954",
+    //   "idEvento": "u549t9u34hiu5h36ioh542ij6"
+    // }
+
+    if (whatTheFunction === "connect") {
+      try {
+        await api.post("/PresencasEvento", {
+          situacao: true,
+          idUsuario: userData.userId,
+          idEvento: idEvent,
+        });
+
+        loadEventsType();
+      } catch (error) {
+        console.log("Erro ao conectar: " + error);
+      }
+      return;
+    }
+
+    // unconnect
+    try {
+      api.delete("/PresencasEvento/" + idPresencaEvento);
+      loadEventsType();
+    } catch (error) {
+      alert("Erro ao desconectar do evento: " + error);
+    }
   }
+
   return (
     <>
       {/* <Header exibeNavbar={exibeNavbar} setExibeNavbar={setExibeNavbar} /> */}
@@ -142,12 +198,10 @@ const EventosAlunoPage = () => {
             additionalClass="select-tp-evento"
           />
           <Table
-            //é luquinas, nem tudo é uma plantação de morango...
-
             dados={eventos}
             fnConnect={handleConnect}
-            fnShowModal={() => {
-              showHideModal();
+            fnShowModal={(idEvento) => {
+              showHideModal(idEvento);
             }}
           />
         </Container>
@@ -160,11 +214,14 @@ const EventosAlunoPage = () => {
         <Modal
           userId={userData.userId}
           showHideModal={showHideModal}
-          fnDelete={commentaryRemove}
+          fnPost={(e) => {
+            postMyComentary(e);
+          }}
+          fnGet={() => {
+            loadMyComentary(userData.userId);
+          }}
         />
-      ) : //é luquinas, nem tudo é uma plantação de morango...
-
-      null}
+      ) : null}
     </>
   );
 };

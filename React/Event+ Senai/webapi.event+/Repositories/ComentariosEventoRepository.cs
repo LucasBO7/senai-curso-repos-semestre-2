@@ -8,11 +8,14 @@ namespace webapi.event_.Repositories
     {
         private readonly Event_Context _context;
 
+        // Construtor
         public ComentariosEventoRepository()
         {
             _context = new Event_Context();
         }
 
+        // Métodos
+        // GET (id) - id do comentario
         public ComentariosEvento BuscarPorId(Guid id)
         {
             try
@@ -22,6 +25,9 @@ namespace webapi.event_.Repositories
                     {
                         Descricao = c.Descricao,
                         Exibe = c.Exibe,
+                        IdUsuario = c.IdUsuario,
+                        IdComentarioEvento = c.IdComentarioEvento,
+                        IdEvento = c.IdEvento,
 
                         Usuario = new Usuario
                         {
@@ -41,11 +47,31 @@ namespace webapi.event_.Repositories
             }
         }
 
-        public void Cadastrar(ComentariosEvento comentarioEvento)
+        // GET (id) - id do usuário
+        public ComentariosEvento BuscarPorIdUsuario(Guid idUsuario, Guid idEvento)
         {
             try
             {
-                _context.ComentariosEvento.Add(comentarioEvento);
+                return _context.ComentariosEvento
+                    .Select(c => new ComentariosEvento
+                    {
+                        Descricao = c.Descricao,
+                        Exibe = c.Exibe,
+                        IdUsuario = c.IdUsuario,
+                        IdComentarioEvento = c.IdComentarioEvento,
+                        IdEvento = c.IdEvento,
+
+                        Usuario = new Usuario
+                        {
+                            Nome = c.Usuario!.Nome
+                        },
+
+                        Evento = new Evento
+                        {
+                            NomeEvento = c.Evento!.NomeEvento,
+                        }
+
+                    }).FirstOrDefault(c => c.IdUsuario == idUsuario && c.IdEvento == idEvento)!;
             }
             catch (Exception)
             {
@@ -53,6 +79,21 @@ namespace webapi.event_.Repositories
             }
         }
 
+        // POST
+        public void Cadastrar(ComentariosEvento comentarioEvento)
+        {
+            try
+            {
+                _context.ComentariosEvento.Add(comentarioEvento);
+                _context.SaveChanges();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // DELETE
         public void Deletar(Guid id)
         {
             try
@@ -72,6 +113,7 @@ namespace webapi.event_.Repositories
             }
         }
 
+        // GET - lista
         public List<ComentariosEvento> Listar()
         {
 
@@ -82,6 +124,9 @@ namespace webapi.event_.Repositories
                     {
                         Descricao = c.Descricao,
                         Exibe = c.Exibe,
+                        IdUsuario = c.IdUsuario,
+                        IdComentarioEvento = c.IdComentarioEvento,
+                        IdEvento = c.IdEvento,
 
                         Usuario = new Usuario
                         {
@@ -94,6 +139,40 @@ namespace webapi.event_.Repositories
                         }
 
                     }).ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        // GET - lista
+        public List<ComentariosEvento> ListarComentariosExibe()
+        {
+
+            try
+            {
+                return _context.ComentariosEvento
+                    .Select(c => new ComentariosEvento
+                    {
+                        Descricao = c.Descricao,
+                        Exibe = c.Exibe,
+                        IdUsuario = c.IdUsuario,
+                        IdComentarioEvento = c.IdComentarioEvento,
+                        IdEvento = c.IdEvento,
+
+                        Usuario = new Usuario
+                        {
+                            Nome = c.Usuario!.Nome
+                        },
+
+                        Evento = new Evento
+                        {
+                            NomeEvento = c.Evento!.NomeEvento,
+                        }
+
+                    }).Where(c => c.Exibe).ToList();
             }
             catch (Exception)
             {

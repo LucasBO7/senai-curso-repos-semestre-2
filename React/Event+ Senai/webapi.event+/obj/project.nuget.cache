@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J8CX01u4le/istkuxzku4USQVtbMtaFM9+z7/7HebCgYxc1b+kwWTPBMoOleJ8Nb6dCC+48qPb4tTV31TddDjg==",
+  "dgSpecHash": "Xvs7je5/ICnAgvgbVrlSj54WbdAGA77QwD3AIHbr/SZhcYW/nZKhaeKjynb2/SJhJyp7uX6iEFPeJg99AKUrpA==",
   "success": true,
   "projectFilePath": "C:\\Users\\41365718875\\Desktop\\senai-curso-repos-semestre-2\\React\\Event+ Senai\\webapi.event+\\webapi.event+.csproj",
   "expectedPackageFiles": [
@@ -62,6 +62,7 @@
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\7.0.11\\microsoft.aspnetcore.mvc.newtonsoftjson.7.0.11.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
+    "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.azure.cognitiveservices.contentmoderator\\2.0.0\\microsoft.azure.cognitiveservices.contentmoderator.2.0.0.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.build.framework\\17.3.2\\microsoft.build.framework.17.3.2.nupkg.sha512",
@@ -111,6 +112,8 @@
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.rest.clientruntime\\2.3.18\\microsoft.rest.clientruntime.2.3.18.nupkg.sha512",
+    "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.rest.clientruntime.azure\\3.3.18\\microsoft.rest.clientruntime.azure.3.3.18.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\7.0.9\\microsoft.visualstudio.web.codegeneration.7.0.9.nupkg.sha512",
     "C:\\Users\\41365718875\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\7.0.9\\microsoft.visualstudio.web.codegeneration.core.7.0.9.nupkg.sha512",

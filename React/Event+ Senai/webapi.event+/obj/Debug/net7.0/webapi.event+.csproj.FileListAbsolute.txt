@@ -1300,3 +1300,6 @@ C:\Users\41365718875\Documents\senai-curso-repos-semestre-2\React\Event+ Senai\w
 C:\Users\41365718875\Documents\senai-curso-repos-semestre-2\React\Event+ Senai\webapi.event+\obj\Debug\net7.0\webapi.event+.pdb
 C:\Users\41365718875\Documents\senai-curso-repos-semestre-2\React\Event+ Senai\webapi.event+\obj\Debug\net7.0\webapi.event+.genruntimeconfig.cache
 C:\Users\41365718875\Documents\senai-curso-repos-semestre-2\React\Event+ Senai\webapi.event+\obj\Debug\net7.0\ref\webapi.event+.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\React\Event+ Senai\webapi.event+\bin\Debug\net7.0\Microsoft.Azure.CognitiveServices.ContentModerator.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\React\Event+ Senai\webapi.event+\bin\Debug\net7.0\Microsoft.Rest.ClientRuntime.dll
+C:\Users\41365718875\Desktop\senai-curso-repos-semestre-2\React\Event+ Senai\webapi.event+\bin\Debug\net7.0\Microsoft.Rest.ClientRuntime.Azure.dll

@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System.Reflection;
@@ -71,6 +72,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 
+    options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
     //Configura o Swagger para usar o arquivo XML gerado
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -114,6 +116,17 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
         });
 });
+
+// Habilita o serviço de moderador de conteúdo do Azure
+builder.Services.AddSingleton(provider => new ContentModeratorClient(
+    // Chave da eventContentModeratorLucas pego do Azure
+    new ApiKeyServiceClientCredentials("4a3e93e0a31d4feb9e05d25f9306c7a0"))
+{
+    // Ponto de extremidade (Endpoint) pego do Azure
+    Endpoint = "https://eventcontentmoderatorlucas.cognitiveservices.azure.com/"
+}
+    );
+
 
 var app = builder.Build();
 

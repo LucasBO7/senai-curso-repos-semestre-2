@@ -30,6 +30,40 @@ namespace webapi.event_.Controllers
             }
         }
 
+        [HttpGet("ListarSomenteExibe")]
+        public IActionResult GetIA()
+        {
+            try
+            {
+                return Ok(_presencasEventoRepository.Listar());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+
+        [HttpGet("BuscarPorId/{id}")]
+        public IActionResult GetById(Guid id)
+        {
+            try
+            {
+                try
+                {
+                    return Ok(_presencasEventoRepository.Listar());
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.Message);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
 
         [HttpPost]
         public IActionResult Post(PresencasEvento presencasEvento)
@@ -58,6 +92,23 @@ namespace webapi.event_.Controllers
             {
                 return BadRequest(e.Message);
             }
-        }      
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                _presencasEventoRepository.Deletar(id);
+
+                return NoContent();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }

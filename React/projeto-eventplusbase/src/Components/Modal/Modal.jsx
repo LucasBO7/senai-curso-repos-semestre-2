@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import trashDelete from "../../assets/images/trash-delete-red.png";
+import { UserContext } from "../../context/AuthContext";
 
 import { Button, Input } from "../FormComponents/FormComponents";
 import "./Modal.css";
@@ -7,11 +8,18 @@ import "./Modal.css";
 const Modal = ({
   modalTitle = "Feedback",
   comentaryText = "Não informado. Não informado. Não informado.",
+  idEvento = null,
   userId = null,
   showHideModal = false,
+  fnGet = null,
+  fnPost = null,
   fnDelete = null,
-  fnNewCommentary = null,
 }) => {
+  const { userData, setUserData } = useContext(UserContext);
+  useEffect(() => {
+    fnGet(idEvento);
+  }, []);
+
   return (
     <div className="modal">
       <article className="modal__box">
@@ -44,7 +52,7 @@ const Modal = ({
         <Button
           textButton="Comentar"
           additionalClass="comentary__button"
-          manipulationFunction={fnNewCommentary}
+          manipulationFunction={fnPost}
         />
       </article>
     </div>
