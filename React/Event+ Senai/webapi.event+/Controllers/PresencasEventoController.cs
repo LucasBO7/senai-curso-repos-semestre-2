@@ -8,6 +8,7 @@ namespace webapi.event_.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class PresencasEventoController : ControllerBase
     {
         private IPresencasEventoRepository _presencasEventoRepository { get; set; }

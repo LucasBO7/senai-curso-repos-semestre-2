@@ -9,6 +9,7 @@ namespace webapi.event_.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class ComentariosEventoController : ControllerBase
     {
         ComentariosEventoRepository comentario = new();
@@ -80,7 +81,7 @@ namespace webapi.event_.Controllers
         }
 
 
-        [HttpGet("BuscarPorIdUsuario")]
+        [HttpGet("BuscarPorIdUsuario/{id}")]
         public IActionResult GetByUserId(Guid idUsuario, Guid idEvento)
         {
             try
