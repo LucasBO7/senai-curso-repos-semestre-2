@@ -140,7 +140,7 @@ const Eventos = () => {
       });
 
       getAllEventos();
-      setEventoInserido("");
+      // setEventoInserido("");
 
       setNotifyUser({
         titleNote: "Concluído",

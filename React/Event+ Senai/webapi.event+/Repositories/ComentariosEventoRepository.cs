@@ -114,7 +114,7 @@ namespace webapi.event_.Repositories
         }
 
         // GET - lista
-        public List<ComentariosEvento> Listar()
+        public List<ComentariosEvento> Listar(Guid id)
         {
 
             try
@@ -138,7 +138,7 @@ namespace webapi.event_.Repositories
                             NomeEvento = c.Evento!.NomeEvento,
                         }
 
-                    }).ToList();
+                    }).Where(c => c.IdEvento == id).ToList();
             }
             catch (Exception)
             {
@@ -148,7 +148,7 @@ namespace webapi.event_.Repositories
         }
 
         // GET - lista
-        public List<ComentariosEvento> ListarComentariosExibe()
+        public List<ComentariosEvento> ListarSomenteExibe(Guid id)
         {
 
             try
@@ -172,7 +172,7 @@ namespace webapi.event_.Repositories
                             NomeEvento = c.Evento!.NomeEvento,
                         }
 
-                    }).Where(c => c.Exibe).ToList();
+                    }).Where(c => c.Exibe && c.IdEvento == id).ToList();
             }
             catch (Exception)
             {

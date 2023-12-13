@@ -132,7 +132,7 @@ const TipoEventosPage = () => {
       console.log(error);
     }
 
-    alert("Bora atualizar");
+    // alert("Bora atualizar");
   }
 
   // Altera o Form para edição

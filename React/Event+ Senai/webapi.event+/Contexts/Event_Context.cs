@@ -31,9 +31,6 @@ namespace webapi.event_.Contexts
             //optionsBuilder.UseSqlServer("Server=NOTE14-S15; Database=event+_lucas; User Id=sa; Pwd=Senai@134; TrustServerCertificate=true;");
 
             //STRING DE CONEXÃO NUVEM, AZURE
-            /*
-            optionsBuilder.UseSqlServer("Server=tcp:eventpluslucas-server.database.windows.net,1433;Initial Catalog=EventLucasDatabase;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;User Id = lucas; Pwd = Senai@134;");*/
-
             optionsBuilder.UseSqlServer("Server=tcp:eventpluslucas-server.database.windows.net,1433;Initial Catalog=EventLucasDatabase;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;User Id = lucas; Pwd = Senai@134;");
 
             base.OnConfiguring(optionsBuilder);
