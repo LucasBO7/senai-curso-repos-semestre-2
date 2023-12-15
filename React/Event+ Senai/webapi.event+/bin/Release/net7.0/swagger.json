@@ -42,6 +42,15 @@
         "tags": [
           "ComentariosEvento"
         ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid",
+            "collectionFormat": "multi"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success"
@@ -65,6 +74,27 @@
             "schema": {
               "$ref": "#/definitions/ComentariosEvento"
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ComentariosEvento/ListarSomenteExibe": {
+      "get": {
+        "tags": [
+          "ComentariosEvento"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid",
+            "collectionFormat": "multi"
           }
         ],
         "responses": {
@@ -167,6 +197,18 @@
       }
     },
     "/api/Evento/ListarProximos": {
+      "get": {
+        "tags": [
+          "Evento"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Evento/ListarAnteriores": {
       "get": {
         "tags": [
           "Evento"
